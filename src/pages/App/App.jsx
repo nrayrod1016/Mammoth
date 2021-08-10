@@ -3,27 +3,35 @@ import { Route, Redirect } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
-import Users from '../Users/User'
 import * as authService from '../../services/authService'
+import * as profileAPI from '../../services/profileService'
 import "./App.css";
 
 class App extends Component {
   state = {
-    user: authService.getUser()
+    user: authService.getUser(),
+    userProfile: null,
   }
   
   handleLogout = () => {
     authService.logout();
-    this.setState({ user: null });
+    this.setState({ user: null, userProfile: null });
     this.props.history.push("/");
   };
 
-  handleSignupOrLogin = () => {
-    this.setState({ user: authService.getUser() });
+  handleSignupOrLogin = async() => {
+    this.setState({ user: await authService.getUser(), userProfile: await profileAPI.getUserProfile() });
   };
 
+  async componentDidMount() {
+    if (!this.state.userProfile) {
+      const userProfile = await profileAPI.getUserProfile()
+      this.setState({userProfile})
+    }
+  }
+
   render() {
-    const { user } = this.state
+    const { user, userProfile } = this.state
     return (
       <>
         <NavBar user={user} handleLogout={this.handleLogout} />
@@ -55,13 +63,6 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           )}
-        />
-        <Route
-          exact
-          path="/users"
-          render={() =>
-            user ? <Users /> : <Redirect to="/login" />
-          }
         />
       </>
     );

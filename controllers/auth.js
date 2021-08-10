@@ -25,7 +25,7 @@ async function login(req, res) {
 }
 
 async function signup(req, res) {
-  const profile = new Profile({ name: req.body.name})
+  const profile = new Profile({ name: req.body.name, email: req.body.email})
   try {
     await profile.save()
     console.log(profile)

@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 
 const profileSchema = new mongoose.Schema({
   name: String,
-  
+  email: String,
 }, {
   timestamps: true
 });

@@ -10,7 +10,7 @@ const app = express();
 
 import('./config/database.js')
 
-import { router as usersRouter } from './routes/users.js'
+import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
 
 
@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(path.dirname(fileURLToPath(import.meta.url)), 'build')));
 
-app.use('/api/users', usersRouter);
+app.use('/api/profiles', profilesRouter);
 app.use('/api/auth', authRouter);
 
 app.get('/*', function(req, res) {
