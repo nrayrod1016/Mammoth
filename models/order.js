@@ -12,7 +12,11 @@ const orderSchema = new mongoose.Schema({
   country: String,
   zipcode: Number,
   price: Number,
-  storeNames: [String]
+  profile: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Profile",
+  },
+  storeNames: [String],
 }, {
   timestamps: true
 });
