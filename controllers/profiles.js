@@ -1,7 +1,15 @@
 import { Profile } from "../models/profile.js"
 
 export {
-  userProfile
+  userProfile,
+  update
+}
+
+function update(req, res) {
+  Profile.findByIdAndUpdate(req.user.profile, req.body, {new: true})
+  .then(profile => {
+    res.json(profile)
+  })
 }
 
 function userProfile(req, res) {

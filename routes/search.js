@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as profilesCtrl from '../controllers/profiles.js'
+import * as searchCtrl from '../controllers/search.js'
 import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 
 export {
@@ -9,9 +9,8 @@ export {
 const router = Router();
 
 /*---------- Public Routes ----------*/
+//router.get('/', checkAuth, searchCtrl)
 
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
-router.get('/userProfile', profilesCtrl.userProfile)
-router.patch('/update', profilesCtrl.update)
