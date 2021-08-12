@@ -9,8 +9,8 @@ export {
 const router = Router();
 
 /*---------- Public Routes ----------*/
-//router.get('/', checkAuth, recentCtrl)
 
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
+router.get('/', recentCtrl.recentActivity)

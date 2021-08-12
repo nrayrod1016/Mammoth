@@ -9,8 +9,8 @@ export {
 const router = Router();
 
 /*---------- Public Routes ----------*/
-//router.get('/', checkAuth, productsCtrl)
 
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
+router.post('/:shopid/create', checkAuth, productsCtrl.create)

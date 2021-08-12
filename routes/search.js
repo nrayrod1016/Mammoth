@@ -9,7 +9,7 @@ export {
 const router = Router();
 
 /*---------- Public Routes ----------*/
-//router.get('/', checkAuth, searchCtrl)
+router.get('/:query', searchCtrl.search)
 
 
 /*---------- Protected Routes ----------*/
