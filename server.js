@@ -16,6 +16,7 @@ import { router as productsRouter } from './routes/products.js'
 import { router as shopsRouter } from './routes/shops.js'
 import { router as searchRouter } from './routes/search.js'
 import { router as recentRouter } from './routes/recent.js'
+import { router as reviewRouter } from './routes/reviews.js'
 
 app.use(cors());
 app.use(logger('dev'));
@@ -29,6 +30,7 @@ app.use('/api/shops', shopsRouter)
 app.use('/api/products', productsRouter)
 app.use('/api/search', searchRouter)
 app.use('/api/recent', recentRouter)
+app.use('/api/reviews', reviewRouter)
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
