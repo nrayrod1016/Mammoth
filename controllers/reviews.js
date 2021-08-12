@@ -5,6 +5,49 @@ import { Shop } from "../models/shop.js";
 
 export {
   create,
+  deleteReview,
+}
+
+function deleteReview (req, res) {
+  Profile.findById(req.user.profile)
+  .then(profile => {
+    if(req.params.type === "Shop") {
+      Shop.findById(req.params.id)
+      .then(shop => {
+        shop.reviews.remove(req.params.reviewid)
+        shop.save()
+        .then(shop => {
+          profile.reviews.remove(req.params.reviewid)
+          profile.save()
+          .then(profile => {
+            Review.findByIdAndDelete(req.params.reviewid)
+            .then(review => {
+              let data = {review, profile, shop}
+              res.json(data)
+            })
+          })
+        })
+      })
+    }
+    else if (req.params.type === "Product") {
+      Product.findById(req.params.id)
+      .then(product => {
+        product.reviews.remove(req.params.reviewid)
+        product.save()
+        .then(product => {
+          profile.reviews.remove(req.params.reviewid)
+          profile.save()
+          .then(profile => {
+            Review.findByIdAndDelete(req.params.reviewid)
+            .then(review => {
+              let data = {review, profile, product}
+              res.json(data)
+            })
+          })
+        })
+      })
+    }
+  })
 }
 
 function create(req, res) {
