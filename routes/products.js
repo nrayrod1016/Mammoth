@@ -14,6 +14,7 @@ const router = Router();
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.get('/', productsCtrl.index)
+router.get('/:id', productsCtrl.show)
 router.put('/:productid/updateProperty/:propertyid', checkAuth, productsCtrl.updateProperty)
 router.patch('/createProperty/:id', checkAuth, productsCtrl.createProperty)
 router.patch('/update/:productid', checkAuth, productsCtrl.update)

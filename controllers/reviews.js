@@ -59,6 +59,7 @@ function deleteReview (req, res) {
 }
 
 function create(req, res) {
+  req.body.author = req.user.profile
   Profile.findById(req.user.profile)
   .then(profile => {
     if (req.params.type === "Shop") {
