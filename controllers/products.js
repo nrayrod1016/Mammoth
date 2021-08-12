@@ -6,6 +6,14 @@ import { Shop } from '../models/shop.js'
 export {
   create,
   index,
+  update,
+}
+
+function update(req, res) {
+  Product.findByIdAndUpdate(req.params.productid, req.body, {new: true})
+  .then(product => {
+    res.json(product)
+  })
 }
 
 function index(req, res) {
