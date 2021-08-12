@@ -6,6 +6,26 @@ export {
   create,
   index,
   update,
+  show,
+}
+
+function show(req, res) {
+  Shop.findById(req.params.id)
+  .populate({
+    path: "products",
+    populate: {
+      path: "reviews"
+    }
+  })
+  .populate({
+    path: "reviews",
+    populate: {
+      path: "author"
+    }
+  })
+  .then(shop => {
+    res.json(shop)
+  })
 }
 
 function update(req, res) {

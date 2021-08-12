@@ -10,6 +10,26 @@ export {
   createProperty,
   updateProperty,
   deleteProperty,
+  show,
+}
+
+function show(req, res) {
+  Product.findById(req.params.id)
+  .populate({
+    path: "shop",
+    populate: {
+      path: "owner"
+    }
+  })
+  .populate({ 
+    path: "reviews",
+    populate: {
+      path: "author"
+    }
+  })
+    .then(product => {
+      res.json(product)
+    })
 }
 
 function deleteProperty (req, res) {
