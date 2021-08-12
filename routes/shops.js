@@ -13,4 +13,5 @@ const router = Router();
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
+router.get('/', shopsCtrl.index)
 router.post('/create', checkAuth, shopsCtrl.create)
