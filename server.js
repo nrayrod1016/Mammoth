@@ -32,9 +32,11 @@ app.use('/api/search', searchRouter)
 app.use('/api/recent', recentRouter)
 app.use('/api/reviews', reviewRouter)
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+app.get("/*", function (req, res) {
+	res.sendFile(
+		path.join(path.dirname(fileURLToPath(import.meta.url)), "build", "index.html")
+	)
+})
 
 const port = process.env.PORT || 3001;
 

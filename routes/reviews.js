@@ -14,4 +14,5 @@ const router = Router();
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.post('/:type/:id/create', checkAuth, reviewsCtrl.create)
+router.patch('/:id', checkAuth, reviewsCtrl.update)
 router.delete('/:type/:id/:reviewid', checkAuth, reviewsCtrl.deleteReview)
