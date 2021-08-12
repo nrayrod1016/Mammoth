@@ -4,6 +4,17 @@ import { Product } from '../models/product.js'
 
 export {
   create,
+  index,
+}
+
+function index (req, res) {
+  Shop.find({})
+  .populate('products')
+  .populate('reviews')
+  .sort({ createdAt: -1 })
+  .then(shops => {
+    res.json(shops)
+  })
 }
 
 function create (req, res) {

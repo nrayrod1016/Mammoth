@@ -5,6 +5,24 @@ import { Shop } from '../models/shop.js'
 
 export {
   create,
+  index,
+}
+
+function index(req, res) {
+  Product.find({ inventory: {$gt: 0 } })
+  .populate({
+    path: 'shop',
+    model: "Shop",
+    populate: {
+      path: "owner",
+      model: "Profile"
+    }
+  })
+  .populate('reviews')
+  .sort({ createdAt: -1})
+  .then(products => {
+    res.json(products)
+  })
 }
 
 function create(req, res) {
