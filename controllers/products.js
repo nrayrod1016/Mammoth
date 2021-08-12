@@ -7,6 +7,44 @@ export {
   create,
   index,
   update,
+  createProperty,
+  updateProperty,
+  deleteProperty,
+}
+
+function deleteProperty (req, res) {
+  Product.findById(req.params.productid)
+  .then(product => {
+    product.properties.remove({ _id: req.params.propertyid})
+    product.save()
+    .then(product => {
+      res.json(product)
+    })
+  })
+}
+
+function updateProperty(req, res) {
+  Product.findById(req.params.productid)
+  .then(product => {
+    product.properties.remove(req.params.propertyid)
+    product.properties.push(req.body)
+    product.save()
+    .then(product => {
+      res.json(product)
+    })
+  })
+}
+
+function createProperty (req, res) {
+  Product.findById(req.params.id)
+  .then(product => {
+    product.properties.push(req.body)
+    product.save()
+    .then(product => {
+      res.json(product)
+    })
+  })
+  .catch(err => console.log(err))
 }
 
 function update(req, res) {

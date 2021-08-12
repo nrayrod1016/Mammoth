@@ -6,6 +6,14 @@ import { Shop } from "../models/shop.js";
 export {
   create,
   deleteReview,
+  update,
+}
+
+function update(req, res) {
+  Review.findById(req.params.id, req.body, {new: true})
+  .then(review => {
+    res.json(review)
+  })
 }
 
 function deleteReview (req, res) {

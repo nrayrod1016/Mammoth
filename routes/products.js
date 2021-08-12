@@ -13,6 +13,9 @@ const router = Router();
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
-router.use('/', productsCtrl.index)
-router.patch('/:productid/update', productsCtrl.update)
+router.get('/', productsCtrl.index)
+router.put('/:productid/updateProperty/:propertyid', checkAuth, productsCtrl.updateProperty)
+router.patch('/createProperty/:id', checkAuth, productsCtrl.createProperty)
+router.patch('/update/:productid', checkAuth, productsCtrl.update)
 router.post('/:shopid/create', checkAuth, productsCtrl.create)
+router.delete('/:productid/deleteProperty/:propertyid', checkAuth, productsCtrl.deleteProperty)
