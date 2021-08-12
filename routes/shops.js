@@ -14,4 +14,5 @@ const router = Router();
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.get('/', shopsCtrl.index)
+router.patch('/:shopid/update', shopsCtrl.update)
 router.post('/create', checkAuth, shopsCtrl.create)
