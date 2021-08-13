@@ -13,6 +13,8 @@ import Footer from "../../components/Footer/Footer"
 // pages
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
+import Home from "../Home/Home"
+import UpdateProfile from "../UpdateProfile/UpdateProfile"
 import AddProduct from "../AddProduct/AddProduct"
 import ProductIndex from "../ProductIndex/ProductIndex"
 import Checkout from "../Checkout/Checkout"
@@ -25,7 +27,7 @@ import ShopShow from "../ShopShow/ShopShow"
 import UpdateProduct from "../UpdateProduct/UpdateProduct"
 import UpdateShop from "../UpdateShop/UpdateShop"
 
-const App = () => {
+const App = (props) => {
   const [user, setUser] = useState(authService.getUser())
   const [userProfile, setUserProfile] = useState(null)
   const history = useHistory()
@@ -51,38 +53,125 @@ const App = () => {
       })
   }, [user])
   return (
-          <>
+    <>
         <NavBar user={user} handleLogout={handleLogout} />
         <Route
           exact
           path="/"
           render={() => (
-            <main>
-              <h1>Welcome. This is an authorization template.</h1>
-            </main>
+            <Home />
           )}
+        /> 
+        <Route
+        exact
+        path="/products"
+        render={() => {
+          <ProductIndex />
+        }}
+        />
+        <Route
+        exact
+        path="/shops"
+        render={() => {
+          <ShopIndex />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/:id"
+        render={() => {
+          <ShopShow />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/:id/manage"
+        render={() => {
+          <ShopManager />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/:id/manage/update"
+        render={() => {
+          <UpdateShop />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/manage/products/:productid"
+        render={() => {
+          <UpdateProduct />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/:id/manage/products/new"
+        render={() => {
+          <AddProduct />
+        }}
+        />
+        <Route
+        exact
+        path="/products/:id"
+        render={() => {
+          <ProductShow />
+        }}
+        />
+        <Route 
+        exact
+        path="/profile/:id"
+        render={() => {
+          <Profile />
+        }}
+        />
+        <Route 
+        exact
+        path="/profile/:id/update"
+        render={() => {
+          <UpdateProfile />
+        }}
+        />
+        <Route 
+        exact
+        path="/checkout"
+        render={() => {
+          <Checkout />
+        }}
+        />
+        <Route 
+        exact
+        path="/search/:query/results"
+        render={() => {
+          <SearchResults />
+        }}
         />
         <Route
           exact
           path="/signup"
-          render={({ history }) => (
+          render={() => (
+            !user ?
             <Signup
-              history={history}
               handleSignupOrLogin={handleSignupOrLogin}
             />
+            :
+            <Redirect to="/" />
           )}
         />
         <Route
           exact
           path="/login"
-          render={({ history }) => (
+          render={() => (
+            !user ?
             <Login
-              history={history}
               handleSignupOrLogin={handleSignupOrLogin}
             />
+            : 
+            <Redirect to="/" />
           )}
         />
-      </>
+        <Footer />
+    </>
   );
 }
  

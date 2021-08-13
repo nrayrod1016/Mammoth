@@ -6,7 +6,7 @@ const Signup = (props) => {
 
   return (
     <main>
-      <SignupForm history={props.history} handleSignupOrLogin={props.handleSignupOrLogin} />
+      <SignupForm handleSignupOrLogin={props.handleSignupOrLogin} />
     </main>
   );
 }
