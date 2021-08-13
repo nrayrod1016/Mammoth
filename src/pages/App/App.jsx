@@ -1,16 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { Route, Redirect } from "react-router-dom";
-import NavBar from "../../components/NavBar/NavBar";
-import Signup from "../Signup/Signup";
-import Login from "../Login/Login";
-import * as authService from '../../services/authService'
-import * as profileAPI from '../../services/profileService'
+import { Route, Redirect, useHistory } from "react-router-dom";
 import "./App.css";
 
-const App = ({ history }) => {
+//services
+import * as authService from '../../services/authService'
+import * as profileAPI from '../../services/profileService'
+
+//compontents
+import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer"
+
+// pages
+import Signup from "../Signup/Signup";
+import Login from "../Login/Login";
+import AddProduct from "../AddProduct/AddProduct"
+import ProductIndex from "../ProductIndex/ProductIndex"
+import Checkout from "../Checkout/Checkout"
+import ProductShow from "../ProductShow/ProductShow"
+import Profile from "../Profile/Profile"
+import SearchResults from "../SearchResults/SearchResults"
+import ShopIndex from "../ShopIndex/ShopIndex"
+import ShopManager from "../ShopManager/ShopManager"
+import ShopShow from "../ShopShow/ShopShow"
+import UpdateProduct from "../UpdateProduct/UpdateProduct"
+import UpdateShop from "../UpdateShop/UpdateShop"
+
+const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [userProfile, setUserProfile] = useState(null)
-  
+  const history = useHistory()
   const handleLogout = () => {
     authService.logout();
     setUser(null);
