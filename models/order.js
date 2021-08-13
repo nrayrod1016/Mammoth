@@ -6,7 +6,6 @@ const orderSchema = new mongoose.Schema({
   items: [{
     type: String,
     required: true,
-    unique: true,
   }],
   address: String,
   country: String,

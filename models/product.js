@@ -1,8 +1,14 @@
 import mongoose from 'mongoose'
 
 const propertiesSchema = new mongoose.Schema({
-  name: String,
-  options: [String],
+  name: {
+    type: String,
+    required: true,
+  },
+  options: [{
+    type: String,
+    required: true,
+  }],
 })
 
 const productSchema = new mongoose.Schema({
@@ -20,7 +26,10 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   snippet: String,
-  inventory: Number,
+  inventory: {
+    type: Number,
+    required: true,
+  },
   price: {
     type: Number,
     required: true,
