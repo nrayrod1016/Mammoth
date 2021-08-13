@@ -23,6 +23,7 @@ function show(req, res) {
       path: "author"
     }
   })
+  .populate('owner')
   .then(shop => {
     res.json(shop)
   })
