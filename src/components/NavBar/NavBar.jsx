@@ -12,10 +12,16 @@ const NavBar = ({ user, handleLogout }) => {
     <a class="text-blue-500 hover:text-blue-800" href="/">Home</a>
   </li>
   <li class="mr-6">
-    <a class="text-blue-500 hover:text-blue-800" href="#">Shops</a>
+    <a class="text-blue-500 hover:text-blue-800" href="/shops">Shops</a>
   </li>
   <li class="mr-6">
-    <a class="text-blue-500 hover:text-blue-800" href="#">Products</a>
+    <a class="text-blue-500 hover:text-blue-800" href="/products">Products</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-blue-500 hover:text-blue-800" href="/signup">Signup</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-blue-500 hover:text-blue-800" href="/login">Login</a>
   </li>
   <li class="mr-6">
     <a class="text-gray-400 cursor-not-allowed" href="#">Disabled</a>
