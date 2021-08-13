@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as authService from "../../services/authService";
 import styles from './SignupForm.module.css'
 
@@ -11,6 +11,7 @@ const SignupForm = (props) => {
     password: "",
     passwordConf: "",
   })
+  const history = useHistory()
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
@@ -19,7 +20,7 @@ const SignupForm = (props) => {
     try {
       await authService.signup(formData);
       props.handleSignupOrLogin()
-      props.history.push("/");
+      history.push("/");
     } catch (err) {
       alert(err)
     }
