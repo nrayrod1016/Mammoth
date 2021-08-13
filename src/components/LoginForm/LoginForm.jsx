@@ -1,23 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './LoginForm.module.css'
 import * as authService from '../../services/authService'
 
-class LoginForm extends Component {
-  state = {
-    email: '',
-    pw: '',
+const LoginForm = (props) => {
+  const [formData, setFormData] = useState({ email: "", pw: ""})
+
+  const handleChange = evt => {
+    setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-
-  handleSubmit = async (e) => {
-    const { history, handleSignupOrLogin } = this.props
-    e.preventDefault()
+  const handleSubmit = async evt => {
+    const { history, handleSignupOrLogin } = props
+    evt.preventDefault()
     try {
-      await authService.login(this.state);
+      await authService.login(formData);
       handleSignupOrLogin()
       history.push("/")
     } catch (err) {
@@ -25,12 +22,11 @@ class LoginForm extends Component {
     }
   }
 
-  render() {
-    const { email, pw } = this.state
-    return (
+  const { email, pw } = formData
+  return (
       <form
         autoComplete="off"
-        onSubmit={this.handleSubmit}
+        onSubmit={handleSubmit}
         className={styles.container}
       >
         <div className={styles.inputContainer}>
@@ -41,7 +37,7 @@ class LoginForm extends Component {
             id="email"
             value={email}
             name="email"
-            onChange={this.handleChange}
+            onChange={handleChange}
           />
         </div>
         <div className={styles.inputContainer}>
@@ -52,7 +48,7 @@ class LoginForm extends Component {
             id="password"
             value={pw}
             name="pw"
-            onChange={this.handleChange}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -62,8 +58,72 @@ class LoginForm extends Component {
           </Link>
         </div>
       </form>
-    )
-  }
+  );
 }
+ 
+export default LoginForm;
 
-export default LoginForm
+// class LoginForm extends Component {
+//   state = {
+//     email: '',
+//     pw: '',
+//   }
+
+//   handleChange = e => {
+//     this.setState({ [e.target.name]: e.target.value })
+//   }
+
+//   handleSubmit = async (e) => {
+//     const { history, handleSignupOrLogin } = this.props
+//     e.preventDefault()
+//     try {
+//       await authService.login(this.state);
+//       handleSignupOrLogin()
+//       history.push("/")
+//     } catch (err) {
+//         alert('Invalid Credentials')
+//     }
+//   }
+
+//   render() {
+//     const { email, pw } = this.state
+//     return (
+//       <form
+//         autoComplete="off"
+//         onSubmit={this.handleSubmit}
+//         className={styles.container}
+//       >
+//         <div className={styles.inputContainer}>
+//           <label htmlFor="email" className={styles.label}>Email</label>
+//           <input
+//             type="text"
+//             autoComplete="off"
+//             id="email"
+//             value={email}
+//             name="email"
+//             onChange={this.handleChange}
+//           />
+//         </div>
+//         <div className={styles.inputContainer}>
+//           <label htmlFor="password" className={styles.label}>Password</label>
+//           <input
+//             type="password"
+//             autoComplete="off"
+//             id="password"
+//             value={pw}
+//             name="pw"
+//             onChange={this.handleChange}
+//           />
+//         </div>
+//         <div>
+//           <button className={styles.button}>Log In</button>
+//           <Link to="/">
+//             <button>Cancel</button>
+//           </Link>
+//         </div>
+//       </form>
+//     )
+//   }
+// }
+
+// export default LoginForm

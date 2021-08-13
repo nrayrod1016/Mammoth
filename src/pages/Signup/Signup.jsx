@@ -1,24 +1,14 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import './Signup.css';
 
-class Signup extends Component {
-  state = {
-    message: ''
-  }
+const Signup = (props) => {
 
-  updateMessage = (msg) => {
-    this.setState({message: msg});
-  }
-
-  render() {
-    return (
-      <main>
-        <SignupForm {...this.props} updateMessage={this.updateMessage} />
-        <p>{this.state.message}</p>
-      </main>
-    );
-  }
+  return (
+    <main>
+      <SignupForm history={props.history} handleSignupOrLogin={props.handleSignupOrLogin} />
+    </main>
+  );
 }
-
+ 
 export default Signup;
