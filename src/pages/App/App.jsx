@@ -80,63 +80,63 @@ const App = (props) => {
         exact
         path="/shops/:id"
         render={() => {
-          <ShopShow />
+          <ShopShow userProfile={userProfile} />
         }}
         />
         <Route
         exact
         path="/shops/:id/manage"
         render={() => {
-          <ShopManager />
+          <ShopManager userProfile={userProfile} />
         }}
         />
         <Route
         exact
         path="/shops/:id/manage/update"
         render={() => {
-          <UpdateShop />
+          <UpdateShop userProfile={userProfile} />
         }}
         />
         <Route
         exact
         path="/shops/manage/products/:productid"
         render={() => {
-          <UpdateProduct />
+          <UpdateProduct userProfile={userProfile} />
         }}
         />
         <Route
         exact
         path="/shops/:id/manage/products/new"
         render={() => {
-          <AddProduct />
+          <AddProduct userProfile={userProfile} />
         }}
         />
         <Route
         exact
         path="/products/:id"
         render={() => {
-          <ProductShow />
+          <ProductShow userProfile={userProfile} />
         }}
         />
         <Route 
         exact
         path="/profile/:id"
         render={() => {
-          <Profile />
+          <Profile userProfile={userProfile} />
         }}
         />
         <Route 
         exact
         path="/profile/:id/update"
         render={() => {
-          <UpdateProfile />
+          <UpdateProfile userProfile={userProfile} />
         }}
         />
         <Route 
         exact
         path="/checkout"
         render={() => {
-          <Checkout />
+          <Checkout userProfile={userProfile} />
         }}
         />
         <Route 

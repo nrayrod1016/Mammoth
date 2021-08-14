@@ -13,8 +13,8 @@ const reviewSchema = new mongoose.Schema({
     max: 5,
     required: true,
   },
-  images: String,
-  videos: String,
+  images: [String],
+  videos: [String],
   wouldRec: {
     type: Boolean,
     default: true,
