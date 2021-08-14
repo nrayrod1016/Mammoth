@@ -6,13 +6,16 @@ const orderSchema = new mongoose.Schema({
   items: [{
     type: String,
     required: true,
-    unique: true,
   }],
   address: String,
   country: String,
   zipcode: Number,
   price: Number,
-  storeNames: [String]
+  profile: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Profile",
+  },
+  storeNames: [String],
 }, {
   timestamps: true
 });

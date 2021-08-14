@@ -11,6 +11,10 @@ const profileSchema = new mongoose.Schema({
   state: String,
   country: String,
   zipcode: Number,
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
   shops: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Shop"
