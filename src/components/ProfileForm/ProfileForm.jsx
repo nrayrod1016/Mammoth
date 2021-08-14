@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useHistory } from 'react-router-dom'; 
 
 
-const ProfileForm = ({ userProfile }) => {
+const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
   const [profile, setProfile] = useState(userProfile) 
   const [validForm, setValidForm] = useState(true)
-  
+  const history = useHistory()
   const handleChange = evt => { 
     setProfile({...profile, [evt.target.name]: 
       evt.target.value })
@@ -19,12 +19,12 @@ const ProfileForm = ({ userProfile }) => {
 
   const handleSubmit = evt => { 
     evt.preventDefault()
-    userProfile.handleUpdatePuppy(profile)
+    handleUpdateProfile(profile)
+    history.push('/')
   }
 
  
   return (
-
     <>
     <form autoComplete="off" onSubmit={handleSubmit} ref={formElement}>
           <label htmlFor="name">Name</label>

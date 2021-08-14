@@ -38,6 +38,14 @@ const App = (props) => {
     history.push("/");
   }
 
+  const handleUpdateProfile = (profileData) => {
+    profileAPI.updateProfile(profileData)
+    .then(newProfile => {
+      console.log(newProfile)
+      setUserProfile(newProfile)
+    })
+  }
+
   const handleSignupOrLogin = async() => {
     const user = await authService.getUser()
     setUser(user)
@@ -136,7 +144,7 @@ const App = (props) => {
         exact
         path="/profile/:id/update"
         render={() => 
-          <UpdateProfile userProfile={userProfile} />
+          <UpdateProfile userProfile={userProfile} handleUpdateProfile={handleUpdateProfile} />
         }
         />
         <Route 
