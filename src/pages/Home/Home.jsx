@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import * as recentService from "../../services/recentService"
 
 
 const Home = (props) => { 
+  const [recentActivity, setRecentActivity] = useState([])
+
+
+  useEffect(() => {
+    recentService.getRecentActivity()
+    .then(recentActivity => {
+      setRecentActivity(recentActivity)
+    })
+  }, [props.userProfile])
+
+
     return ( 
 <> 
 
