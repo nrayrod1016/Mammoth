@@ -40,6 +40,7 @@ function index (req, res) {
   Shop.find({})
   .populate('products')
   .populate('reviews')
+  .populate('owner')
   .sort({ createdAt: -1 })
   .then(shops => {
     res.json(shops)

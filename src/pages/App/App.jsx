@@ -59,92 +59,92 @@ const App = (props) => {
           exact
           path="/"
           render={() => (
-            <Home />
+            <Home userProfile={userProfile}/>
           )}
         /> 
+        <Route 
+        exact
+        path="/search/:query/results"
+        render={() => 
+          <SearchResults />
+        }
+        />
         <Route
         exact
         path="/products"
-        render={() => {
+        render={() => 
           <ProductIndex />
-        }}
+        }
         />
         <Route
         exact
         path="/shops"
-        render={() => {
+        render={() => 
           <ShopIndex />
-        }}
+        }
         />
         <Route
         exact
         path="/shops/:id"
-        render={() => {
+        render={() => 
           <ShopShow userProfile={userProfile} />
-        }}
+        }
         />
         <Route
         exact
         path="/shops/:id/manage"
-        render={() => {
+        render={() => 
           <ShopManager userProfile={userProfile} />
-        }}
+        }
         />
         <Route
         exact
         path="/shops/:id/manage/update"
-        render={() => {
+        render={() => 
           <UpdateShop userProfile={userProfile} />
-        }}
+        }
         />
         <Route
         exact
         path="/shops/manage/products/:productid"
-        render={() => {
+        render={() => 
           <UpdateProduct userProfile={userProfile} />
-        }}
+        }
         />
         <Route
         exact
         path="/shops/:id/manage/products/new"
-        render={() => {
+        render={() => 
           <AddProduct userProfile={userProfile} />
-        }}
+        }
         />
         <Route
         exact
         path="/products/:id"
-        render={() => {
+        render={() => 
           <ProductShow userProfile={userProfile} />
-        }}
+        }
         />
         <Route 
         exact
         path="/profile/:id"
-        render={() => {
+        render={() => 
           <Profile userProfile={userProfile} />
-        }}
+        }
         />
         <Route 
         exact
         path="/profile/:id/update"
-        render={() => {
+        render={() => 
           <UpdateProfile userProfile={userProfile} />
-        }}
+        }
         />
         <Route 
         exact
         path="/checkout"
-        render={() => {
+        render={() => 
           <Checkout userProfile={userProfile} />
-        }}
-        />
-        <Route 
-        exact
-        path="/search/:query/results"
-        render={() => {
-          <SearchResults />
-        }}
+        }
         />
         <Route
           exact
