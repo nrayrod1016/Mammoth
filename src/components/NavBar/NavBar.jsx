@@ -1,12 +1,36 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import styles from './NavBar.module.css'
-
+// import styles from './NavBar.module.css'
+// import NavBar from './index.css'
 
 const NavBar = ({ user, handleLogout }) => {
     return (
     <>
-      {user ?
+  <div> 
+  <ul class="flex">
+  <li class="mr-6">
+    <a class="text-blue-500 hover:text-blue-800" href="/">Home</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-blue-500 hover:text-blue-800" href="/shops">Shops</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-blue-500 hover:text-blue-800" href="/products">Products</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-blue-500 hover:text-blue-800" href="/signup">Signup</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-blue-500 hover:text-blue-800" href="/login">Login</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-gray-400 cursor-not-allowed" href="#">Disabled</a>
+  </li>
+</ul>
+</div>
+    {/* <!-- component --> */}
+
+      {/* {user ?
         <nav>
           <div className="nav-wrapper">
             <ul id="nav-mobile" className="right">
@@ -24,7 +48,7 @@ const NavBar = ({ user, handleLogout }) => {
             </ul>
           </div>
         </nav>
-      }
+      } */}
     </>
   )
 }
