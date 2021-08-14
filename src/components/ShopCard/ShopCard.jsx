@@ -13,7 +13,7 @@ function ShopCard ({Shop}) {
         <p className="card-text">{Shop.email}</p>
         <p className="card-text">{Shop.desc}</p>
         <p className="card-text">{Shop.tags}</p>
-        <p className="card-text">{Shop.owner}</p>
+        <p className="card-text">{Shop.owner.name}</p>
         <p className="card-text">{Shop.logo}</p>
       </div>
       <div className="card-footer">
