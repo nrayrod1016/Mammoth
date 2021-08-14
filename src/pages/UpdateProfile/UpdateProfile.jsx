@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const UpdateProfile = () => {
+
+const UpdateProfile = ({ userProfile }) => {
+  const [profile, setProfile] = useState(userProfile) 
+  
+  
+
   return (
     <>
+    <form> 
+
+
+
+      </form> 
+
+
     </>
   );
 }

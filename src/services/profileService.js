@@ -8,3 +8,10 @@ export function getUserProfile() {
     { mode: "cors" }
     ).then((res) => res.json())
 }
+
+export function getProfile(id) { 
+  return fetch(`${BASE_URL}/${id}`,
+  {headers: { Authorization: "Bearer " + tokenService.getToken() }},
+  { mode: "cors" }
+  ).then((res) => res.json())
+}

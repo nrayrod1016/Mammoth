@@ -3,7 +3,7 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 import  * as productService from '../../services/productService'
 
 const ProductIndex = (props) => {
-  const [products, setProducts] = useState([{}])
+  const [products, setProducts] = useState([])
 
   useEffect(() => { 
     productService.getAll() 

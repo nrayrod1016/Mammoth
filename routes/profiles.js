@@ -21,4 +21,4 @@ router.delete('/:productid/removeFromWishlist', checkAuth, profilesCtrl.removeFr
 router.delete('/remove/:orderid', checkAuth, profilesCtrl.removeOrder)
 router.get('/userProfile', profilesCtrl.userProfile)
 router.patch('/update', checkAuth, profilesCtrl.update)
-router.get('/:id', profilesCtrl.show)
+router.get('/:id', checkAuth, profilesCtrl.show)
