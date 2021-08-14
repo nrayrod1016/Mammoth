@@ -8,6 +8,7 @@ import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import Home from '../../pages/Home/Home'
 import ShopIndex from "../ShopIndex/ShopIndex";
+import Footer from "../../components/Footer/Footer"
 
 const App = ({ history }) => {
   const [user, setUser] = useState(authService.getUser())
@@ -52,6 +53,7 @@ const App = ({ history }) => {
               >
               <ShopIndex /> 
               </Route>
+              
 
 
             </main>
@@ -77,6 +79,7 @@ const App = ({ history }) => {
             />
           )}
         />
+       <Footer /> 
       </>
   );
 }

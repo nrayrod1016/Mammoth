@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Shop } from '../../../models/shop';
 
-function ShopCard ({shop}) { 
+
+function ShopCard ({Shop}) { 
     return ( 
         <div className="card">
      
