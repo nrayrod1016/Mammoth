@@ -6,10 +6,14 @@ const ReviewCard = ({ review }) => {
       <div>
         <div>
           {review.images?.map((image, idx) => {
-            <img src={image} alt={`${review.author?.name}'s review pics`} key={idx} />
+            return(
+              <img src={image} alt={`${review.author?.name}'s review pics`} key={idx} />
+            )
           })}
           {review.videos?.map((video, idx) => {
-            <iframe src={video} title={idx} key={idx}></iframe>
+            return(
+              <iframe src={video} title={idx} key={idx}></iframe>
+            )
           })}
         </div>
         <div>

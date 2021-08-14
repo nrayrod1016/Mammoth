@@ -10,7 +10,7 @@ export {
 }
 
 function update(req, res) {
-  Review.findById(req.params.id, req.body, {new: true})
+  Review.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(review => {
     res.json(review)
   })
