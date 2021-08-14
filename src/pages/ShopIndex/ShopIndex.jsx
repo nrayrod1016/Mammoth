@@ -1,23 +1,10 @@
-import React from 'react'; 
-import ShopCard from '../../components/ShopCard/ShopCard'
+import React from 'react';
 
-
-function ShopIndex(props) { 
-
-    return ( 
-        <> 
-        <h1>Shop Index Page</h1>
-        {props.shops.map(shop => ( 
-            <div key={shop._id}>
-                <ShopCard />
-                
-
-                </div> 
-        ))}
-            
-
-        </> 
-    )
+const ShopIndex = () => {
+  return (
+    <>
+    </>
+  );
 }
+ 
 
-export default ShopIndex

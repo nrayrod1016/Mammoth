@@ -1,19 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, useHistory } from "react-router-dom";
+import "./App.css";
+
+//services
 import * as authService from '../../services/authService'
 import * as profileAPI from '../../services/profileService'
-import "./App.css";
+
+//compontents
 import NavBar from "../../components/NavBar/NavBar";
-import Signup from "../Signup/Signup";
-import Login from "../Login/Login";
-import Home from '../../pages/Home/Home'
-import ShopIndex from "../ShopIndex/ShopIndex";
 import Footer from "../../components/Footer/Footer"
 
-const App = ({ history }) => {
+// pages
+import Signup from "../Signup/Signup";
+import Login from "../Login/Login";
+import Home from "../Home/Home"
+import UpdateProfile from "../UpdateProfile/UpdateProfile"
+import AddProduct from "../AddProduct/AddProduct"
+import ProductIndex from "../ProductIndex/ProductIndex"
+import Checkout from "../Checkout/Checkout"
+import ProductShow from "../ProductShow/ProductShow"
+import Profile from "../Profile/Profile"
+import SearchResults from "../SearchResults/SearchResults"
+import ShopIndex from "../ShopIndex/ShopIndex"
+import ShopManager from "../ShopManager/ShopManager"
+import ShopShow from "../ShopShow/ShopShow"
+import UpdateProduct from "../UpdateProduct/UpdateProduct"
+import UpdateShop from "../UpdateShop/UpdateShop"
+
+const App = (props) => {
   const [user, setUser] = useState(authService.getUser())
   const [userProfile, setUserProfile] = useState(null)
-  
+  const history = useHistory()
   const handleLogout = () => {
     authService.logout();
     setUser(null);
@@ -36,51 +53,125 @@ const App = ({ history }) => {
       })
   }, [user])
   return (
-          <>
+    <>
         <NavBar user={user} handleLogout={handleLogout} />
         <Route
           exact
           path="/"
           render={() => (
-            <main>
-              <Route 
-              exact path='/'
-              >
-                <Home /> 
-              </Route>
-              <Route 
-              exact path='/shop'
-              >
-              <ShopIndex /> 
-              </Route>
-              
-
-
-            </main>
+            <Home />
           )}
+        /> 
+        <Route
+        exact
+        path="/products"
+        render={() => {
+          <ProductIndex />
+        }}
+        />
+        <Route
+        exact
+        path="/shops"
+        render={() => {
+          <ShopIndex />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/:id"
+        render={() => {
+          <ShopShow userProfile={userProfile} />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/:id/manage"
+        render={() => {
+          <ShopManager userProfile={userProfile} />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/:id/manage/update"
+        render={() => {
+          <UpdateShop userProfile={userProfile} />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/manage/products/:productid"
+        render={() => {
+          <UpdateProduct userProfile={userProfile} />
+        }}
+        />
+        <Route
+        exact
+        path="/shops/:id/manage/products/new"
+        render={() => {
+          <AddProduct userProfile={userProfile} />
+        }}
+        />
+        <Route
+        exact
+        path="/products/:id"
+        render={() => {
+          <ProductShow userProfile={userProfile} />
+        }}
+        />
+        <Route 
+        exact
+        path="/profile/:id"
+        render={() => {
+          <Profile userProfile={userProfile} />
+        }}
+        />
+        <Route 
+        exact
+        path="/profile/:id/update"
+        render={() => {
+          <UpdateProfile userProfile={userProfile} />
+        }}
+        />
+        <Route 
+        exact
+        path="/checkout"
+        render={() => {
+          <Checkout userProfile={userProfile} />
+        }}
+        />
+        <Route 
+        exact
+        path="/search/:query/results"
+        render={() => {
+          <SearchResults />
+        }}
         />
         <Route
           exact
           path="/signup"
-          render={({ history }) => (
+          render={() => (
+            !user ?
             <Signup
-              history={history}
               handleSignupOrLogin={handleSignupOrLogin}
             />
+            :
+            <Redirect to="/" />
           )}
         />
         <Route
           exact
           path="/login"
-          render={({ history }) => (
+          render={() => (
+            !user ?
             <Login
-              history={history}
               handleSignupOrLogin={handleSignupOrLogin}
             />
+            : 
+            <Redirect to="/" />
           )}
         />
-       <Footer /> 
-      </>
+        <Footer />
+    </>
   );
 }
  
