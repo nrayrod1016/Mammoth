@@ -7,4 +7,4 @@ const ShopIndex = () => {
   );
 }
  
-
+export default ShopIndex

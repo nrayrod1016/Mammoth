@@ -12,4 +12,4 @@ const Login = (props) => {
   );
 }
  
-export default LoginPage;
+export default Login;
