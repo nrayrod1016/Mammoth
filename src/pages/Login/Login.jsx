@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import LoginForm from '../../components/LoginForm/LoginForm'
 import "./Login.css";
 
+
 const Login = (props) => {
   return (
     <main>
@@ -11,4 +12,4 @@ const Login = (props) => {
   );
 }
  
-export default Login;
+export default LoginPage;

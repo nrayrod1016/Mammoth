@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const ProductIndex = () => {
   return (
     <>
@@ -8,3 +9,4 @@ const ProductIndex = () => {
 }
  
 export default ProductIndex;
+
