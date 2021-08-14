@@ -13,9 +13,6 @@ const ReviewForm = (props) => {
     images: [],
     videos: [],
     wouldRec: false,
-    author: props.userProfile?._id,
-    shop: "",
-    product: "",
   })
   
   const handleChangeImage = (idx, value) => {
@@ -41,18 +38,16 @@ const ReviewForm = (props) => {
   const handleSubmit = evt => {
     evt.preventDefault()
     if (!props.review === undefined) {
-      setFormData({...formData, author: props.userProfile._id, shop: props.review.shop._id, product: props.review.product._id, rating: parseInt(formData.rating)})
+      setFormData({...formData, rating: parseInt(formData.rating)})
       reviewService.updateReview(props.review._id, formData)
       history.push(history.pathname)
     } else {
       if(props.type === "Shop") {
-        delete formData.product 
-        setFormData({...formData, author: props.userProfile._id, rating: parseInt(formData.rating)})
+        setFormData({...formData, rating: parseInt(formData.rating)})
         reviewService.createReview("Shop", props.shop._id, formData)
         history.push(history.pathname)
       } else if (props.type === "Product") {
-        delete formData.shop
-        setFormData({...formData, author: props.userProfile._id, rating: parseInt(formData.rating)})
+        setFormData({...formData, rating: parseInt(formData.rating)})
         reviewService.createReview("Product", props.product._id, formData)
         history.push(history.pathname)
       }
