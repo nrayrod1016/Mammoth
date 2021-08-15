@@ -31,7 +31,7 @@ const NavBar = ({ user, handleLogout }) => {
     <a class="text-gray-400 cursor-not-allowed" href="#">Disabled</a>
   </li>
 </ul>
-<SearchForm /> 
+
 </div>
     {/* <!-- component --> */}
 
