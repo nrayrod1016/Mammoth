@@ -6,7 +6,6 @@ import "./Login.css";
 const Login = (props) => {
   return (
     <main>
-    <h1>Log In</h1>
     <LoginForm handleSignupOrLogin={props.handleSignupOrLogin}/>
   </main>
   );
