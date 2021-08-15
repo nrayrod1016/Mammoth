@@ -26,7 +26,7 @@ const NavBar = ({ user, handleLogout }) => {
     <a class="text-blue-500 hover:text-blue-800" href="/login">Login</a>
   </li>
   <li class="mr-6">
-  <button><Link to={`/profile/${user.profile}`} >Profile</Link></button>
+  <button><Link to={`/profile/${user?.profile}`} >Profile</Link></button>
 
     <a class="text-gray-400 cursor-not-allowed" href="#">Disabled</a>
   </li>
