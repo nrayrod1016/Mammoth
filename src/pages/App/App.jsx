@@ -18,6 +18,7 @@ import UpdateProfile from "../UpdateProfile/UpdateProfile"
 import AddProduct from "../AddProduct/AddProduct"
 import ProductIndex from "../ProductIndex/ProductIndex"
 import Checkout from "../Checkout/Checkout"
+import AddShop from "../AddShop/AddShop"
 import ProductShow from "../ProductShow/ProductShow"
 import Profile from "../Profile/Profile"
 import SearchResults from "../SearchResults/SearchResults"
@@ -56,7 +57,6 @@ const App = (props) => {
   useEffect(() => {
       profileAPI.getUserProfile()
       .then(userProfile => {
-        console.log(userProfile)
         setUserProfile(userProfile)
       })
   }, [user])
@@ -152,6 +152,13 @@ const App = (props) => {
         path="/checkout"
         render={() => 
           <Checkout userProfile={userProfile} />
+        }
+        />
+        <Route 
+        exact
+        path="/shops/new"
+        render={() => 
+          <AddShop userProfile={userProfile} />
         }
         />
         <Route
