@@ -3,8 +3,14 @@ import mongoose from 'mongoose'
 
 
 const profileSchema = new mongoose.Schema({
-  name: String,
-  email: String,
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+  },
   notifications: [String],
   address: String,
   city: String,
