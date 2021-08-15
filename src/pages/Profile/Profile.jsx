@@ -24,11 +24,8 @@ const Profile = (props) => {
     }
 
     {props.userProfile?._id === profile._id &&
-       <Link to='/shops/new'>Update Shop!</Link>
+       <Link to='/shops/new'>Add a Shop!</Link>
     }
-
-   
-    
     </>
   );
 }
