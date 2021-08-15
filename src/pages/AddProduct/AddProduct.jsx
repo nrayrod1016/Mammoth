@@ -1,8 +1,13 @@
 import React from 'react';
+import AddProductForm from '../../components/AddProductForm/AddProductForm'
 
-const AddProduct = () => {
+const AddProduct = (props) => {
+
+
   return (
     <>
+    <h1>Add A New Product!</h1>
+    <AddProductForm />
     </>
   );
 }

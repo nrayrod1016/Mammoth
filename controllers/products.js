@@ -93,6 +93,7 @@ function index(req, res) {
 
 function create(req, res) {
   req.body.shop = req.params.shopid
+  req.body.tags = req.body.tags.split(" ")
   let product = new Product(req.body)
   product.save()
   .then(product => {

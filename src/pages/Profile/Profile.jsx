@@ -22,6 +22,13 @@ const Profile = (props) => {
     {props.userProfile?._id === profile._id &&
       <Link to={`/profile/${profile._id}/update`}>Update Profile!</Link>
     }
+
+    {props.userProfile?._id === profile._id &&
+       <Link to='/shops/new'>Update Shop!</Link>
+    }
+
+   
+    
     </>
   );
 }

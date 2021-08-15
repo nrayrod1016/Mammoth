@@ -6,6 +6,8 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
   const [profile, setProfile] = useState(userProfile) 
   const [validForm, setValidForm] = useState(true)
   const history = useHistory()
+
+  
   const handleChange = evt => { 
     setProfile({...profile, [evt.target.name]: 
       evt.target.value })
