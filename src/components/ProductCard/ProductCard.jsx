@@ -1,21 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function ProductCard({product})
+function ProductCard({Product})
 { 
     return ( 
        
         <div className="card">
-        <img 
-          src={product._id} 
-          alt="A happy puppy"
-          className="card-img-top" 
-        />
+        
         <div className="card-body">
-          <h2 className="card-text">{product.name}</h2>
-          <p className="card-text">{product.tags}</p>
-          <p className="card-text">{product.desc}</p>
-          <p className="card-text">{product.shop}</p>
+          <h2 className="card-text">{Product.name}</h2>
+          <p className="card-text"></p>
+          <p className="card-text">{Product.desc}</p>
+          <p className="card-text"></p>
         
         </div>
         <div className="card-footer">
