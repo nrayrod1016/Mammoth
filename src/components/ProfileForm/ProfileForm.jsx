@@ -94,6 +94,16 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
             name="state"
             onChange={handleChange}
           /><br/>
+          <label htmlFor="avatar">Avatar Link:</label>
+          <input
+            type="text"
+            autoComplete="off"
+            id="avatar"
+            value={profile.avatar}
+            name="avatar"
+            required
+            onChange={handleChange}
+          /><br/>
           <button disabled={!validForm}>Update Profile</button><br/> 
           &nbsp;&nbsp;
           <Link to="/">Cancel</Link>

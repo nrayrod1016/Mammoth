@@ -42,7 +42,6 @@ const App = (props) => {
   const handleUpdateProfile = (profileData) => {
     profileAPI.updateProfile(profileData)
     .then(newProfile => {
-      console.log(newProfile)
       setUserProfile(newProfile)
     })
   }
