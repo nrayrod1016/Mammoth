@@ -5,8 +5,8 @@ import './Footer.module.css'
 const Footer = () => {
   return (
     <>
-  <main>
-          <div class="bg-gradient-to-br from-indigo-900 to-green-900 ">
+  <footer>
+          <div class="bg-gradient-to-br from-indigo-900 to-green-900  w-max md:w-auto ">
             <div class="container mx-auto px-6 lg:px-20 py-6">
                 <div class="flex justify-center text-gray-300 mb-1">
                     © 2021  <span class="font-bold">Mammoth.</span> 2021 All right reserved.
@@ -16,7 +16,7 @@ const Footer = () => {
                 </div>
             </div>
           </div>
-   </main>
+  </footer>
 
     </>
   );
