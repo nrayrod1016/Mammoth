@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 // import NavBar from './index.css'
 import SearchForm from '../SearchForm/SearchForm'
 
-const NavBar = ({ user, handleLogout }) => {
+const NavBar = ({ user, handleLogout, userProfile }) => {
   const history = useHistory()
   const [query, setQuery] = useState("")
 
@@ -31,24 +31,28 @@ const NavBar = ({ user, handleLogout }) => {
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-              <a href="/shops" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Shops</a>
+              <a href="/shops" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">All Shops</a>
 
-        <a href="/products" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
-
+        <a href="/products" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">All Products</a>
+        {!user &&
         <a href="/signup" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sign up</a>
-
+        }
+        {!user && 
         <a href="/login" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</a>
+        }
+        {user &&
+        <Link to='' onClick={handleLogout}></Link>
+        }
 
-        <Link to='' onClick={handleLogout}>
-        <a href="/login" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Logout</a></Link>
 
-        <Link to={`/profile/${user?.profile}`} ><a href={`/profile/${user?.profile}`}  class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">MyProfile</a></Link>
+        
      
      
      <a text-gray-300 > 
      <SearchForm /> 
      </a>
       </div>
+
 
           </div>
         </div>
@@ -67,7 +71,7 @@ const NavBar = ({ user, handleLogout }) => {
               <div>
                 <button type="button" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""></img> 
+                  <img class="h-8 w-8 rounded-full" src={userProfile?.avatar} alt=""></img> 
                 </button>
               </div>
 
@@ -108,33 +112,38 @@ const NavBar = ({ user, handleLogout }) => {
           </button>
         </div>
       </div>
-    </div>
+      </div>
+
+
+
+
 
     {/* <!-- Mobile menu, show/hide based on menu state. --> */}
     <div class="md:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-        <a href="/shops" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Shops</a>
-
-        <a href="/products" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
-
+        <a href="/shops" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">All Shops</a>
+          
+        <a href="/products" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">All Products</a>
+        {!user &&
         <a href="/signup" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sign up</a>
-
+        }
+        {!user && 
         <a href="/login" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</a>
+        }
 
-        <Link to='' onClick={handleLogout}>
-        <a href="/login" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Logout</a></Link>
 
-        <Link to={`/profile/${user?.profile}`} ><a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">MyProfile</a></Link>
+        
       </div>
+      {user &&
       <div class="pt-4 pb-3 border-t border-gray-700">
         <div class="flex items-center px-5">
           <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""></img>
+            <img class="h-10 w-10 rounded-full" src={userProfile?.avatar} alt=""></img>
           </div>
           <div class="ml-3">
-            <div class="text-base font-medium leading-none text-white">Tom Cook</div>
-            <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
+            <div class="text-base font-medium leading-none text-white">{userProfile?.name}</div>
+            <div class="text-sm font-medium leading-none text-gray-400">{userProfile?.email}</div>
           </div>
           <button class="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
             <span class="sr-only">View notifications</span>
@@ -145,13 +154,11 @@ const NavBar = ({ user, handleLogout }) => {
           </button>
         </div>
         <div class="mt-3 px-2 space-y-1">
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>
-
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
-
+          <a href={`/profile/${userProfile?._id}`} class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>
           <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>
         </div>
       </div>
+          }
     </div>
   </nav>
 
@@ -161,57 +168,5 @@ const NavBar = ({ user, handleLogout }) => {
 </>
 )
 }
-
-{/* OG nav bar */}
-  {/* <div> 
-  <ul class="flex">
-  <li class="mr-6">
-    <a class="text-red-500 hover:text-blue-800" href="/">Home</a>
-  </li>
-  <li class="mr-6">
-    <a class="text-blue-500 hover:text-red-800" href="/shops">Shops</a>
-  </li>
-  <li class="mr-6">
-    <a class="text-red-500 hover:text-blue-800" href="/products">Products</a>
-  </li>
-  <li class="mr-6">
-    <a class="text-blue-500 hover:text-red-800" href="/signup">Signup</a>
-  </li>
-  <li class="mr-6">
-  <Link to='' onClick={handleLogout}>LOG OUT</Link>
-    <a class="text-blue-500 hover:text-blue-800" href="/login">Login</a>
-  </li>
-  <li class="mr-6">
-  <button><Link to={`/profile/${user?.profile}`} >Profile</Link></button>
-  <SearchForm />
-    <a class="text-gray-400 cursor-not-allowed" href="#">Disabled</a>
-  </li>
-</ul>
-
-</div> */}
-    {/* <!-- component --> */}
-
-      {/* {user ?
-        <nav>
-          <div className="nav-wrapper">
-            <ul id="nav-mobile" className="right">
-              <li className="nav-link">Welcome, {user.name}</li>
-              <Link to='' onClick={handleLogout}>LOG OUT</Link>
-            </ul>
-          </div>
-        </nav>
-      :
-        <nav>
-          <div className="nav-wrapper">
-            <ul id="nav-mobile" className="right">
-              <li><Link to="/login" className="nav-link">Log In</Link></li>
-              <li><Link to="/signup" className="nav-link">Sign Up</Link></li>
-              <li><Link to="/Shop" className="nav-link">Sign Up</Link></li>
-              <li><Link to="/Product" className="nav-link">Sign Up</Link></li>
-              <li><Link to="/signup" className="nav-link">Sign Up</Link></li>
-            </ul>
-          </div>
-        </nav>
-      } */}
 
 export default NavBar;

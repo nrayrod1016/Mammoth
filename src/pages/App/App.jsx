@@ -62,7 +62,7 @@ const App = (props) => {
   }, [user])
   return (
     <>
-        <NavBar user={user} handleLogout={handleLogout} />
+        <NavBar user={user} handleLogout={handleLogout} userProfile={userProfile} />
         <Route
           exact
           path="/"
