@@ -21,6 +21,10 @@ const profileSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  avatar: {
+    type: String,
+    default: "https://i.imgur.com/KXmtpXB.png",
+  },
   shops: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Shop"
