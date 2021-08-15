@@ -1,11 +1,11 @@
 import React from 'react';
 import UpdateShopForm from '../../components/UpdateShopForm/UpdateShopForm'
 
-const UpdateShop = () => {
+const UpdateShop = (props) => {
   return ( 
     <>
       <h1>Update Shop Info </h1>
-      <UpdateShopForm />
+      <UpdateShopForm shop={props.shop}/>
 
     </>
   );

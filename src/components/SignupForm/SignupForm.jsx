@@ -32,50 +32,96 @@ const SignupForm = (props) => {
 
   const { name, email, passwordConf, password} = formData
   return (
-    <div>
-        <h3>Sign Up</h3>
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
+    <main>
+    <div class="h-screen font-sans login bg-cover">
+<div class="container mx-auto h-full flex flex-1 justify-center items-center">
+<div class="w-full max-w-lg">
+  <div class="leading-loose">
+    <form class="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl"
+     autoComplete="off"
+     onSubmit={handleSubmit}
+     >
+        <p class="text-white font-medium text-center text-lg font-bold">Sign Up</p>
+        <div >
+            <label class="block text-sm text-white" htmlFor="name" 
+            >
+            Name
+            </label>
+            <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"  type="text"
             autoComplete="off"
             id="name"
             value={name}
             name="name"
             onChange={handleChange}
-          /><br/> 
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
+            required
+            ></input>
+          </div>
+          <div>
+            <label class="block text-sm text-white" htmlFor="email" 
+            >
+            E-mail
+            </label>
+            <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"  type="text"
             autoComplete="off"
             id="email"
             value={email}
             name="email"
             onChange={handleChange}
-          /><br/> 
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="password"
-            value={password}
-            name="password"
-            onChange={handleChange}
-          /><br/> 
-          <label htmlFor="confirm">Confirm Password</label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="confirm"
-            value={passwordConf}
-            name="passwordConf"
-            onChange={handleChange}
-          /><br/> 
-          <button>Sign Up</button><br/> 
-          &nbsp;&nbsp;
-          <Link to="/">Cancel</Link>
-        </form>
-      </div>
+            required
+            ></input>
+          </div>
+
+          <div class="mt-2" >
+            <label class="block  text-sm text-white" htmlFor="password" >Password</label>
+             <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+              type="password"
+              autoComplete="off"
+              id="password"
+              value={password}
+              name="password"
+              onChange={handleChange} 
+              required>
+
+              </input>
+          </div>
+          <div class="mt-2" >
+            <label class="block  text-sm text-white" htmlFor="password" className="">Confirm Password</label>
+             <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+              type="password"
+              autoComplete="off"
+              id="password"
+              value={passwordConf}
+              name="passwordConf"
+              onChange={handleChange} 
+              required>
+
+              </input>
+          </div>
+
+          <div class="mt-4 items-center flex justify-between">
+            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 hover:bg-gray-800 rounded"
+             >
+               Sign up
+               </button>
+            <Link to="/">
+              <button>Cancel</button>
+            </Link>
+            {/* <a class="inline-block right-0 align-baseline font-bold text-sm text-500 text-white hover:text-red-400"
+              href="#">Forgot Your Password?</a> */}
+          </div>
+          <div class="text-center">
+            {/* <a class="inline-block right-0 align-baseline font-light text-sm text-500 hover:text-red-400" href='/signup'>
+                Create an Account 
+            </a> */}
+          </div>
+
+    </form>
+
+  </div>
+</div>
+</div>
+</div>
+  </main>
   );
 }
  

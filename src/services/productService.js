@@ -6,6 +6,11 @@ export function getAll() {
   .then(res => res.json())
 }
 
+export function getDetails(id) { 
+  return fetch(`${BASE_URL}/${id}`)
+  .then(res => res.json())
+}
+
 export function create (formData, id) {
   return fetch(`${BASE_URL}/${id}/create`, {
     method: "POST",

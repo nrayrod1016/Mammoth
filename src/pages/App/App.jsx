@@ -90,11 +90,11 @@ const App = (props) => {
           <ShopIndex />
         }
         />
-        <Route
+        <Route 
         exact
-        path="/shops/:id"
+        path="/shops/new"
         render={() => 
-          <ShopShow userProfile={userProfile} />
+          <AddShop userProfile={userProfile} />
         }
         />
         <Route
@@ -132,6 +132,13 @@ const App = (props) => {
           <ProductShow userProfile={userProfile} />
         }
         />
+        <Route
+        exact
+        path="/shops/:id"
+        render={() => 
+          <ShopShow userProfile={userProfile} />
+        }
+        />
         <Route 
         exact
         path="/profile/:id"
@@ -151,13 +158,6 @@ const App = (props) => {
         path="/checkout"
         render={() => 
           <Checkout userProfile={userProfile} />
-        }
-        />
-        <Route 
-        exact
-        path="/shops/new"
-        render={() => 
-          <AddShop userProfile={userProfile} />
         }
         />
         <Route
