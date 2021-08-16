@@ -45,11 +45,11 @@ const ReviewForm = (props) => {
       if(props.type === "Shop") {
         setFormData({...formData, rating: parseInt(formData.rating)})
         reviewService.createReview("Shop", props.shop._id, formData)
-        history.push(history.pathname)
+        props.reviewSubmit()
       } else if (props.type === "Product") {
         setFormData({...formData, rating: parseInt(formData.rating)})
         reviewService.createReview("Product", props.product._id, formData)
-        history.push(history.pathname)
+        props.reviewSubmit()
       }
     }
   }

@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function ProductCard({Product})
-{ 
+const ProductCard = ({Product}) => { 
     return ( 
-       
+       <Link to={`/products/${Product._id}`}>
         <div className="card">
         
         <div className="card-body">
@@ -19,6 +18,7 @@ function ProductCard({Product})
           
         </div>
       </div>
+       </Link>
         
     )
 }
