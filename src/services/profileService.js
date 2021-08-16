@@ -26,3 +26,19 @@ export function updateProfile(profileData) {
   )
   .then(res => res.json())
 }
+
+export function addToCart(productid) {
+
+}
+
+export function addToWishlist(productid) {
+
+}
+
+export function removeFromCart(productid) {
+
+}
+
+export function removeFromWishlist(productid) {
+  
+}

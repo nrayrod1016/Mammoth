@@ -10,7 +10,7 @@ html {
     */
     background: url('https://wallpaperaccess.com/full/1567784.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw 100vh;
    
     /* background-color: rgba(103, 7, 7, 0.962); */
  

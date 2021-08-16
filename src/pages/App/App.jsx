@@ -53,6 +53,34 @@ const App = (props) => {
     setUserProfile(userProfile)
   };
 
+  const addToWishlist = (productid) => {
+    profileAPI.addToWishlist(productid)
+    .then(data => {
+      setUserProfile(data.profile)
+    })
+  }
+
+  const addToCart = (productid) => {
+    profileAPI.addToCart(productid)
+    .then(data => {
+      setUserProfile(data.profile)
+    })
+  }
+
+  const removeFromCart = (productid) => {
+    profileAPI.removeFromCart(productid)
+    .then(data => {
+      setUserProfile(data.profile)
+    })
+  }
+
+  const removeFromWishList = (productid) => {
+    profileAPI.removeFromWishlist(productid)
+    .then(data => {
+      setUserProfile(data.profile)
+    })
+  }
+
   useEffect(() => {
       profileAPI.getUserProfile()
       .then(userProfile => {

@@ -11,9 +11,10 @@ const [formData, setFormData] = useState({
   city:"",
   state: "'",
   country:"",
-  zipcode:""
+  zipcode:"",
+  minorityOwned: [],
 })
-const [validForm, setValidForm] = useState(true)
+const [validForm, setValidForm] = useState(false)
 
 const history = useHistory()
 
@@ -112,6 +113,54 @@ const handleChange = evt => {
           &nbsp;&nbsp;
           <Link to="/shop/new">Cancel</Link>
         </form>
+        <label htmlFor="blackOwned">Are you a Black-owned Business:</label>
+        <input
+        type="checkbox"
+        name="blackOwned"
+        onChange={(evt) => {
+          let updateFormData = {...formData}
+          if (updateFormData.minorityOwned.some(m =>  m === evt.target.name)) {
+          let updateMinorityOwned = updateFormData.minorityOwned.filter(m => m !== evt.target.name)
+          updateFormData.minorityOwned = updateMinorityOwned
+          setFormData({...updateFormData})
+          } else {
+          updateFormData.minorityOwned.push(evt.target.name)
+          setFormData({...updateFormData})
+          }
+        }}
+        />
+        <label htmlFor="womanOwned">Are you a Woman-owned Business:</label>
+        <input
+        type="checkbox"
+        name="womanOwned"
+        onChange={(evt) => {
+          let updateFormData = {...formData}
+          if (updateFormData.minorityOwned.some(m =>  m === evt.target.name)) {
+          let updateMinorityOwned = updateFormData.minorityOwned.filter(m => m !== evt.target.name)
+          updateFormData.minorityOwned = updateMinorityOwned
+          setFormData({...updateFormData})
+          } else {
+          updateFormData.minorityOwned.push(evt.target.name)
+          setFormData({...updateFormData})
+          }
+        }}
+        />
+        <label htmlFor="lgbtOwned">Are you a LGBTQ+ owned Business:</label>
+        <input
+        type="checkbox"
+        name="lgbtOwned"
+        onClick={(evt) => {
+          let updateFormData = {...formData}
+          if (updateFormData.minorityOwned.some(m =>  m === evt.target.name)) {
+          let updateMinorityOwned = updateFormData.minorityOwned.filter(m => m !== evt.target.name)
+          updateFormData.minorityOwned = updateMinorityOwned
+          setFormData({...updateFormData})
+          } else {
+          updateFormData.minorityOwned.push(evt.target.name)
+          setFormData({...updateFormData})
+          }
+        }}
+        />
     </> 
 
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import './SearchForm.module.css'
 
 const SearchForm = (props) => {
   const history = useHistory()
@@ -18,7 +19,7 @@ const SearchForm = (props) => {
 
   return (
     <>
-    <div class="p-12 ">
+    <div class="search p-12 ">
     <form  class="bg-white flex items-center rounded-full shadow-xl" onSubmit={handleSubmit}> 
     {/* issue with sizing resetting to original stupid size after refresh  */}
     <input 

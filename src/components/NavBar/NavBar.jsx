@@ -58,7 +58,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
             </button>
             }
 
-            {/* <!-- Profile dropdown --> */}
+            {/* <!-- Profile dropdown --> */} 
             <div class="dropdown ml-3 relative">
               <div>
                 <button type="button" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
