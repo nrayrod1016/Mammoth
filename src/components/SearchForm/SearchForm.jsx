@@ -23,7 +23,7 @@ const SearchForm = (props) => {
     <form  class="bg-white flex items-center rounded-full shadow-xl" onSubmit={handleSubmit}> 
     {/* issue with sizing resetting to original stupid size after refresh  */}
     <input 
-    class="rounded-l-full w-auto py-3 px-10 text-gray-700 leading-tight focus:outline-none"
+    class="rounded-l-full w-100 py-3 px-10 text-gray-700 leading-tight focus:outline-none"
     type="text" 
     name="search"
     className="shopSearch"

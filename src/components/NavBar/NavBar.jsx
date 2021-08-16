@@ -38,7 +38,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
      
      
      
-     <a text-gray-300 > 
+     <a class='text-gray-300' > 
      <SearchForm /> 
      </a>
       </div>

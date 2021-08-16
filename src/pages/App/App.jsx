@@ -53,28 +53,28 @@ const App = (props) => {
     setUserProfile(userProfile)
   };
 
-  const addToWishlist = (productid) => {
+  const handleAddToWishlist = (productid) => {
     profileAPI.addToWishlist(productid)
     .then(data => {
       setUserProfile(data.profile)
     })
   }
 
-  const addToCart = (productid) => {
+  const handleAddToCart = (productid) => {
     profileAPI.addToCart(productid)
     .then(data => {
       setUserProfile(data.profile)
     })
   }
 
-  const removeFromCart = (productid) => {
+  const handleRemoveFromCart = (productid) => {
     profileAPI.removeFromCart(productid)
     .then(data => {
       setUserProfile(data.profile)
     })
   }
 
-  const removeFromWishList = (productid) => {
+  const handleRemoveFromWishlist = (productid) => {
     profileAPI.removeFromWishlist(productid)
     .then(data => {
       setUserProfile(data.profile)
@@ -157,7 +157,13 @@ const App = (props) => {
         exact
         path="/products/:id"
         render={() => 
-          <ProductShow userProfile={userProfile} />
+          <ProductShow 
+          userProfile={userProfile} 
+          handleAddToCart={handleAddToCart}
+          handleAddToWishlist={handleAddToWishlist}
+          handleRemoveFromCart={handleRemoveFromCart}
+          handleRemoveFromWishlist={handleRemoveFromWishlist}
+          />
         }
         />
         <Route
