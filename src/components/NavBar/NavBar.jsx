@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 // import NavBar from './index.css'
 import SearchForm from '../SearchForm/SearchForm'
 
+
 const NavBar = ({ user, handleLogout, userProfile }) => {
   const history = useHistory()
   const [query, setQuery] = useState("")
@@ -37,7 +38,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
      
      
      
-     <a text-gray-300 > 
+     <a class='text-gray-300' > 
      <SearchForm /> 
      </a>
       </div>
@@ -57,8 +58,8 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
             </button>
             }
 
-            {/* <!-- Profile dropdown --> */}
-            <div class="ml-3 relative">
+            {/* <!-- Profile dropdown --> */} 
+            <div class="dropdown ml-3 relative">
               <div>
                 <button type="button" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="sr-only">Open user menu</span>
@@ -81,7 +82,8 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
                   From: "transform opacity-100 scale-100"
                   To: "transform opacity-0 scale-95"
               --> */}
-            
+     
+        
             </div>
           </div>
         </div>
@@ -102,7 +104,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
 
               Menu open: "block", Menu closed: "hidden"
             --> */}
-            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>

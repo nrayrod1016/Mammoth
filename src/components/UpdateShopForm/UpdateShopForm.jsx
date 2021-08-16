@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import * as shopService from '../../services/shopService'
 
 const UpdateShopForm = (props) => {
-const [formData, setFormData] = useState(props.shop)
+
+
+const location = useLocation()
+console.log(location)
+const [formData, setFormData] = useState(location.state.shop)
 const [validForm, setValidForm] = useState(true)
 
 const history = useHistory()
@@ -99,6 +103,57 @@ const handleChange = evt => {
             name="zipcode"
             onChange={handleChange}
           /><br/>
+        <label htmlFor="blackOwned">Are you a Black-owned Business:</label>
+        <input
+        type="checkbox"
+        name="blackOwned"
+        value={formData.minorityOwned?.some(m =>  m === 'blackOwned')}
+        onChange={(evt) => {
+          let updateFormData = {...formData}
+          if (updateFormData.minorityOwned?.some(m =>  m === evt.target.name)) {
+          let updateMinorityOwned = updateFormData.minorityOwned.filter(m => m !== evt.target.name)
+          updateFormData.minorityOwned = updateMinorityOwned
+          setFormData({...updateFormData})
+          } else {
+          updateFormData.minorityOwned.push(evt.target.name)
+          setFormData({...updateFormData})
+          }
+        }}
+        />
+        <label htmlFor="womanOwned">Are you a Woman-owned Business:</label>
+        <input
+        type="checkbox"
+        name="womanOwned"
+        value={formData.minorityOwned?.some(m =>  m === 'womanOwned')}
+        onChange={(evt) => {
+          let updateFormData = {...formData}
+          if (updateFormData.minorityOwned.some(m =>  m === evt.target.name)) {
+          let updateMinorityOwned = updateFormData.minorityOwned.filter(m => m !== evt.target.name)
+          updateFormData.minorityOwned = updateMinorityOwned
+          setFormData({...updateFormData})
+          } else {
+          updateFormData.minorityOwned.push(evt.target.name)
+          setFormData({...updateFormData})
+          }
+        }}
+        />
+        <label htmlFor="lgbtOwned">Are you a LGBTQ+ owned Business:</label>
+        <input
+        type="checkbox"
+        name="lgbtOwned"
+        value={formData.minorityOwned?.some(m =>  m === 'lgbtOwned')}
+        onClick={(evt) => {
+          let updateFormData = {...formData}
+          if (updateFormData.minorityOwned?.some(m =>  m === evt.target.name)) {
+          let updateMinorityOwned = updateFormData.minorityOwned.filter(m => m !== evt.target.name)
+          updateFormData.minorityOwned = updateMinorityOwned
+          setFormData({...updateFormData})
+          } else {
+          updateFormData.minorityOwned.push(evt.target.name)
+          setFormData({...updateFormData})
+          }
+        }}
+        />
           <button>Add Shop</button><br/> 
           &nbsp;&nbsp;
           <Link to="/shop/new">Cancel</Link>

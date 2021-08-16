@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as recentService from "../../services/recentService"
-
+import './Home.css'
 
 const Home = (props) => { 
   const [recentActivity, setRecentActivity] = useState([])
@@ -16,7 +16,8 @@ const Home = (props) => {
 
     return ( 
 <> 
-<div> 
+<div class="home-container" >
+<div class="Home"> 
 <section>
  	<div class="bg-black text-white py-20">
  		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
@@ -95,13 +96,10 @@ const Home = (props) => {
  				</h2>
  				<p class="text-sm md:text-base text-gray-50 mb-4"></p>
 			</div>
-				
-					
-					
-						
 					</div>
 				</div>
 </section>
+</div>
 </div>
 </> 
 )

@@ -26,6 +26,20 @@ const ProductShow = (props) => {
 
   return (
     <>
+    <div>
+    {!props.userProfile?.cart.some(item => item?._id === product._id) &&
+    <button onClick={() =>props.handleAddToCart(product._id)}>Add to Cart</button>
+    }
+    {props.userProfile?.cart.some(item => item?._id === product._id) &&
+    <button onClick={() => props.handleRemoveFromCart(product._id)}>Remove From Cart</button>
+    }
+    {!props.userProfile?.wishlist.some(item => item?._id === product._id) &&
+    <button onClick={() => props.handleAddToWishlist(product._id)}>Add to Wishlist</button>
+    }
+    {props.userProfile?.wishlist.some(item => item?._id === product._id) &&
+    <button onClick={() => props.handleRemoveFromWishlist(product._id)}>Remove From Wishlist</button>
+    }
+    </div>
     <Link onClick={handleAddReview}>Leave a Review!</Link>
     {addReview &&
     <ReviewForm type="Product" product={product} reviewSubmit={reviewSubmit} />
