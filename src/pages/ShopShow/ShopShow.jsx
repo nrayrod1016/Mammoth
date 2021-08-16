@@ -26,10 +26,12 @@ const ShopShow = (props) => {
 
   return (
     <>
+    <div>
     <Link onClick={handleAddReview}>Leave a Review</Link>
     {addReview &&
     <ReviewForm type="Shop" reviewSubmit={reviewSubmit} shop={shop} />
-    }
+  }
+   </div>
     </>
   );
 }

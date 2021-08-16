@@ -22,7 +22,7 @@ const Home = (props) => {
  		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
  				<h1 class="text-3xl md:text-5xl p-2 text-yellow-300 tracking-loose">Mammoth</h1>
- 				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">By Mastedons
+ 				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">By Maste
  				</h2>
  				<p class="text-sm md:text-base text-gray-50 mb-4">An easy and well managed marketplace platform for Small Businesses to promote and sell their products.</p>
  				<a href="/shops"
@@ -95,10 +95,6 @@ const Home = (props) => {
  				</h2>
  				<p class="text-sm md:text-base text-gray-50 mb-4"></p>
 			</div>
-				
-					
-					
-						
 					</div>
 				</div>
 </section>
