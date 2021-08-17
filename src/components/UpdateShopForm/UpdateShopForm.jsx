@@ -99,7 +99,7 @@ const handleChange = evt => {
             type="text"
             autoComplete="off"
             id="zipcode"
-            value={formData.state}
+            value={formData.zipcode}
             name="zipcode"
             onChange={handleChange}
           /><br/>
@@ -156,7 +156,7 @@ const handleChange = evt => {
         />
           <button>Add Shop</button><br/> 
           &nbsp;&nbsp;
-          <Link to="/shop/new">Cancel</Link>
+          <Link to="/">Cancel</Link>
         </form>
     </> 
 

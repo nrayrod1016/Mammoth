@@ -78,11 +78,15 @@ const App = (props) => {
     profileAPI.removeFromWishlist(productid)
     .then(data => {
       setUserProfile(data.profile)
+      history.push('/')
     })
   }
 
-  const handleCheckout = () => {
-
+  const handleCheckout = (formData) => {
+    profileAPI.newOrder(formData)
+    .then(data => {
+      setUserProfile(data.profile)
+    })
   }
 
   useEffect(() => {
@@ -195,7 +199,10 @@ const App = (props) => {
         exact
         path="/checkout"
         render={() => 
-          <Checkout userProfile={userProfile} />
+            //userProfile?.cart?.length > 0 ?
+              <Checkout userProfile={userProfile} handleCheckout={handleCheckout} />
+              //:
+             // <Redirect to='/' />
         }
         />
         <Route
