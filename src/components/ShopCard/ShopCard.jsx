@@ -2,7 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 
-function ShopCard ({Shop}) { 
+function ShopCard ({Shop}) {
+  let reviewAverage = null
+  Shop.reviews?.forEach(review => {
+    reviewAverage += review.rating
+  })
+  reviewAverage = (reviewAverage / Shop.reviews?.length).toFixed(2) 
     return ( 
 <div class=" flex  flex-col  md:flex-row justify-center  flex-wrap gap-3 mt-10  ">
           <div class="pro-card">
@@ -32,6 +37,9 @@ function ShopCard ({Shop}) {
         }
         {Shop.owner && 
           <p class="py-6 px-6 text-lg tracking-wide text-center">{Shop.owner.name}</p>
+        }
+        {Shop.reviews.length > 0 && 
+          <p class="py-6 px-6 text-lg tracking-wide text-center">Average Rating: {reviewAverage}</p>
         }
                                 {/* <!-- <hr > --> */}
 <Link to={`/shops/${Shop._id}`}>

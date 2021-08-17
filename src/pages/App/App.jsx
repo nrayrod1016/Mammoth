@@ -218,6 +218,7 @@ const App = (props) => {
             <Redirect to="/" />
           )}
         />
+        <h1 class="m-1"> </h1>
         <Footer />
     </>
   );

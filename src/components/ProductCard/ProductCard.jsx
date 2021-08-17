@@ -2,6 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // will change 2nd product name to a 
 const ProductCard = ({Product}) => { 
+  let reviewAverage = null
+  Product.reviews?.forEach(review => {
+    reviewAverage += review.rating
+  })
+  reviewAverage = (reviewAverage / Product.reviews?.length).toFixed(2)
     return ( 
        
 <div class=" flex md:flex-row justify-center  flex-wrap gap-3 mt-10  ">
@@ -24,9 +29,9 @@ const ProductCard = ({Product}) => {
         {Product.email &&
           <p class="py-6 px-6 text-lg tracking-wide text-center">{Product.pictures}</p>
         }
-        {/* {Product. && 
-          <p class="py-6 px-6 text-lg tracking-wide text-center">{Product.shop}</p>
-        } */}
+        {Product.reviews.length > 0 && 
+          <p class="py-6 px-6 text-lg tracking-wide text-center">Average Rating: {reviewAverage}</p>
+        }
         
                                 {/* <!-- <hr > --> */}
             <Link to={`/products/${Product._id}`}>

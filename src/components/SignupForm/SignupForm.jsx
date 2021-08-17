@@ -41,9 +41,9 @@ const SignupForm = (props) => {
      autoComplete="off"
      onSubmit={handleSubmit}
      >
-        <p class="text-white font-medium text-center text-lg font-bold">Sign Up</p>
+        <p class="text-indigo-500 font-medium text-center text-xl font-bold">Sign Up</p>
         <div >
-            <label class="block text-sm text-white" htmlFor="name" 
+            <label class="block text-lg text-black" htmlFor="name" 
             >
             Name
             </label>
@@ -57,7 +57,7 @@ const SignupForm = (props) => {
             ></input>
           </div>
           <div>
-            <label class="block text-sm text-white" htmlFor="email" 
+            <label class="block text-md text-black" htmlFor="email" 
             >
             E-mail
             </label>
@@ -72,7 +72,7 @@ const SignupForm = (props) => {
           </div>
 
           <div class="mt-2" >
-            <label class="block  text-sm text-white" htmlFor="password" >Password</label>
+            <label class="block  text-md text-black" htmlFor="password" >Password</label>
              <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
               type="password"
               autoComplete="off"
@@ -85,7 +85,7 @@ const SignupForm = (props) => {
               </input>
           </div>
           <div class="mt-2" >
-            <label class="block  text-sm text-white" htmlFor="password" className="">Confirm Password</label>
+            <label class="block  text-sm text-black" htmlFor="password" className="">Confirm Password</label>
              <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
               type="password"
               autoComplete="off"
@@ -99,21 +99,16 @@ const SignupForm = (props) => {
           </div>
 
           <div class="mt-4 items-center flex justify-between">
-            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 hover:bg-gray-800 rounded"
+            <button class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded"
              >
                Sign up
                </button>
             <Link to="/">
-              <button>Cancel</button>
+              <button class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded">Cancel</button>
             </Link>
-            {/* <a class="inline-block right-0 align-baseline font-bold text-sm text-500 text-white hover:text-red-400"
-              href="#">Forgot Your Password?</a> */}
+           
           </div>
-          <div class="text-center">
-            {/* <a class="inline-block right-0 align-baseline font-light text-sm text-500 hover:text-red-400" href='/signup'>
-                Create an Account 
-            </a> */}
-          </div>
+          
 
     </form>
 

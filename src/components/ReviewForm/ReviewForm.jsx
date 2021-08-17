@@ -76,6 +76,8 @@ const ReviewForm = (props) => {
         > 
         {formData.content}
         </textarea>
+
+        {/*  */}
         {formData.images?.map((image, idx) => 
           <ImageInput handleChangeImage={handleChangeImage} key={idx} idx={idx} image={image} deleteImageInput={deleteImageInput} />
         )}
@@ -93,6 +95,7 @@ const ReviewForm = (props) => {
         step="1"
         onChange={handleChange}
         />
+        {/*  */}
         <label>Would you Recommend?</label>
         <input
         type="checkbox"
