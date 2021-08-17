@@ -67,7 +67,7 @@ const ProfileForm = (props) => {
             autoComplete="off"
             id="city"
             value={profile?.city}
-            name="password"
+            name=""
             onChange={handleChange}
           /><br/> 
           <label htmlFor="state">State</label>

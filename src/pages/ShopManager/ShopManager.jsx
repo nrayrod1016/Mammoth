@@ -24,28 +24,6 @@ const handleSetManager = evt =>  {
   setShop(shop._id)
 }
 
-//  questions for blake ** 
-// im going to need a handleupdateProduct 
-//  and handleupdateShop correct ? 
-//  or should i just be passing linked to each separate form page ? 
-// handleUpdateProduct() { 
-//   let location = useLocation() 
-//   useEffect(() => { 
-//     send(["products", location.{'/produts/:id/manage'}])
-//   }, [location])
-// }
-
-// handleUpdateShop() { 
-//   let location = useLocation() 
-//   useEffect(() => { 
-//     send(["shops", location])
-//   }, [location])
-// }
-
-
-// setManager() { 
-
-// }
   return (
     <>
     {/* renderproducts */}
@@ -63,15 +41,15 @@ const handleSetManager = evt =>  {
   )
   }
 
-    {/* */}
-    {/* <UpdateShopForm />  */}
+
+    
 
     
 </div> 
 <Link /> 
 
   
-    {/* link to update shop form */}
+   
 
 
     </>

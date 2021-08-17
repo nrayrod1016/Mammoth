@@ -151,7 +151,7 @@ const Home = (props) => {
 <div class="bg-white text-black py-20"> 
  		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">The Maste Devs</h1>
+ 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose"> The Devs</h1>
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
  				<p class="text-sm md:text-base text-gray-50 mb-4">

@@ -29,7 +29,7 @@ const Profile = (props) => {
       <Link to={`/profile/${profile._id}/update`}>Update Profile!</Link>
     }
     {props.userProfile?._id === profile._id &&
-       <Link to='/shops/new'>Add a Shop!</Link>
+       <Link to='/shops/create/new'>Add a Shop!</Link>
       }
       </div>
     </>

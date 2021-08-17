@@ -103,7 +103,7 @@ const handleChange = evt => {
             name="zipcode"
             onChange={handleChange}
           /><br/>
-        <label htmlFor="blackOwned">Are you a Black-owned Business:</label>
+        <label htmlFor="blackOwned">Are you a Black-owned Business:</label> 
         <input
         type="checkbox"
         name="blackOwned"

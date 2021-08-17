@@ -81,6 +81,10 @@ const App = (props) => {
     })
   }
 
+  const handleCheckout = () => {
+
+  }
+
   useEffect(() => {
       profileAPI.getUserProfile()
       .then(userProfile => {
@@ -111,18 +115,18 @@ const App = (props) => {
           <ProductIndex />
         }
         />
+        <Route 
+        exact
+        path="/shops/create/new"
+        render={() => 
+          <AddShop userProfile={userProfile} />
+        }
+        />
         <Route
         exact
         path="/shops"
         render={() => 
           <ShopIndex />
-        }
-        />
-        <Route 
-        exact
-        path="/shops/new"
-        render={() => 
-          <AddShop userProfile={userProfile} />
         }
         />
         <Route
