@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom'; 
 
 
-const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
-  const [profile, setProfile] = useState(userProfile) 
+const ProfileForm = (props) => {
+  const [profile, setProfile] = useState({}) 
   const [validForm, setValidForm] = useState(true)
   const history = useHistory()
 
@@ -18,10 +18,13 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
     formElement.current.checkValidity() ? 
     setValidForm(true) : setValidForm(false)
   })
+  useEffect(() => {
+    setProfile(props.userProfile)
+  }, [props.userProfile])
 
   const handleSubmit = evt => { 
     evt.preventDefault()
-    handleUpdateProfile(profile)
+    props.handleUpdateProfile(profile)
     history.push('/')
   }
 
@@ -34,7 +37,7 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
             type="text"
             autoComplete="off"
             id="name"
-            value={profile.name}
+            value={profile?.name}
             name="name"
             onChange={handleChange}
             required
@@ -44,7 +47,7 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
             type="text"
             autoComplete="off"
             id="email"
-            value={profile.email}
+            value={profile?.email}
             name="email"
             onChange={handleChange}
             required
@@ -54,7 +57,7 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
             type="text"
             autoComplete="off"
             id="address"
-            value={profile.address}
+            value={profile?.address}
             name="address"
             onChange={handleChange}
           /><br/> 
@@ -63,7 +66,7 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
             type="text"
             autoComplete="off"
             id="city"
-            value={profile.city}
+            value={profile?.city}
             name="password"
             onChange={handleChange}
           /><br/> 
@@ -72,7 +75,7 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
             type="text"
             autoComplete="off"
             id="state"
-            value={profile.state}
+            value={profile?.state}
             name="state"
             onChange={handleChange}
           /><br/> 
@@ -81,7 +84,7 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
             type="text"
             autoComplete="off"
             id="country"
-            value={profile.country}
+            value={profile?.country}
             name="country"
             onChange={handleChange}
           /><br/> 
@@ -89,9 +92,9 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
           <input
             type="text"
             autoComplete="off"
-            id="state"
-            value={profile.state}
-            name="state"
+            id="zipcode"
+            value={profile?.zipcode}
+            name="zipcode"
             onChange={handleChange}
           /><br/>
           <label htmlFor="avatar">Avatar Link:</label>
@@ -99,7 +102,7 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
             type="text"
             autoComplete="off"
             id="avatar"
-            value={profile.avatar}
+            value={profile?.avatar}
             name="avatar"
             required
             onChange={handleChange}
