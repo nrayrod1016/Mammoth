@@ -78,6 +78,14 @@ const App = (props) => {
     profileAPI.removeFromWishlist(productid)
     .then(data => {
       setUserProfile(data.profile)
+      history.push('/')
+    })
+  }
+
+  const handleCheckout = (formData) => {
+    profileAPI.newOrder(formData)
+    .then(data => {
+      setUserProfile(data.profile)
     })
   }
 
@@ -111,18 +119,18 @@ const App = (props) => {
           <ProductIndex />
         }
         />
+        <Route 
+        exact
+        path="/shops/create/new"
+        render={() => 
+          <AddShop userProfile={userProfile} />
+        }
+        />
         <Route
         exact
         path="/shops"
         render={() => 
           <ShopIndex />
-        }
-        />
-        <Route 
-        exact
-        path="/shops/new"
-        render={() => 
-          <AddShop userProfile={userProfile} />
         }
         />
         <Route
@@ -191,7 +199,10 @@ const App = (props) => {
         exact
         path="/checkout"
         render={() => 
-          <Checkout userProfile={userProfile} />
+            //userProfile?.cart?.length > 0 ?
+              <Checkout userProfile={userProfile} handleCheckout={handleCheckout} />
+              //:
+             // <Redirect to='/' />
         }
         />
         <Route

@@ -53,7 +53,11 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
                 <a href='/login' class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
                     <span>Login</span>
                 </a>
-                
+                <li>
+                    <a href="/checkout" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+                        <span>Checkout</span>
+                    </a>
+                </li>
                 <Link to='' onClick={handleLogout}>
                 <a  href="/logout" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
                     <span>Sign Out</span>
