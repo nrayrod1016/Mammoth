@@ -20,6 +20,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
     return (
 <>
 
+
 <div class="bg-white"> 
 
     <nav class="flex px-5 border-b md:shadow-lg items-center relative">

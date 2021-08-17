@@ -12,7 +12,7 @@ const Profile = (props) => {
       setProfile(profile)
     }
       )
-  }, [id]) 
+  }, [id, props.userProfile]) 
 
   
 
@@ -66,6 +66,23 @@ const Profile = (props) => {
             <Link to={`/shops/${shop._id}/manage`}>
               Manage Your Shop Here!
             </Link>
+            }
+          </div>
+          )
+        })}
+      </section>
+      }
+      {profile.orders?.length > 0 &&
+      <section>
+        <h1>Here are Your Past Orders</h1>
+        {profile.orders?.map(order => {
+          return(
+            <div key={order._id}>
+            <h1>Order Number: {order._id}</h1>
+            <h1>Order Cost: ${order.price}</h1>
+            <h1>{order.items.map(item => <> {item} </>)}</h1>
+            {props.userProfile?._id === profile._id &&
+            <button onClick={() => props.removeOrderFromHistory(order._id)}>Remove Order From History</button>
             }
           </div>
           )
