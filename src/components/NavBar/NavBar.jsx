@@ -23,12 +23,12 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
 <div class="bg-white"> 
 
     <nav class="flex px-5 border-b md:shadow-lg items-center relative">
-        <div class="text-lg font-bold md:py-0 py-4"  >
+        <div class="text-lg text-indigo-500 font-bold md:py-0 py-4"  >
           <a href="/" > 
-            Logo </a> 
+            Mammoth </a> 
         </div>
         <SearchForm /> 
-        <ul class="md:px-2 ml-auto md:flex md:space-x-2 absolute md:relative top-full left-0 right-0">
+        <ul class="text-indigo-500 font-bold md:px-2 ml-auto md:flex md:space-x-2 absolute md:relative top-full left-0 right-0">
             <li>
                 <a href="/" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
                     <span>Home</span>
@@ -43,10 +43,14 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
                     <span>All Products</span>
                 </a>
 
-                <a  href={`/profile/${userProfile?._id}`} class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+                <a href={`/profile/${userProfile?._id}`} class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
                     <span>My Profile</span>
                 </a>
-                <a  href='/login' class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+
+                <a href='/signup' class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+                    <span>Signup</span>
+                </a>
+                <a href='/login' class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
                     <span>Login</span>
                 </a>
                 

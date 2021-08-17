@@ -31,7 +31,7 @@ const SearchForm = (props) => {
     onChange={handleChange}
     />  
     <div>
-    <button class="bg-blue-500 text-white text-sm rounded-full p-4 hover:bg-blue-400 focus:outline-none w-14 h-11 flex items-center justify-center" >
+    <button class="bg-indigo-500 text-white text-sm rounded-full p-4 hover:bg-blue-400 focus:outline-none w-14 h-11 flex items-center justify-center" >
         Search
     </button>
     </div> 

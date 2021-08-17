@@ -35,9 +35,9 @@ const LoginForm = (props) => {
              onSubmit={handleSubmit}
              className={styles.container}
              >
-                <p class="text-white font-medium text-center text-lg font-bold">LOGIN</p>
+                <p class="text-indigo-500 font-medium text-center text-lg font-bold">LOGIN</p>
                   <div className={styles.inputContainer}>
-                    <label class="block text-sm text-white" htmlFor="email" className={styles.label}
+                    <label class="block text-md text-indigo-500" htmlFor="email" className={styles.label}
                     >
                     E-mail
                     </label>
@@ -52,7 +52,7 @@ const LoginForm = (props) => {
                   </div>
     
                   <div class="mt-2" className={styles.inputContainer}>
-                    <label class="block  text-sm text-white" htmlFor="password" className={styles.label}>Password</label>
+                    <label class="block text-indigo-500 text-sm text-indigo" htmlFor="password" className={styles.label}>Password</label>
                      <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
                       type="password"
                       autoComplete="off"
@@ -66,7 +66,7 @@ const LoginForm = (props) => {
                   </div>
     
                   <div class="mt-4 items-center flex justify-between">
-                    <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 hover:bg-gray-800 rounded"
+                    <button class="px-4 py-1 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-gray-300 rounded"
                      className={styles.button}
                      >
                        Sign In
@@ -74,11 +74,11 @@ const LoginForm = (props) => {
                     
                   </div>
                   <div class="text-center">
-                    <a class="inline-block right-0 align-baseline font-light text-sm text-500 hover:text-red-400" href='/signup'>
+                    <a class="inline-block right-0 align-baseline font-light text-md text-500 hover:text-red-400" href='/signup'>
                         Create an Account 
                     </a><br/>
-                    <a class="inline-block right-0 align-baseline font-bold text-sm text-500 text-white hover:text-red-400"
-                      href="#">Forgot Your Password?</a>
+                    {/* <a class="inline-block right-0 align-baseline font-bold text-sm text-500 text-white hover:text-indigo-500"
+                      href="#">Forgot Your Password?</a> */}
                   </div>
     
             </form>
