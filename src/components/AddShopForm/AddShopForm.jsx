@@ -223,7 +223,7 @@ const handleChange = evt => {
              >
                Add Shop
                </button>
-            <Link to="/">
+            <Link to="/shop/new">
               <button class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded">Cancel</button>
             </Link>
            

@@ -20,3 +20,11 @@ export function create(formData) {
   .then(res => res.json())
 }
 
+export function update(shopid, formData) {
+  return fetch(`${BASE_URL}/${shopid}/update`, {
+    method: "PATCH",
+    headers: {'Authorization': `Bearer ${tokenService.getToken()}`, "content-type": "application/json"},
+    body: JSON.stringify(formData)
+  }, { mode: "cors"})
+  .then(res => res.json())
+}
