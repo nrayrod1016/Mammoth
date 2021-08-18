@@ -6,9 +6,9 @@ import ImageInput from './ImageInput/ImageInput';
 import VideoInput from './VideoInput/VideoInput';
 import * as productService from '../../services/productService'
 
-const UpdateProductForm = (props) => {
+const UpdateProductForm = () => {
   const { id } = useParams()
-  const [formData, setFormData] = useState(props.product)
+  const [formData, setFormData] = useState('test')
   const [validForm, setValidForm] = useState(false)
 
   const form = useRef()

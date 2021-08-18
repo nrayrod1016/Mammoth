@@ -16,7 +16,7 @@ const ShopIndex = (props) => {
   return (
     <>
     <h1> Shop List</h1> 
-    <div> 
+    <div class="grid gap-4 grid-cols-3"> 
       {shops.map((shop) => {
         return (
       <ShopCard Shop={shop} key={shop._id} /> 
@@ -25,6 +25,7 @@ const ShopIndex = (props) => {
       )}
       
       </div>  
+      <h1 class="m-1"> </h1>
     </>
   );
 }

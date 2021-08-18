@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom'; 
 
 
-const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
-  const [profile, setProfile] = useState(userProfile) 
+const ProfileForm = (props) => {
+  const [profile, setProfile] = useState(props.userProfile) 
   const [validForm, setValidForm] = useState(true)
   const history = useHistory()
 
@@ -13,101 +13,161 @@ const ProfileForm = ({ userProfile, handleUpdateProfile }) => {
       evt.target.value })
   }
 
-  const formElement = useRef() 
-  useEffect(() => { 
-    formElement.current.checkValidity() ? 
-    setValidForm(true) : setValidForm(false)
-  })
+ 
 
   const handleSubmit = evt => { 
     evt.preventDefault()
-    handleUpdateProfile(profile)
+    props.handleUpdateProfile(profile)
     history.push('/')
   }
 
  
   return (
     <>
-    <form autoComplete="off" onSubmit={handleSubmit} ref={formElement}>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="name"
-            value={profile.name}
-            name="name"
-            onChange={handleChange}
-            required
-          /><br/> 
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="email"
-            value={profile.email}
-            name="email"
-            onChange={handleChange}
-            required
-          /><br/> 
-          <label htmlFor="address">Address</label>
-          <input
+   <main>
+<div class="h-screen font-sans login bg-cover">
+<div class="container mx-auto h-full flex flex-1 justify-center items-center">
+<div class="w-full max-w-lg">
+<div class="leading-loose">
+<form class="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl"
+ autoComplete="off"
+ onSubmit={handleSubmit}
+ >
+    <p class="text-indigo-500 font-medium text-center text-xl font-bold">Sign Up</p>
+    <div >
+        <label class="block text-lg text-black" htmlFor="name" 
+        >
+        Name
+        </label>
+        <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+           type="text"
+           autoComplete="off"
+           id="name"
+           value={profile?.name}
+           name="name"
+           onChange={handleChange}
+           required
+        ></input>
+      </div>
+      <div>
+        <label class="block text-md text-black" htmlFor="email" 
+        >
+        E-mail
+        </label>
+        <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"  
+          type="text"
+          autoComplete="off"
+          id="email"
+          value={profile?.email}
+          name="email"
+          onChange={handleChange}
+          required
+        ></input>
+      </div>
+
+      <div class="mt-2" >
+        <label class="block  text-md text-black" htmlFor="address" >
+          Address
+          </label>
+         <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
             type="text"
             autoComplete="off"
             id="address"
-            value={profile.address}
+            value={profile?.address}
             name="address"
             onChange={handleChange}
-          /><br/> 
-          <label htmlFor="city">City</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="city"
-            value={profile.city}
-            name="password"
-            onChange={handleChange}
-          /><br/> 
-          <label htmlFor="state">State</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="state"
-            value={profile.state}
-            name="state"
-            onChange={handleChange}
-          /><br/> 
-          <label htmlFor="country">Country</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="country"
-            value={profile.country}
-            name="country"
-            onChange={handleChange}
-          /><br/> 
-          <label htmlFor="zipcode">Zipcode</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="state"
-            value={profile.state}
-            name="state"
-            onChange={handleChange}
-          /><br/>
-          <label htmlFor="avatar">Avatar Link:</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="avatar"
-            value={profile.avatar}
-            name="avatar"
-            required
-            onChange={handleChange}
-          /><br/>
-          <button disabled={!validForm}>Update Profile</button><br/> 
-          &nbsp;&nbsp;
-          <Link to="/">Cancel</Link>
-        </form>
+          >
+
+          </input>
+      </div>
+      <div class="mt-2" >
+        <label class="block  text-sm text-black" htmlFor="city" className="">City</label>
+         <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+         type="text"
+         autoComplete="off"
+         id="city"
+         value={profile?.city}
+         name="city"
+         onChange={handleChange}
+          >
+
+          </input>
+      </div>
+
+      <div class="mt-2" >
+        <label class="block  text-sm text-black" htmlFor="state" className="">State</label>
+         <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+          type="text"
+          autoComplete="off"
+          id="state"
+          value={profile?.state}
+          name="state"
+          onChange={handleChange}
+          >
+
+          </input>
+      </div>
+      <div class="mt-2" >
+        <label class="block  text-sm text-black" htmlFor="state" className="">Country</label>
+         <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+           type="text"
+           autoComplete="off"
+           id="country"
+           value={profile?.country}
+           name="country"
+           onChange={handleChange}
+          >
+
+          </input>
+      </div>
+      <div class="mt-2" >
+        <label class="block  text-sm text-black" htmlFor="state" className="">Zipcode</label>
+         <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+              type="text"
+              autoComplete="off"
+              id="zipcode"
+              value={profile?.zipcode}
+              name="zipcode"
+              onChange={handleChange}
+          >
+
+          </input>
+      </div>
+      <div class="mt-2" >
+        <label class="block  text-sm text-black" htmlFor="state" className="">Avatar Link</label>
+         <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+              type="text"
+              autoComplete="off"
+              id="avatar"
+              value={profile?.avatar}
+              name="avatar"
+              required
+              onChange={handleChange}
+          >
+          </input>
+      </div>
+
+
+      <div class="mt-4 items-center flex justify-between">
+        <button class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded"
+        disabled={!validForm}
+         >
+           Update Profile 
+           </button>
+        <Link to="/">
+          <button class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded">Cancel</button>
+        </Link>
+       
+      </div>
+      
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</main>
 
 
     </>

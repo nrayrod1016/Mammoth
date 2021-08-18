@@ -12,18 +12,19 @@ const ProductIndex = (props) => {
     })  
 
   }, []) 
+   
   
   return (
     <>
     <h1> Product List </h1> 
-
+<div class="grid gap-4 grid-cols-3">
     {products.map(product => {
       return (
         <ProductCard Product={product} key={product._id}/> 
       )
     }
     )}
-
+ </div>
 
     </>
   );

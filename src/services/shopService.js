@@ -6,6 +6,11 @@ export function getAll() {
   .then(res => res.json())
 }
 
+export function getDetails(id) {
+  return fetch(`${BASE_URL}/${id}`)
+  .then(res => res.json())
+}
+
 export function create(formData) { 
   return fetch(`${BASE_URL}/create`, {
     method: "POST",
@@ -14,3 +19,4 @@ export function create(formData) {
   }, { mode: "cors"})
   .then(res => res.json())
 }
+
