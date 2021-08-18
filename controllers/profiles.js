@@ -61,10 +61,13 @@ function newOrder(req, res) {
     }
   })
   .then(profile => {
+    let price = 0
     profile.cart.forEach(product => {
       productNames.push(product.name)
       shopNames.push(product.shop.name)
+      price = price + product.price
     })
+    req.body.price = price
     req.body.profile = profile._id
     req.body.items = productNames
     req.body.storeNames = shopNames

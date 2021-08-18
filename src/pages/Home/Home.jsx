@@ -48,7 +48,7 @@ const Home = (props) => {
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8 ">
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
-				 <div class="grid gap-72 grid-cols-5 w-100"> 
+				 <div class="grid gap-72 grid-cols-5 w-100 ml-10"> 
  				{recentActivity.shops?.map(shop => {
 					 return (
 						 <ShopCard 
@@ -85,6 +85,7 @@ const Home = (props) => {
 					</div>
 				</div>
 </section>
+
 {recentActivity.profile &&
 <section>
 <div class="bg-white text-black py-20">
@@ -93,40 +94,73 @@ const Home = (props) => {
  				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Your Recent Activity</h1>
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
+				 <div class="grid gap-72 grid-cols-5 w-100 ml-10 mb-10 mt-5" >
 				{recentActivity.profile?.orders.length > 0 &&
  				recentActivity.profile?.orders?.map(order => {
 					 return (
-					 <div>
-						 <h1>Order Number: {order._id}</h1>
-						 <h3>{order.items.map(item => { return item})}</h3>
-						 <h5>Total Cost: ${order.price}</h5>
-					 </div>
+						 
+						 <div class="container mx-auto">
+<div class="bg-white w-60 h-40 mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
+<h1 class="h-20 text-white text-sm text-center bg-indigo-500 flex items-center justify-between">Order Number: {order._id}</h1>
+<p class="mr-4 text-black text-center font-thin text-lg">{order.items.map(item => { return item})}</p>
+      <div class="flex justify-between px-5 mb-2 text-sm  text-gray-600">
+        <p class="text-center ">Total Cost: ${order.price}</p>
+      </div>
+    </div>  
+</div>
+
 					 )
 				 })
 				}
+</div> 
+
+<div class="bg-white text-black py-20">
+ 		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24"></div>
+ 			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
 				{recentActivity.profile?.cart.length > 0 &&
-				<h1>Don't forget about these items in your cart!</h1>
+				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Don't forget about these items in your cart!</h1>
 			  }
+				 <div class="grid gap-72 grid-cols-5 w-100 ml-10 mb-10 mt-5" >
 				<Link to={`/checkout`}>
  				{recentActivity.profile?.cart?.map(item => {
 					return (
-						<div>
-							<img src={item?.pictures[0]} alt={`${item.name}'s pic`} />
-							<h1>{item.name}</h1>
+						<div class="container mx-auto">
+						<div class="bg-white max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
+						<h1 class="h-20 bg-indigo-500 flex items-center justify-between"><img src={item?.pictures[0]} alt={`${item.name}'s pic`} /></h1>
+				
+								</div>  
+									<div class="flex justify-between px-5 mb-2 text-sm text-gray-600">
+										<p>{item.name}</p>
+									</div>
 						</div>
 					)
-				 })}
+				})}
+			
+				 
 				 </Link>
+				</div>
+				 </div> 
+				 </div> 
+
+
+
 				{recentActivity.profile?.wishlist.length > 0 &&
+				
 				<h1>Don't forget about these items in your wishlist</h1>
 			  }
  				{recentActivity.profile?.wishlist?.map(item => {
 					return (
 					<Link to={`/products/${item._id}`}>
-						<div>
-							<img src={item?.pictures[0]} alt={`${item?.name}'s pic`} />
-							<h1>{item.name}</h1>
-						</div>
+						 <div class="pro-card">
+					 <div class="bg-white max-w-xs shadow-lg mx-auto border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer" >
+        <div class="bg-indigo-500  flex  w-60 items-center">
+         
+        <img src={item?.pictures[0]} alt={`${item?.name}'s pic`} />
+        </div>
+          <h1 class="py-6 px-6 text-xl tracking-wide text-center">{item.name}</h1>
+    
+        </div>
+				</div> 
 					</Link>
 					)
 				 })}
