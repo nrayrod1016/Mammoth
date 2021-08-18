@@ -5,6 +5,7 @@ import './Footer.module.css'
 const Footer = () => {
   return (
     <>
+<h1 class="m-40"> </h1>
 
   <footer class="mt-auto bottom-0" >
           <div class="bg-white text-indigo-600 py-15 w-auto md:w-auto bottom-0 border-0">

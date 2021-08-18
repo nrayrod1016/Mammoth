@@ -25,6 +25,7 @@ const ShopIndex = (props) => {
       )}
       
       </div>  
+      <h1 class="m-1"> </h1>
     </>
   );
 }

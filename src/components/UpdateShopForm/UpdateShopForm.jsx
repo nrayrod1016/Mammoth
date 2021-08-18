@@ -99,11 +99,11 @@ const handleChange = evt => {
             type="text"
             autoComplete="off"
             id="zipcode"
-            value={formData.state}
+            value={formData.zipcode}
             name="zipcode"
             onChange={handleChange}
           /><br/>
-        <label htmlFor="blackOwned">Are you a Black-owned Business:</label>
+        <label htmlFor="blackOwned">Are you a Black-owned Business:</label> 
         <input
         type="checkbox"
         name="blackOwned"
@@ -156,7 +156,7 @@ const handleChange = evt => {
         />
           <button>Add Shop</button><br/> 
           &nbsp;&nbsp;
-          <Link to="/shop/new">Cancel</Link>
+          <Link to="/">Cancel</Link>
         </form>
     </> 
 
