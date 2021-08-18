@@ -24,12 +24,23 @@ function show(req, res) {
     }
   })
   .populate('owner')
+  .populate({
+    path: "products",
+    populate: {
+      path: "orders",
+      populate: {
+        path: "profile"
+      }
+    }
+  })
   .then(shop => {
     res.json(shop)
   })
 }
 
 function update(req, res) {
+  console.log(req.body)
+  delete req.body._id
   Shop.findByIdAndUpdate(req.params.shopid, req.body, {new: true})
   .then(shop => {
     res.json(shop)

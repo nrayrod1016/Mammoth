@@ -77,3 +77,13 @@ export function newOrder(formData) {
   )
   .then(res => res.json())
 }
+
+export function removeOrderFromHistory(id) {
+  return fetch(`${BASE_URL}/remove/${id}`, {
+    method: "DELETE",
+    headers: { Authorization: "Bearer " + tokenService.getToken(), "content-type": "application/json" },
+  },
+  { mode: "cors"}
+  )
+  .then(res => res.json())
+}

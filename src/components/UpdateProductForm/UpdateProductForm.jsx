@@ -20,6 +20,13 @@ const UpdateProductForm = () => {
     setValidForm(true) : setValidForm(false)
   })
 
+  useEffect(() => {
+    productService.getDetails(id)
+    .then(product => {
+      setFormData(product)
+    })
+  }, [])
+
   const deleteImageInput = (idx) => {
     formData.images.splice(idx, 1)
     setFormData({...formData})
