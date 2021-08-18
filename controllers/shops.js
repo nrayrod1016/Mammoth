@@ -39,6 +39,8 @@ function show(req, res) {
 }
 
 function update(req, res) {
+  console.log(req.body)
+  delete req.body._id
   Shop.findByIdAndUpdate(req.params.shopid, req.body, {new: true})
   .then(shop => {
     res.json(shop)

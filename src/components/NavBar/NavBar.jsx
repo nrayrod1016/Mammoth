@@ -30,7 +30,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
     <span class="text-xs text-grey-dark">By Maste </span>
   </div>
   <div>
-  {/* <SearchForm />    */}
+  <SearchForm />   
   </div> 
 
   <div class="sm:mb-0 self-center ">
@@ -63,7 +63,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
     </a>
     </Link>
     <a href="/checkout" class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
-      {/* <img src={cartLogo} alt="Checkout" /> */}
+      <img src='' alt="Checkout" /> 
     </a>
   </>
   }
@@ -78,9 +78,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
                   </a>
         </>
                   }
-                  {!user &&
-        <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/KXmtpXB.png" alt=""/>
-                  } 
+                  
     
     
 

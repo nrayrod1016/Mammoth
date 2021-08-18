@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link} from 'react-router-dom'
 import * as shopService from '../../services/shopService'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
 
@@ -9,15 +9,15 @@ const ShopShow = (props) => {
 
   const { id } = useParams()
 
+
   useEffect(() => {
     shopService.getDetails(id)
     .then(shop => {
       setShop(shop)
     })
-  }, [id])
+  }, [id, addReview])
 
   const handleAddReview = evt => {
-    console.log('test')
     setAddReview(!addReview)
   }
 
@@ -70,7 +70,7 @@ const ShopShow = (props) => {
         </div>
         </div>
         </div>
-
+        {props.userProfile &&
         <div class="flex justify-center px-5 mb-2 text-sm ">
             <Link onClick={handleAddReview}>
               <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
@@ -78,8 +78,9 @@ const ShopShow = (props) => {
               </button>
             </Link>
             </div>
-        {addReview &&
-        <ReviewForm type="Shop" reviewSubmit={reviewSubmit} shop={shop} />
+        }
+        {addReview && 
+        <ReviewForm type="Shop" handleAddReview={handleAddReview} reviewSubmit={reviewSubmit} shop={shop} />
         }
 
       <div>

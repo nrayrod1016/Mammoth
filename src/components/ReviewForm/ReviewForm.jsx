@@ -36,11 +36,12 @@ const ReviewForm = (props) => {
   }
 
   const handleSubmit = evt => {
+    console.log('test')
     evt.preventDefault()
     if (!props.review === undefined) {
       setFormData({...formData, rating: parseInt(formData.rating)})
       reviewService.updateReview(props.review._id, formData)
-      history.push(history.pathname)
+      history.push('/')
     } else {
       if(props.type === "Shop") {
         setFormData({...formData, rating: parseInt(formData.rating)})
@@ -147,12 +148,12 @@ const ReviewForm = (props) => {
 
           <br/>
           <div>
-          <button type="button" class="px-4 py-1 m-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-gray-800 rounded">
+          <button type="submit" class="px-4 py-1 m-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-gray-800 rounded">
             Submit
              </button>
              
-          <Link to="/">
-            <button class="px-4 py-1 m-1 text-white font-light tracking-wider bg-red-500 hover:bg-gray-800 rounded">Cancel</button>
+          <Link onClick={props.handleAddReview}>
+            <button onClick={props.handleAddReview} class="px-4 py-1 m-1 text-white font-light tracking-wider bg-red-500 hover:bg-gray-800 rounded">Cancel</button>
           </Link>
   </div> 
         </div>

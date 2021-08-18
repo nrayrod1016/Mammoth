@@ -6,8 +6,8 @@ const UpdateShopForm = (props) => {
 
 
 const location = useLocation()
-console.log(location)
-const [formData, setFormData] = useState(location.state.shop)
+
+const [formData, setFormData] = useState({...location.state.shop})
 const [validForm, setValidForm] = useState(true)
 
 const history = useHistory()
@@ -15,7 +15,7 @@ const history = useHistory()
 //  Handle submit 
 const handleSubmit = evt => { 
   evt.preventDefault()
-  shopService.create(formData)
+  shopService.update(location.state.shop._id, formData)
   .then(shop => {
     history.push('/')
   })

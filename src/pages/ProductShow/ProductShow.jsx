@@ -14,7 +14,7 @@ const ProductShow = (props) => {
     .then(product => {
       setProduct(product)
     })
-  }, [id])
+  }, [id, addReview])
 
   const handleAddReview = evt => {
     setAddReview(!addReview)
@@ -52,6 +52,7 @@ const ProductShow = (props) => {
         })
       }
     </div>
+    {props.userProfile &&
     <div>
     {!props.userProfile?.cart.some(item => item?._id === product._id) &&
     <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() =>props.handleAddToCart(product._id)}>Add to Cart</button>
@@ -66,6 +67,7 @@ const ProductShow = (props) => {
     <button type="button" class="border border-red-500 text-red-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleRemoveFromWishlist(product._id)}>Remove From Wishlist</button>
     }
     </div>
+    }
     <div>
       <h1>{product.desc}</h1>
     </div>
@@ -95,9 +97,13 @@ const ProductShow = (props) => {
                 )
               })}
             </div>
+    {props.userProfile &&
+    <>
     <Link onClick={handleAddReview}><button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline">Leave a Review!</button></Link>
-    {addReview &&
-    <ReviewForm type="Product" product={product} reviewSubmit={reviewSubmit} />
+    </>
+    }
+    {addReview && 
+    <ReviewForm type="Product" handleAddReview={handleAddReview} product={product} reviewSubmit={reviewSubmit} />
     }
     </>
   );
