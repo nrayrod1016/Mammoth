@@ -48,7 +48,7 @@ const Home = (props) => {
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8 ">
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
-				 <div class="grid gap-72 grid-cols-5 w-100"> 
+				 <div class="grid gap-72 grid-cols-5 w-100 ml-10"> 
  				{recentActivity.shops?.map(shop => {
 					 return (
 						 <ShopCard 

@@ -15,7 +15,9 @@ const Checkout = (props) => {
 
   return (
     <>
-    Checkout Here:
+    {props.userProfile?.cart?.length > 0 &&
+    <>
+    <h1>Checkout Here:</h1>
     <form onSubmit={() => props.handleCheckout(formData)}>
     <label htmlFor="zipcode">Address:</label>
     <input
@@ -86,6 +88,11 @@ const Checkout = (props) => {
     /><br/>
     <button type="submit">Place Your Order!</button>
     </form>
+    </>
+    }
+    {!props.userProfile?.cart?.length &&
+    <h1>Add Items to Your Cart!</h1>
+    }
     </>
   );
 }

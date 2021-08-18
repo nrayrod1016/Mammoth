@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
-import styles from './NavBar.module.css'
+// import styles from './NavBar.module.css'
 // import NavBar from './index.css'
 import SearchForm from '../SearchForm/SearchForm'
+
 
 
 const NavBar = ({ user, handleLogout, userProfile }) => {
@@ -20,82 +21,76 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
     return (
 <>
 
+<main>
+  <h1 class="mt-3"> </h1>
+<nav class="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-1 px-6 bg-white shadow sm:items-baseline w-full">
+  <div class="mb-0  sm:mb-0 inner">
 
-<div class="bg-white"> 
+    <a href="/" class="text-2xl no-underline text-indigo-500 hover:text-blue-dark font-sans font-bold">Mammoth</a><br/>
+    <span class="text-xs text-grey-dark">By Maste </span>
+  </div>
+  <div>
+  {/* <SearchForm />    */}
+  </div> 
 
-    <nav class="flex px-5 border-b md:shadow-lg items-center relative">
-        <div class="text-lg text-indigo-500 font-bold md:py-0 py-4"  >
-          <a href="/" > 
-            Mammoth </a> 
-        </div>
-        <SearchForm /> 
-        <ul class="text-indigo-500 font-bold md:px-2 ml-auto md:flex md:space-x-2 absolute md:relative top-full left-0 right-0">
-            <li>
-                <a href="/" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="/shops" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>All Shops</span>
-                </a>
-
-                <a href="/products" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>All Products</span>
-                </a>
-
-                <a href={`/profile/${userProfile?._id}`} class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>My Profile</span>
-                </a>
-
-                <a href='/signup' class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>Signup</span>
-                </a>
-                <a href='/login' class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>Login</span>
-                </a>
-                <li>
-                    <a href="/checkout" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                        <span>Checkout</span>
-                    </a>
-                </li>
-                <Link to='' onClick={handleLogout}>
-                <a  href="/logout" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>Sign Out</span>
-                </a>
-                </Link>
-            </li>
-
-
-            <li class="relative parent">
-                <a href="#" class="flex justify-between md:inline-flex p-4 items-center hover:bg-gray-50 space-x-2">
-
-                  {/* added  */}
-                <button type="button" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                  <span class="sr-only">Open user menu</span>
-                  {user &&
-                  <img class="h-10 w-10 rounded-full" src={userProfile?.avatar} alt=""></img>
+  <div class="sm:mb-0 self-center ">
+     <div class="h-5" > </div>
+    <a href="/shops" class="text-lg no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
+      All Shops
+    </a>
+    <a href="/products" class="text-lg no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
+      All Products
+    </a>
+    
+     <a  class="text-lg no-underline text-indigo-500 hover:text-blue-dark ml-2">
+    
+    </a>  
+    {!userProfile &&
+    <>
+    <a href="/signup" class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
+      Sign Up
+    </a>
+    <a href="/login" class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
+      Login
+    </a>
+  </>
+  }
+  {userProfile &&
+  <>
+    <Link to='' onClick={handleLogout}>
+    <a href="/logout" class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
+      Signout
+    </a>
+    </Link>
+    <a href="/checkout" class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
+      {/* <img src={cartLogo} alt="Checkout" /> */}
+    </a>
+  </>
+  }
+    
+                  {userProfile &&
+                  <>
+    <a href={`/profile/${userProfile?._id}`} class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1"> 
+      <button type="button" class="max-w-xs bg-gray-800 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+      <span class="sr-only">Open user menu</span>
+        <img class="h-10 w-10 rounded-full" src={userProfile?.avatar} alt=""/>
+                  </button>
+                  </a>
+        </>
                   }
                   {!user &&
-                  <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/KXmtpXB.png" alt=""/>
+        <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/KXmtpXB.png" alt=""/>
                   } 
-                </button>
-                {/* added ^^^ */}
-                    
-                </a>
+    
+    
 
-            </li>
-          
-        </ul>
-        <div class="ml-auto md:hidden text-gray-500 cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
-        </div>
-    </nav>
-</div>
+  </div>
+</nav>
+<h1 class="mb-3"> </h1> 
+</main> 
+<h1 class="mb-3"> 
 
-
-
-
+</h1>
 
 </>
 )

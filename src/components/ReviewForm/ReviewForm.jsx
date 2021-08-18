@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import * as reviewService from '../../services/reviewService'
 
 import ImageInput from "./ImageInput/ImageInput"
@@ -66,56 +66,101 @@ const ReviewForm = (props) => {
   
   return (
     <>
-    <h1>Add a Review</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Content:</label>
-        <textarea 
-        type="text"
-        name="content"
-        onChange={handleChange}
-        > 
-        {formData.content}
-        </textarea>
+    <form class="max-w-md m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl"
+   autoComplete="off"
+   onSubmit={handleSubmit}
+   >
+      <p class="text-indigo-500 font-medium text-center text-lg font-bold">Add a Review</p>
+      <div>
+          <label class="block text-sm text-black" htmlFor="name"
+          >
+         Content
+          </label>
+          <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"     
+          type="text"
+          value={formData.content}
+          name="content"
+          onChange={handleChange}
+          />
+        </div>
 
-        {/*  */}
         {formData.images?.map((image, idx) => 
           <ImageInput handleChangeImage={handleChangeImage} key={idx} idx={idx} image={image} deleteImageInput={deleteImageInput} />
         )}
         {formData.videos?.map((video, idx) => 
           <VideoInput handleChangeVideo={handleChangeVideo} key={idx} idx={idx} video={video} deleteVideoInput={deleteVideoInput} />
         )}
-        <label>Rating:</label>
-        <input
-        required
-        type="range"
-        name="rating"
-        value={formData.rating}
-        min="1"
-        max="5"
-        step="1"
-        onChange={handleChange}
-        />
-        {/*  */}
-        <label>Would you Recommend?</label>
-        <input
-        type="checkbox"
-        name="wouldRec"
-        value={formData.wouldRec}
-        onChange={(evt) => {setFormData({...formData, [evt.target.name]: !formData.wouldRec})}}
-        />
+
+        <div>
+          <label class="block text-sm text-black" 
+          >
+          Rating
+          </label>
+          <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+          required
+          type="range"
+          name="rating"
+          value={formData.rating}
+          min="1"
+          max="5"
+          step="1"
+          onChange={handleChange}
+          ></input>
+        </div>
+
+        <div class="mt-2" >
+          <label class="block  text-sm text-black" htmlFor="password">Would you Recommend?</label>
+           <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+            type="checkbox"
+            name="wouldRec"
+            value={formData.wouldRec}
+            onChange={(evt) => {setFormData({...formData, [evt.target.name]: !formData.wouldRec})}}
+            >
+
+            </input>
+        </div>
+      
+
+        <div class="mt-4 items-center flex justify-between">
+        <div> 
         <button onClick={() => {
           let updateFormData = {...formData}
           updateFormData.videos.push('')
           setFormData(updateFormData)
         }} 
-        type="button">Add Video</button>
-        <button onClick={() => {
+        type="button"class="px-4 py-1 m-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-gray-800 rounded"
+        
+           >
+              Video 
+             </button>
+             
+
+             <button class="px-4 py-1 m-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-gray-800 rounded" onClick={() => {
           let updateFormData = {...formData}
           updateFormData.images.push('')
           setFormData(updateFormData)
-          }} type="button">Add Image</button>
-        <button type='submit'>Submit</button>
-      </form>
+          }} type="button">
+            
+            Image
+          
+          </button></div> 
+
+          <br/>
+          <div>
+          <button type="button" class="px-4 py-1 m-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-gray-800 rounded">
+            Submit
+             </button>
+             
+          <Link to="/">
+            <button class="px-4 py-1 m-1 text-white font-light tracking-wider bg-red-500 hover:bg-gray-800 rounded">Cancel</button>
+          </Link>
+  </div> 
+        </div>
+        <div class="text-center">
+
+        </div>
+
+  </form>
     </>
   );
 }

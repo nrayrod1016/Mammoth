@@ -24,6 +24,15 @@ function show(req, res) {
     }
   })
   .populate('owner')
+  .populate({
+    path: "products",
+    populate: {
+      path: "orders",
+      populate: {
+        path: "profile"
+      }
+    }
+  })
   .then(shop => {
     res.json(shop)
   })

@@ -206,10 +206,7 @@ const App = (props) => {
         exact
         path="/checkout"
         render={() => 
-            //userProfile?.cart?.length > 0 ?
-              <Checkout userProfile={userProfile} handleCheckout={handleCheckout} />
-              //:
-             // <Redirect to='/' />
+          <Checkout userProfile={userProfile} handleCheckout={handleCheckout} />
         }
         />
         <Route
