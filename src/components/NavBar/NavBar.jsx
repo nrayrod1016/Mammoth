@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { Link, useHistory } from "react-router-dom";
 // import styles from './NavBar.module.css'
 // import NavBar from './index.css'
@@ -32,19 +33,18 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
   <div>
   <SearchForm />   
   </div> 
+ 
 
   <div class="sm:mb-0 self-center ">
      <div class="h-5" > </div>
-    <a href="/shops" class="text-lg no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
+    <a href="/shops" class="text-lg no-underline text-indigo-500 hover:text-indigo hover:bg-gray-300 transition-5s rounded ml-2 px-1 ">
       All Shops
     </a>
-    <a href="/products" class="text-lg no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
+    <a href="/products" class="text-lg no-underline text-indigo-500 hover:text-indigo hover:bg-gray-300 transition-5s ml-2 px-1">
       All Products
     </a>
     
-     <a  class="text-lg no-underline text-indigo-500 hover:text-blue-dark ml-2">
     
-    </a>  
     {!userProfile &&
     <>
     <a href="/signup" class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
@@ -62,23 +62,23 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
       Signout
     </a>
     </Link>
-    <a href="/checkout" class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
-      <img src='' alt="Checkout" /> 
+    <a href="/checkout" class="text-md no-underline text-indigo-500 hover:text-blue-dark "> <AiOutlineShoppingCart class="  h-8 w-10 "  /> 
+      {/* <img src='' alt="Checkout" />  */}
     </a>
   </>
   }
-    
                   {userProfile &&
                   <>
     <a href={`/profile/${userProfile?._id}`} class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1"> 
       <button type="button" class="max-w-xs bg-gray-800 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-      <span class="sr-only">Open user menu</span>
-        <img class="h-10 w-10 rounded-full" src={userProfile?.avatar} alt=""/>
+      <AiOutlineUser class="h-8 w-10 bg-white" />
+        {/* <img class="h-10 w-10 rounded-full" src={userProfile?.avatar} alt=""/> */}
                   </button>
                   </a>
         </>
                   }
                   
+    
     
     
 

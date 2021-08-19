@@ -9,13 +9,10 @@ const ProductCard = ({Product}) => {
   reviewAverage = (reviewAverage / Product.reviews?.length).toFixed(2)
     return ( 
        
-<div class=" flex md:flex-row justify-center  flex-wrap gap-3 mt-10  ">
-          <div class="pro-card">
+<div class="flex md:flex-row justify-center  flex-wrap gap-3 mt-10  ">
+  <div class="pro-card">
         <div class="bg-white max-w-xs shadow-lg   mx-auto border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer" >
         <div class="bg-indigo-500  flex h-200  items-center">
-          {/* add logo to top center  */}
-      
-        {/* <p class="ml-4 text-white uppercase">Title</p> */}
         </div>
         {Product.name &&
           <h1 class="py-6 px-6 text-xl tracking-wide text-center">{Product.name}</h1>
@@ -42,8 +39,8 @@ const ProductCard = ({Product}) => {
             </div>
 </Link>
         </div>
-        </div>
-        </div> 
+   </div>
+</div> 
         
     )
 }
