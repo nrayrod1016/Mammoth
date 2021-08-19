@@ -28,7 +28,11 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      gridAutoColumns: {
+        '2fr': 'minmax(0, 2fr)',
+      }
+    },
   },
   plugins: [require('@tailwindcss/forms')],
   

@@ -55,8 +55,8 @@ const App = (props) => {
 
   const handleAddToWishlist = (productid) => {
     profileAPI.addToWishlist(productid)
-    .then(data => {
-      setUserProfile(data.profile)
+    .then(profile => {
+      setUserProfile(profile)
     })
   }
 
@@ -76,15 +76,15 @@ const App = (props) => {
 
   const handleRemoveFromWishlist = (productid) => {
     profileAPI.removeFromWishlist(productid)
-    .then(data => {
-      setUserProfile(data.profile)
+    .then(profile => {
+      setUserProfile(profile)
     })
   }
 
   const handleCheckout = (formData) => {
     profileAPI.newOrder(formData)
     .then(data => {
-      setUserProfile(data.profile)
+      setUserProfile(data)
       history.push('/')
     })
   }

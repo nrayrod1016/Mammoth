@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as recentService from "../../services/recentService"
 import './Home.css'
-
+import { AiOutlineGithub } from "react-icons/ai";
 import ShopCard from '../../components/ShopCard/ShopCard';
 import ProductCard from '../../components/ProductCard/ProductCard';
 
@@ -20,8 +20,8 @@ const Home = (props) => {
 
     return ( 
 <> 
-<div class="home-container" >
-<div class="Home"> 
+<div class="home-container content-center" >
+<div class="Home" > 
 <section class="align-center">
  	<div class="bg-white text-grey py-20 justify-center items-center">
  		<div class="container mx-auto flex flex-col md:flex-row justify-center items-center my-12 md:my-24">
@@ -48,7 +48,7 @@ const Home = (props) => {
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8 ">
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
-				 <div class="grid gap-72 grid-cols-5 w-100 ml-10"> 
+				 <div class="grid gap-40 grid-rows-2 grid-flow-col ml-5 "> 
  				{recentActivity.shops?.map(shop => {
 					 return (
 						 <ShopCard 
@@ -65,9 +65,9 @@ const Home = (props) => {
 </section>
 <section>
 <div class="bg-white text-black py-20"> 
- 		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+ 		<div class="container mx-auto flex flex-col md:flex-row  my-12 md:my-24">
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Recent Products</h1>
+ 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose ">Recent Products</h1>
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
 				 <div class="grid gap-72 grid-cols-5 w-100"> 
@@ -75,7 +75,7 @@ const Home = (props) => {
 					 return (
 						 <ProductCard
 						 Product={product}
-						 key={product._id}
+						 key={product._id}f
 						 />
 					 )
 				 })}
@@ -91,7 +91,7 @@ const Home = (props) => {
 <div class="bg-white text-black py-20">
  		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Your Recent Activity</h1>
+ 				<h1 class="text-3xl md:text-5xl mb-5  p-2 text-indigo-500 tracking-loose text-center">Your Recent Activity</h1>
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
 				 <div class="grid gap-72 grid-cols-5 w-100 ml-10 mb-10 mt-5" >
@@ -116,15 +116,15 @@ const Home = (props) => {
 
 <div class="bg-white text-black py-20">
  		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24"></div>
- 			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
+				 <h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose text-center ">Don't forget about these items in your cart!</h1>
 				{recentActivity.profile?.cart.length > 0 &&
-				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Don't forget about these items in your cart!</h1>
-			  }
+ 			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
+				
 				 <div class="grid gap-72 grid-cols-5 w-100 ml-10 mb-10 mt-5" >
 				<Link to={`/checkout`}>
  				{recentActivity.profile?.cart?.map(item => {
-					return (
-						<div class="container mx-auto">
+					 return (
+						 <div class="container mx-auto">
 						<div class="bg-white max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
 						<h1 class="h-20 bg-indigo-500 flex items-center justify-between"><img src={item?.pictures[0]} alt={`${item.name}'s pic`} /></h1>
 				
@@ -140,15 +140,16 @@ const Home = (props) => {
 				 </Link>
 				</div>
 				 </div> 
+			}
 				 </div> 
 
 
 
+				 <h1 class="text-5xl p-2 text-indigo-500 tracking-loose md:text-5xl p-2 text-indigo-500 tracking-loose">Don't forget about these items in your wishlist</h1>
 				{recentActivity.profile?.wishlist.length > 0 &&
 				
-				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Don't forget about these items in your wishlist</h1>
-			  }
 	<div class="grid gap-72 grid-cols-3 w-100 ml-10 mb-2 mt-5" ></div>
+			  }
  				{recentActivity.profile?.wishlist?.map(item => {
 					return (
 <div class="container mx-auto">
@@ -177,19 +178,73 @@ const Home = (props) => {
 </section>
 }
 				</div> 
-<section>
+<section className=" grid ">
 <div class="bg-white text-black py-20"> 
  		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose"> The Devs</h1>
- 				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
- 				</h2>
- 				<p class="text-sm md:text-base text-gray-50 mb-4">
-					 
-				 </p>
+ 				<h1 class="text-3xl text-center  md:text-5xl p-2 text-indigo-500 tracking-loose"> The Devs</h1>
+ 				
+				 <div class=" flex  flex-col  md:flex-row justify-center  flex-wrap gap-3 mt-10  ">
+	<div class="grid grid-cols-2 ">
+          <div class="pro-card">
+        <div class="bg-white max-w-xs shadow-lg mx-auto  border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer " >
+        <div class="bg-indigo-500  flex h-200 items-center">
+          {/* add logo to top center  */}
+          <img src=''  />
+        <p class="ml-4 text-white uppercase">Will code for food</p>
+        </div>
+
+          <h1 class="py-6 px-6 text-xl tracking-wide text-center">Blake Romano</h1>
+     
+    
+          <p class="py-6 px-6 text-lg tracking-wide text-center">Quick about me section can increase in width if needed  </p>
+       
+          <p class="py-6 px-6 text-lg tracking-wide text-center">Full-Stack Engineer</p>
+     
+  
+
+  <button class="px-2 py-1 m-1 mt-5 ml-20 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-700 rounded" > <AiOutlineGithub class="h-10 w-10" /> </button>
+
+            </div>
+
+        </div>
+        </div>
 			</div>
 					</div>
 				</div>
+
+				<div class="bg-white text-black py-20"> 
+ 		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+
+
+ 				
+				 <div class=" flex  flex-col  md:flex-row justify-center  flex-wrap gap-3   ">
+          <div class="pro-card">
+        <div class="bg-white max-w-xs shadow-lg mx-auto  border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer " >
+        <div class="bg-indigo-500  flex h-200 items-center">
+          {/* add image below  */}
+          <img src=''  />
+        <p class="ml-4 text-white uppercase">Will code for food</p>
+        </div>
+
+          <h1 class="py-6 px-6 text-xl tracking-wide text-center">Nick Rodriguez</h1>
+     
+    
+          <p class="py-6 px-6 text-lg tracking-wide text-center"> quick description area  </p>
+       
+          <p class="py-6 px-6 text-lg tracking-wide text-center">Front-End Engineer</p>
+     
+  
+
+  <button class="px-2 py-1 m-1 mt-5 ml-20 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-700 rounded" > <AiOutlineGithub class="h-10 w-10" /> </button>
+
+            </div>
+
+        </div>
+        </div>
+			</div>
+					</div>
+					</div>
 </section>
 </div>
 

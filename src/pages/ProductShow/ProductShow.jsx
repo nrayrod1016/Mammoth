@@ -69,10 +69,10 @@ const ProductShow = (props) => {
     </div>
     {props.userProfile &&
     <div class="text-center ">
-    {!props.userProfile?.cart.some(item => item?._id === product._id) &&
+    {!props.userProfile?.cart.some(item => item?._id === product._id) && product.inventory > 0 &&
     <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 mt-5 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleAddToCart(product._id)}>Add to Cart</button>
     }
-    {props.userProfile?.cart.some(item => item?._id === product._id) &&
+    {props.userProfile?.cart.some(item => item?._id === product._id) && product.inventory > 0 &&
     <button type="button" class="border border-red-500 text-red-500 rounded-md px-4 py-2 mt-5 transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleRemoveFromCart(product._id)}>Remove From Cart</button>
     }
     {!props.userProfile?.wishlist.some(item => item?._id === product._id) &&

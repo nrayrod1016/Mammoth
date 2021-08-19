@@ -37,16 +37,14 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
 
   <div class="sm:mb-0 self-center ">
      <div class="h-5" > </div>
-    <a href="/shops" class="text-lg no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1 ">
+    <a href="/shops" class="text-lg no-underline text-indigo-500 hover:text-indigo hover:bg-gray-300 transition-5s rounded ml-2 px-1 ">
       All Shops
     </a>
-    <a href="/products" class="text-lg no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
+    <a href="/products" class="text-lg no-underline text-indigo-500 hover:text-indigo hover:bg-gray-300 transition-5s ml-2 px-1">
       All Products
     </a>
     
-     <a  class="text-lg no-underline text-indigo-500 hover:text-blue-dark ml-2">
     
-    </a>  
     {!userProfile &&
     <>
     <a href="/signup" class="text-md no-underline text-indigo-500 hover:text-blue-dark ml-2 px-1">
