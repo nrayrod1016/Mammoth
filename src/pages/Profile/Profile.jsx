@@ -136,26 +136,32 @@ const Profile = (props) => {
       }
       {profile.orders?.length > 0 &&
       <section>
-        <h1>Here are Your Past Orders</h1>
+        <h1 class=" text-xl mt-5 text-indigo-500 font-bold text-center" >Here are Your Past Orders</h1>
+        <div class="grid gap-4 grid-cols-3 "> 
         {profile.orders?.map(order => {
           return(
+            <div class="flex flex-col md:flex-row justify-center flex-wrap gap-3 mt-10"> 
+            <div class="pro-card">
+            <div class="bg-white max-w-xs shadow-lg mx-auto border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer" >
 
-
-            <div key={order._id}>
-            <h1 class="py-6 px-6 text-lg tracking-wide text-center">Order Number: {order._id}</h1>
+            <div class="bg-indigo-500 flex h-200 items-center" key={order._id}>
+            <h1 class="py-6 px-6 text-lg tracking-wide text-white text-center">Order Number<br/> {order._id}</h1>
+            </div>
             <h1 class="py-6 px-6 text-lg tracking-wide text-center">Order Cost: ${order.price}</h1>
             <h1 class="py-6 px-6 text-lg tracking-wide text-center">{order.items.map(item => <> {item} </>)}</h1>
-
-            <div class="flex justify-center px-5 mb-2 text-sm ">
+          
             {props.userProfile?._id === profile._id &&
-            <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-green-600 focus:outline-none focus:shadow-outline" onClick={() => props.removeOrderFromHistory(order._id)}>
+            <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none  ml-10  hover:text-white hover:bg-green-600 focus:outline-none focus:shadow-outline" onClick={() => props.removeOrderFromHistory(order._id)}>
               Remove Order From History
             </button>
             }
+           
             </div>
+          </div>
           </div>
           )
         })}
+        </div> 
       </section>
       }
       <div class="text-center">

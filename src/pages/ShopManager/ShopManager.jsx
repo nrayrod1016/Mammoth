@@ -23,7 +23,7 @@ const handleSetManager = evt =>  {
   evt.preventDefault()
   setShop(shop._id)
 }
-
+// "/shops/:id/manage/products/new"
   return (
     <>
     {/* renderproducts */}
@@ -32,18 +32,26 @@ const handleSetManager = evt =>  {
         <div class="w-full max-w-lg">
           <div class="leading-loose">
 <div>
-  <h1 class="text-indigo-500 font-medium text-center text-lg font-bold">Shop Manager Page </h1> 
+  <h1 class="text-indigo-500 font-medium text-center text-lg font-bold">{shop._id} </h1> 
 {/* populate field of products */}
   {/* <UpdateProductForm />  */}
   <div class="">
   <Link to={{ pathname: `/shops/${shop._id}/manage/update`, state:{shop}}} ><button  class="px-4 py-1 mt-5 mb-5 w-2/4 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded">Update your Shop!</button></Link> </div>
+  <div class="">
+  <Link to={{ pathname: `/shops/${shop._id}/manage/products/new`, state:{shop}}} ><button  class="px-4 py-1 mt-5 mb-5 w-2/4 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded">Add a Product</button></Link> </div>
   <h1 class="text-indigo-500 font-medium text-center text-lg font-bold"> Product List </h1>
   {shop.products?.map(product => {
       return (
-        <div key={product._id}>
+  <div class="container mx-auto">
+    <div class="bg-white max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
+        <div class="h-20 bg-indigo-500 flex items-center justify-between" 
+        key={product._id}>
           <Link to={`/products/${product._id}`}>
             <h1>{product.name}</h1>
           </Link>
+          </div> 
+          </div> 
+          
             {product.orders.length > 0 &&
             <h2>A List of Orders: </h2>
             }

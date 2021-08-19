@@ -34,7 +34,7 @@ const handleChange = evt => {
   return ( 
 
     <> 
-    <main>
+    <main class=" mt-20">
     <div class="h-screen font-sans login bg-cover">
 <div class="container mx-auto h-full flex flex-1 justify-center items-center">
 <div class="w-full max-w-lg">
@@ -43,7 +43,7 @@ const handleChange = evt => {
      autoComplete="off"
      onSubmit={handleSubmit}
      >
-        <p class="text-indigo-500 font-medium text-center text-xl font-bold">Add Shop</p>
+        <h1 class="text-indigo-500 font-medium text-center text-xl font-bold">Add Shop</h1>
         <div >
             <label class="block text-lg text-black" htmlFor="name" 
             >

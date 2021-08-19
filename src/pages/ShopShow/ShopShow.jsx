@@ -10,11 +10,10 @@ const ShopShow = (props) => {
   const { id } = useParams()
 
 
-  useEffect(() => {
-    shopService.getDetails(id)
-    .then(shop => {
-      setShop(shop)
-    })
+  useEffect(async () => {
+    console.log('test')
+    const shop = await shopService.getDetails(id)
+    setShop(shop)
   }, [id, addReview])
 
   const handleAddReview = evt => {

@@ -16,7 +16,7 @@ const ProductIndex = (props) => {
   
   return (
     <>
-    <h1> Product List </h1> 
+    <h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose text-center"> Product List </h1> 
 <div class="grid gap-4 grid-cols-3">
     {products.map(product => {
       return (

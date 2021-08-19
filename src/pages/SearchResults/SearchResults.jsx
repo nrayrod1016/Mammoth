@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as searchService from "../../services/searchService"
-
+import ShopCard from '../../components/ShopCard/ShopCard'
 const SearchResults = (props) => {
   const [searchResults, setSearchResults] = useState([])
   const { query } = useParams()
@@ -15,7 +15,15 @@ const SearchResults = (props) => {
 
   return (
     <>
-      <h1>SANITY CHECK</h1>
+      <h1>Search Results </h1>
+      {/* {shops.name.searchResults.map(shop => 
+        <ShopCard 
+        shop={shop}
+        key={shop.id}
+        /> 
+        
+        )} */}
+
     </>
   );
 }

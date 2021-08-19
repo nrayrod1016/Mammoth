@@ -37,7 +37,7 @@ const handleChange = evt => {
      autoComplete="off"
      onSubmit={handleSubmit}
      >
-        <p class="text-indigo-500 font-medium text-center text-xl font-bold">Add Shop</p>
+        <p class="text-indigo-500 font-medium text-center text-xl font-bold mb-2">Update Shop Info </p>
         <div >
             <label class="block text-lg text-black" htmlFor="name" 
             >
@@ -213,12 +213,12 @@ const handleChange = evt => {
           </div>
 
           <div class="mt-4 items-center flex justify-between">
-            <button class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded"
+            <button class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded"
              >
-               Add Shop
+               Update Shop
                </button>
             <Link to="/shop/new">
-              <button class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded">Cancel</button>
+              <button class="px-4 py-1 text-white font-light tracking-wider bg-red-500 hover:bg-red-300 rounded">Cancel</button>
             </Link>
            
           </div>
