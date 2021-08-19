@@ -3,8 +3,15 @@
 # Mammoth
 ## Introduction
 
+Mammoth is a marketplace for small business' and is meant to bridge the gap between Etsy and Amazon and provide a place for small business' to provide quality products to probably a more Millennial/Gen Z audience. The website allows you to search for products and stores, explore the variety of different products and shops that we host as well as determine whether or not a store is minority owned if you like to support minority owned business'. When you create an account, you can then add things to your cart, create a shop, create a product, manage your products, manage your shops, add products to your cart, add products to your wishlist, keep tracks of your past orders and also checkout!
 
 ## Instructions For Use
+
+Depending on what the user wants to do when landing on the website they will either create an account to add items to the user's cart or wishlist or if they are a store owner, if the user is just looking to browse the products and stores on our site they can just search for products or stores and browse all the stores and products on our website.
+
+Assuming the user wants to potentially buy something from our website they will create an account through our secure signup/login system. This will allow the user to then go to a product page and leave a review, add product to their cart, to their wishlist or remove the product from those lists. When the user is ready to checkout they will go to the checkout page fill out their shipping and billing information (the billing information is not actually saved or sent anywhere). Then they can check out all their orders on their profile page.
+
+If the user wants to use the website to sell products and use it to promote their store once they signup/login they may go to their profile details to be able to create that shop, This will allow them access to the shop manager for their shop. This allows the shop owner to add products, update their shop and track orders for each of their products.
 
 ## Tech Framework
 ### This app uses:
@@ -21,7 +28,7 @@
   
 ## This app is hosted at: 
 * [GitHub Repo](https://github.com/blakeromano/mammoth)
-* [Heroku Hosted Site]()
+* [Heroku Hosted Site](https://mammoth-ecommerce.herokuapp.com/)
 
 ## Planning Materials:
 * [Trello Board](https://trello.com/b/Rw7YGhrT/mammoth-app)
@@ -70,8 +77,9 @@ Blake is a full stack web developer from the Boston, MA area, with a passion for
 * [LinkedIn](https://www.linkedin.com/in/blakeromano)
 * [GitHub](www.GitHub.com/blakeromano)
 
-### 
+### Nicholas Rodriguez
 
+PUT TEXT HERE
 ## Screenshots
 
 ![Screenshot 1](https://raw.githubusercontent.com/blakeromano/flutter/main/public/images/readme/landing-page.png)
