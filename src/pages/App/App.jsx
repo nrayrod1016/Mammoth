@@ -27,6 +27,8 @@ import ShopManager from "../ShopManager/ShopManager"
 import ShopShow from "../ShopShow/ShopShow"
 import UpdateProduct from "../UpdateProduct/UpdateProduct"
 import UpdateShop from "../UpdateShop/UpdateShop"
+import CustomErrorPageComponent from '../ErrorPage/ErrorPage'
+
 
 const App = (props) => {
   const [user, setUser] = useState(authService.getUser())
@@ -233,6 +235,9 @@ const App = (props) => {
             <Redirect to="/" />
           )}
         />
+        <Route path="/test" render={()=>
+          <CustomErrorPageComponent />
+        }/>
         <h1 class="m-1"> </h1>
         <Footer />
     </>
