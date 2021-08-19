@@ -30,6 +30,7 @@ const ProductShow = (props) => {
   reviewAverage = (reviewAverage / product.reviews?.length).toFixed(2)
   return (
     <>
+    <h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose text-center">{product.shop?.name}'s Content Page </h1>
    <div class=" flex md:flex-row justify-center mt-20 mb-20  flex-wrap gap-3  ">
           <div class="pro-card">
         <div class="bg-white max-w-lg shadow-lg   mx-auto border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer" >
@@ -69,13 +70,13 @@ const ProductShow = (props) => {
     {props.userProfile &&
     <div class="text-center ">
     {!props.userProfile?.cart.some(item => item?._id === product._id) &&
-    <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 mt-5 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() =>props.handleAddToCart(product._id)}>Add to Cart</button>
+    <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 mt-5 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleAddToCart(product._id)}>Add to Cart</button>
     }
     {props.userProfile?.cart.some(item => item?._id === product._id) &&
     <button type="button" class="border border-red-500 text-red-500 rounded-md px-4 py-2 mt-5 transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleRemoveFromCart(product._id)}>Remove From Cart</button>
     }
     {!props.userProfile?.wishlist.some(item => item?._id === product._id) &&
-    <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 mt-5  transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleAddToWishlist(product._id)}>Add to Wishlist</button>
+    <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 mt-5 ml-5  transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleAddToWishlist(product._id)}>Add to Wishlist</button>
     }
     {props.userProfile?.wishlist.some(item => item?._id === product._id) &&
     <button type="button" class="border border-red-500 text-red-500 rounded-md px-4 py-2 mt-5 ml-5 text-center transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleRemoveFromWishlist(product._id)}>Remove From Wishlist</button>

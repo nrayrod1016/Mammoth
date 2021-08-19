@@ -148,29 +148,35 @@ const Home = (props) => {
 				
 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Don't forget about these items in your wishlist</h1>
 			  }
+	<div class="grid gap-72 grid-cols-3 w-100 ml-10 mb-2 mt-5" ></div>
  				{recentActivity.profile?.wishlist?.map(item => {
 					return (
-					<Link to={`/products/${item._id}`}>
-						 <div class="pro-card">
-					 <div class="bg-white max-w-xs shadow-lg mx-auto border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer" >
-        <div class="bg-indigo-500  flex  w-60 items-center">
-         
-        <img src={item?.pictures[0]} alt={`${item?.name}'s pic`} />
+<div class="container mx-auto">
+  <div class="bg-white max-w-sm mx-auto m-5 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
+      <div class="h-20 bg-indigo-500 flex items-center justify-between" 
+        key={item._id}>
+          <Link to={`/products/${item._id}`}>
+          <img src={item?.pictures[0]} alt={`Product Picture`} />
+       
+          </Link>
+      </div>  
+        <div class="flex justify-between px-5 mb-2 text-sm text-gray-600">
+        <h3 class="py-6 px-6 text-xl tracking-wide text-center">{item.name}</h3>
+          <p>{item.name} - ${item.price}</p>
         </div>
-          <h1 class="py-6 px-6 text-xl tracking-wide text-center">{item.name}</h1>
-    
-        </div>
-				</div> 
-					</Link>
+  </div>
+</div>
 					)
-				 })}
+				})}
+				
 				 
-			</div>
 			
 					</div>
+				</div> 
 				</div>
 </section>
 }
+				</div> 
 <section>
 <div class="bg-white text-black py-20"> 
  		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
@@ -186,7 +192,7 @@ const Home = (props) => {
 				</div>
 </section>
 </div>
-</div>
+
 </> 
 )
 }

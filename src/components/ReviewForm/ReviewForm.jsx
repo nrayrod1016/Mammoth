@@ -35,22 +35,22 @@ const ReviewForm = (props) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
-  const handleSubmit = evt => {
+  const handleSubmit = async evt => {
     console.log('test')
     evt.preventDefault()
     if (!props.review === undefined) {
       setFormData({...formData, rating: parseInt(formData.rating)})
-      reviewService.updateReview(props.review._id, formData)
+      await reviewService.updateReview(props.review._id, formData)
       history.push('/')
     } else {
       if(props.type === "Shop") {
         setFormData({...formData, rating: parseInt(formData.rating)})
-        reviewService.createReview("Shop", props.shop._id, formData)
-        props.reviewSubmit()
+        await reviewService.createReview("Shop", props.shop._id, formData)
+        props.handleAddReview()
       } else if (props.type === "Product") {
         setFormData({...formData, rating: parseInt(formData.rating)})
-        reviewService.createReview("Product", props.product._id, formData)
-        props.reviewSubmit()
+        await reviewService.createReview("Product", props.product._id, formData)
+        props.handleAddReview()
       }
     }
   }
