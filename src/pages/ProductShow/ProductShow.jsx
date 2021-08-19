@@ -30,41 +30,55 @@ const ProductShow = (props) => {
   reviewAverage = (reviewAverage / product.reviews?.length).toFixed(2)
   return (
     <>
-    <div>
-      <h1>{product.name} - {reviewAverage}</h1>
-      <h1>${product.price}</h1>
-      <h3>{product.snippet}</h3>
-      <h2>Featured in {product.shop?.name} - Owned by {product.shop?.owner.name}</h2>
-    </div>
-    <div>
+   <div class=" flex md:flex-row justify-center mt-20 mb-20  flex-wrap gap-3  ">
+          <div class="pro-card">
+        <div class="bg-white max-w-lg shadow-lg   mx-auto border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer" >
+        <div class="bg-indigo-500  flex h-200  items-center">
+        </div>
+          <h1 class="py-6 px-6 text-xl tracking-wide text-center">{product.name} - {reviewAverage}</h1>
+          <p class="py-6 px-6 text-lg tracking-wide text-center">{product.price}</p>
+          <p class="py-6 px-6 text-lg tracking-wide text-center">{product.snippet}</p>
+          <p class="py-6 px-6 text-lg tracking-wide text-center">Featured in {product.shop?.name} - Owned by {product.shop?.owner.name}</p>
+        </div>
+        </div>
+        </div> 
+        <h1 class=" text-indigo-500 text-xl rounded-md px-4 py-2 m-2 text-center "> Pictures Section</h1>
+        <div class=" underline w-screen-100%"> </div>
+      <div class="grid gap-5 grid-cols-5">
+    <div class=" ">
       {product.pictures?.length > 0 &&
         product.pictures.map(pic => {
           return(
+            <div class="ml-5 "> 
             <img src={pic} alt="product pic" key={pic} />
+            </div> 
           )
         })
       }
+      </div> 
+
+
       {product.videos?.length > 0 &&
         product.videos.map(vid => {
           return(
             <iframe src={vid} />
-          )
-        })
-      }
+            )
+          })
+        }
     </div>
     {props.userProfile &&
-    <div>
+    <div class="text-center ">
     {!props.userProfile?.cart.some(item => item?._id === product._id) &&
-    <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() =>props.handleAddToCart(product._id)}>Add to Cart</button>
+    <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 mt-5 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() =>props.handleAddToCart(product._id)}>Add to Cart</button>
     }
     {props.userProfile?.cart.some(item => item?._id === product._id) &&
-    <button type="button" class="border border-red-500 text-red-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleRemoveFromCart(product._id)}>Remove From Cart</button>
+    <button type="button" class="border border-red-500 text-red-500 rounded-md px-4 py-2 mt-5 transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleRemoveFromCart(product._id)}>Remove From Cart</button>
     }
     {!props.userProfile?.wishlist.some(item => item?._id === product._id) &&
-    <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleAddToWishlist(product._id)}>Add to Wishlist</button>
+    <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 mt-5  transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleAddToWishlist(product._id)}>Add to Wishlist</button>
     }
     {props.userProfile?.wishlist.some(item => item?._id === product._id) &&
-    <button type="button" class="border border-red-500 text-red-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleRemoveFromWishlist(product._id)}>Remove From Wishlist</button>
+    <button type="button" class="border border-red-500 text-red-500 rounded-md px-4 py-2 mt-5 ml-5 text-center transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick={() => props.handleRemoveFromWishlist(product._id)}>Remove From Wishlist</button>
     }
     </div>
     }
@@ -72,6 +86,7 @@ const ProductShow = (props) => {
       <h1>{product.desc}</h1>
     </div>
     <div>
+    <div class="grid gap-5 grid-cols-3">
     {product?.reviews?.length > 0 &&
       product.reviews?.map(review => {
         return(
@@ -96,15 +111,19 @@ const ProductShow = (props) => {
         </div>
                 )
               })}
+              </div>
             </div>
     {props.userProfile &&
     <>
-    <Link onClick={handleAddReview}><button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline">Leave a Review!</button></Link>
+    <div>
+    <Link onClick={handleAddReview}><button type="button" class="border border-indigo-500 text-indigo-500  rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline">Leave a Review!</button></Link>
+    </div>
     </>
     }
     {addReview && 
     <ReviewForm type="Product" handleAddReview={handleAddReview} product={product} reviewSubmit={reviewSubmit} />
     }
+    
     </>
   );
 }

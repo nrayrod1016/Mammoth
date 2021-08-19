@@ -146,7 +146,7 @@ const Home = (props) => {
 
 				{recentActivity.profile?.wishlist.length > 0 &&
 				
-				<h1>Don't forget about these items in your wishlist</h1>
+				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Don't forget about these items in your wishlist</h1>
 			  }
  				{recentActivity.profile?.wishlist?.map(item => {
 					return (
