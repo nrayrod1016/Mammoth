@@ -8,7 +8,7 @@ import * as productService from '../../services/productService'
 
 const UpdateProductForm = (props) => {
   const [formData, setFormData] = useState(props.product)
-  const [validForm, setValidForm] = useState(false)
+  const [validForm, setValidForm] = useState(true)
 
   const form = useRef()
 
@@ -113,6 +113,7 @@ const UpdateProductForm = (props) => {
           >
           </input>
       </div>
+
       <div class="mt-2" >
         <label class="block  text-sm text-black">Inventory</label>
          <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
@@ -125,7 +126,8 @@ const UpdateProductForm = (props) => {
           >
 
           </input>
-      </div>
+
+  </div>
       <div class="mt-2" >
         <label class="block  text-sm text-black">Price</label>
          <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"

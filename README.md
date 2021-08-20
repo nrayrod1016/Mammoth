@@ -59,7 +59,7 @@ At this point in time the developers are open to outside collaborators on Mammot
 ## Special Thanks
 
 * Instructors (Ben Manley, Thiago Cavalcante, Jurgen Stevens, and Brian Krabec) and peers from the General Assembly SEIR-6-21 cohort for collaboration in developing this app.
-* !!!Attributions go here!!!
+
 * The code for this website was written with frequent reference to a number of 3rd party resources:
   * [CSS-Tricks](https://css-tricks.com/)
   * [Git-SCM](https://git-scm.com/docs)
@@ -85,7 +85,6 @@ Nick is a full stack web developer from the NYC area, with a passion for food, c
 * [GitHub](https://github.com/nrayrod1016)
 
 
-PUT TEXT HERE
 ## Screenshots
 
 ![Screenshot 1](public/screenshots/HomePage.png)
