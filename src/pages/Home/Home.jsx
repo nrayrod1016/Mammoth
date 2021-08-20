@@ -142,7 +142,7 @@ const Home = (props) => {
 <div class=" bg-white text-black py-20">
  		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
  				<h1 class="text-3xl mb-10 text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
-					 Dont Forget about the Items in your Cart
+					 Don't Forget about the Items in your Cart
 				</h1>
 				 {recentActivity.profile?.cart.length > 0 &&
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
@@ -176,7 +176,7 @@ const Home = (props) => {
 	<div class=" bg-white text-black py-20">
  		<div class="container mx-auto flex-wrap md:flex-row items-center pl-9 my-12 md:my-24 md:flex-wrap lg:flex-wrap lg:ml-10 ">
  				<h1 class="text-3xl mb-20 text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
-					 Dont Forget about the Items in your WishList
+					 Don't Forget about the Items in your Wishlist
 					 </h1>
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>

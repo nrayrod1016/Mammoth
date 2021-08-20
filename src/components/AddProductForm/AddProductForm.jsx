@@ -17,7 +17,7 @@ const AddProductForm = (props) => {
     price: null,
     currency: "",
     videos: [],
-    images: [],
+    pictures: [],
   })
   const [validForm, setValidForm] = useState(false)
 
@@ -31,7 +31,7 @@ const AddProductForm = (props) => {
   })
 
   const deleteImageInput = (idx) => {
-    formData.images.splice(idx, 1)
+    formData.pictures.splice(idx, 1)
     setFormData({...formData})
   }
 
@@ -41,7 +41,7 @@ const AddProductForm = (props) => {
   }
 
   const handleChangeImage = (idx, value) => {
-    formData.images.splice(idx, 1, value)
+    formData.pictures.splice(idx, 1, value)
     setFormData({...formData})
   }
 
@@ -162,7 +162,7 @@ const AddProductForm = (props) => {
             </input>
         </div>
        
-        {formData.images?.map((image, idx) => 
+        {formData.pictures?.map((image, idx) => 
           <ImageInput 
           handleChangeImage={handleChangeImage} 
           key={idx} 
@@ -198,7 +198,7 @@ const AddProductForm = (props) => {
           <button 
           onClick={() => {
           let updateFormData = {...formData}
-          updateFormData.images.push('')
+          updateFormData.pictures.push('')
           setFormData(updateFormData)
           }} type="button" class="px-1 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded">Add Image</button>
           
@@ -207,7 +207,6 @@ const AddProductForm = (props) => {
          <button  
          type="submit" 
          class="px-1 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded"
-         disabled={!validForm}
          >
            Add Product
            </button>

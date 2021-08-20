@@ -9,7 +9,7 @@ const NickCard = () => {
   <div class="bg-indigo-500  flex h-200 items-center">
   
     <img src=''  />
-      <p class="ml-4 text-white uppercase">Will code for food</p>
+      <p class="ml-4 text-white uppercase"></p>
   </div>
 
     <h1 class="py-6 px-6 text-xl tracking-wide text-center">Nick Rodriguez</h1>
