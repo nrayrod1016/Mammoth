@@ -41,7 +41,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
   {/* <!-- END Logo text or image --> */}
   
   {/* <!-- Search field --> */}
-  <div class=" ml-10">
+  <div class=" ml-40">
   <SearchForm />
   </div>    
   {/* <!-- END Search field --> */}
