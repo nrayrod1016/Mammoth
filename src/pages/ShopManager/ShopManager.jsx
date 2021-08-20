@@ -71,14 +71,15 @@ const ShopManager = (props) => {
               
 
                 {product.orders.map(order => 
-                  <div class="bg-white max-w-sm mx-auto rounded-3xl overflow-hidden shadow-lg hover:shadow-3xl transition duration-500 transform hover:scale-105 cursor-pointer">
+          <div class="bg-white max-w-sm mx-auto rounded-t-lg  overflow-hidden shadow-lg hover:shadow-3xl transition duration-500 transform hover:scale-105 cursor-pointer">
                     <div class="h-20 bg-indigo-500 mt-5 flex items-center text-center justify-between">
                       <Link to={`/products/${product._id}`}>
-                        <h1 class="text-white text-lg p-40">{order._id}</h1> 
+                        <h1 class="text-white text-lg p-10">{order._id}</h1> 
                       </Link>
                     </div>  
                     <h1 class="mb-10"> - ${order.price}</h1>
-                  </div>
+                    <h2> {product.name}</h2> 
+          </div>
               )}
             </div>
             )
