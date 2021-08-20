@@ -38,7 +38,7 @@ function ShopCard ({Shop}) {
         {Shop.owner && 
           <p class="py-6 px-6 text-lg tracking-wide text-center">{Shop.owner.name}</p>
         }
-        {Shop.reviews.length > 0 && 
+        {Shop.reviews.length > 0 && reviewAverage === NaN &&
           <p class="py-6 px-6 text-lg tracking-wide text-center">Average Rating: {reviewAverage}</p>
         }
                                 {/* <!-- <hr > --> */}

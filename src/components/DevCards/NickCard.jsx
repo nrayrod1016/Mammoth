@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineGithub } from "react-icons/ai";
+import { AiOutlineGithub, AiOutlineLinkedin } from "react-icons/ai";
 
 const NickCard = () => {
   return ( 
@@ -9,19 +9,20 @@ const NickCard = () => {
   <div class="bg-indigo-500  flex h-200 items-center">
   
     <img src=''  />
-      <p class="ml-4 text-white uppercase">Will code for food</p>
+      <p class="ml-4 text-white uppercase"></p>
   </div>
 
     <h1 class="py-6 px-6 text-xl tracking-wide text-center">Nick Rodriguez</h1>
 
 
-    <p class="py-6 px-6 text-lg tracking-wide text-center"> Quick about me section can increase in width if needed</p>
+    <p class="py-6 px-6 text-lg tracking-wide text-center"> Nick is a Full-Stack Engineer from the NYC area, with a passion for food, culture and technology. </p>
  
-    <p class="py-6 px-6 text-lg tracking-wide text-center">Front-End Engineer</p>
+    <p class="py-6 px-6 text-lg tracking-wide text-center">Role: Front-End Engineer</p>
 
 
 
-<button class="px-2 py-1 m-1 mt-5 ml-20 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-700 rounded" > <AiOutlineGithub class="h-10 w-10" /> </button>
+<button class="px-2 py-1 m-1 mt-5 ml-20 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-700 rounded" > <a href="https://github.com/nrayrod1016"><AiOutlineGithub class="h-10 w-10" /> </a> </button>
+<button class="px-2 py-1 m-1 mt-5 ml-20 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-700 rounded" > <a href="https://www.linkedin.com/in/nicholas-r-rodriguez/"><AiOutlineLinkedin class="h-10 w-10" /> </a> </button>
   
               </div>
   

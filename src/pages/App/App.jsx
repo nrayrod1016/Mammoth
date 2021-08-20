@@ -131,9 +131,12 @@ const App = (props) => {
         <Route 
         exact
         path="/shops/create/new"
-        render={() => 
+        render={() => (
+          user ?
           <AddShop userProfile={userProfile} />
-        }
+          :
+          <Redirect to="/" />
+        )}
         />
         <Route
         exact
@@ -145,30 +148,42 @@ const App = (props) => {
         <Route
         exact
         path="/shops/:id/manage"
-        render={() => 
+        render={() => (
+          user ?
           <ShopManager userProfile={userProfile} />
-        }
+          :
+          <Redirect to="/" />
+        )}
         />
         <Route
         exact
         path="/shops/:id/manage/update"
-        render={() => 
+        render={() => (
+          user ?
           <UpdateShop userProfile={userProfile} />
-        }
+          :
+          <Redirect to="/" />
+        )}
         />
         <Route
         exact
         path="/shops/manage/products/:productid"
-        render={() => 
+        render={() => (
+          user ?
           <UpdateProduct userProfile={userProfile} />
-        }
+          :
+          <Redirect to="/" />
+        )}
         />
         <Route
         exact
         path="/shops/:id/manage/products/new"
-        render={() => 
+        render={() => (
+          user ?
           <AddProduct userProfile={userProfile} />
-        }
+          :
+          <Redirect to="/" />
+        )}
         />
         <Route
         exact
@@ -193,23 +208,32 @@ const App = (props) => {
         <Route 
         exact
         path="/profile/:id"
-        render={() => 
+        render={() => (
+          user ?
           <Profile userProfile={userProfile} removeOrderFromHistory={removeOrderFromHistory} />
-        }
+          :
+          <Redirect to="/" />
+        )}
         />
         <Route 
         exact
         path="/profile/:id/update"
-        render={() => 
+        render={() => (
+          user ?
           <UpdateProfile userProfile={userProfile} handleUpdateProfile={handleUpdateProfile} />
-        }
+          :
+          <Redirect to="/" />
+        )}
         />
         <Route 
         exact
         path="/checkout"
-        render={() => 
+        render={() => (
+          user ?
           <Checkout userProfile={userProfile} handleCheckout={handleCheckout} />
-        }
+          :
+          <Redirect to='/' />
+        )}
         />
         <Route
           exact

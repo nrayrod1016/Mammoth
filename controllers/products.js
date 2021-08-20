@@ -68,6 +68,7 @@ function createProperty (req, res) {
 }
 
 function update(req, res) {
+  req.body.tags !== "" ? req.body.tags = req.body.tags.split(" ") : req.body.tags = []
   Product.findByIdAndUpdate(req.params.productid, req.body, {new: true})
   .then(product => {
     res.json(product)
@@ -93,7 +94,7 @@ function index(req, res) {
 
 function create(req, res) {
   req.body.shop = req.params.shopid
-  req.body.tags = req.body.tags.split(" ")
+  req.body.tags !== "" ? req.body.tags = req.body.tags.split(" ") : req.body.tags = []
   let product = new Product(req.body)
   product.save()
   .then(product => {

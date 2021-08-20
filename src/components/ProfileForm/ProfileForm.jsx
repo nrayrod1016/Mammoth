@@ -33,7 +33,7 @@ const ProfileForm = (props) => {
  autoComplete="off"
  onSubmit={handleSubmit}
  >
-    <p class="text-indigo-500 font-medium text-center text-xl font-bold">Sign Up</p>
+    <p class="text-indigo-500 font-medium text-center text-xl font-bold">Update Your Profile!</p>
     <div >
         <label class="block text-lg text-black" htmlFor="name" 
         >
