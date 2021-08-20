@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link} from 'react-router-dom'
 import * as shopService from '../../services/shopService'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
+import ProductCard from '../../components/ProductCard/ProductCard';
 
 const ShopShow = (props) => {
   const [shop, setShop] = useState({})
@@ -11,7 +12,6 @@ const ShopShow = (props) => {
 
 
   useEffect(async () => {
-    console.log('test')
     const shop = await shopService.getDetails(id)
     setShop(shop)
   }, [id, addReview])
@@ -110,6 +110,12 @@ const ShopShow = (props) => {
         })}
           </div>
         </div> 
+        {shop.products?.map(product => 
+          <ProductCard 
+          Product={product}
+          key={product._id}
+          />  
+        )}
       <div class="mb-60"> 
   </div>
 

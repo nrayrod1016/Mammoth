@@ -14,6 +14,11 @@ const ProductCard = ({Product}) => {
         <div class="bg-white max-w-xs shadow-lg   mx-auto border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer" >
         <div class="bg-indigo-500  flex h-200  items-center">
         </div>
+        {Product.pictures[0] &&
+        <div class="flex w-1000 items-center">
+          <img width="300" height="300" src={Product.pictures[0]}/>
+        </div>
+        }
         {Product.name &&
           <h1 class="py-6 px-6 text-xl tracking-wide text-center">{Product.name}</h1>
         }
@@ -21,7 +26,7 @@ const ProductCard = ({Product}) => {
           <p class="py-6 px-6 text-lg tracking-wide text-center">{Product.desc}</p>
         }
         {Product.price &&
-          <p class="py-6 px-6 text-lg tracking-wide text-center">{Product.price}</p>
+          <p class="py-6 px-6 text-lg tracking-wide text-center">${Product.price}</p>
         }
         {Product.email &&
           <p class="py-6 px-6 text-lg tracking-wide text-center">{Product.pictures}</p>

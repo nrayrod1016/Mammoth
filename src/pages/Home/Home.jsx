@@ -49,7 +49,7 @@ const Home = (props) => {
  		<div class="container mx-auto flex flex-col md:flex-row justify-center items-center my-12 md:my-24">
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
  				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Mammoth</h1>
- 				<h2 class="text-3xl text-grey-100 md:text-5xl leading-relaxed md:leading-snug mb-2">By Mastedons
+ 				<h2 class="text-3xl text-grey-100 md:text-5xl leading-relaxed md:leading-snug mb-2">By Mastodons
  				</h2>
  				<p class="text-sm md:text-base text-black-50 mb-4">An easy and well managed marketplace platform for Small Businesses to promote and sell their products.</p>
  				<a href="/shops"
@@ -90,7 +90,6 @@ const Home = (props) => {
 <div class=" bg-white text-black py-5">
  		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
  				<h1 class="text-3xl text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
-
 				 Recent	Products
 				</h1>
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
@@ -141,12 +140,14 @@ const Home = (props) => {
 <section>
 <div class=" bg-white text-black py-20">
  		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
+				 {recentActivity.profile?.cart.length > 0 &&
+				 <>
  				<h1 class="text-3xl mb-10 text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
 					 Don't Forget about the Items in your Cart
 				</h1>
-				 {recentActivity.profile?.cart.length > 0 &&
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
+				 </>
 }
 				 <div class="grid gap-72 grid-cols-4 w-100"> 
  				{recentActivity.profile?.cart?.map(item => {

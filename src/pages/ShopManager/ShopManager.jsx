@@ -37,7 +37,7 @@ const ShopManager = (props) => {
             </Link> 
           </div>
             <div class=""> 
-              <Link to={{ pathname: `/shops/${shop._id}/manage/products/new`, state:{shop}}} ><button class="px-4 py-1 mt-5 mb-5 w-100 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded-lg">Add a Product</button></Link> 
+              <Link to={{ pathname: `/shops/${shop._id}/manage/products/new`, state:{shop}}} ><button class="px-5 py-2  mt-5 mb-5 w-100 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded-lg">Add a Product</button></Link> 
             </div>
         </div> 
         <div className={styles.productList}>
@@ -45,42 +45,56 @@ const ShopManager = (props) => {
             class=" mb-5 text-indigo-500 font-lg text-2xl text-center font-bold"> 
             Product List 
           </h1>
+          
+          <div class="grid grid-cols-3 "> 
           {shop.products?.length > 0 &&
             shop.products.map(product => 
             <div class="container mx-auto" key={product._id}>
-              <div class="bg-white max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-3xl transition duration-500 transform hover:scale-105 cursor-pointer">
+              <div class="bg-white mb-5 max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-3xl transition duration-500 transform hover:scale-105 cursor-pointer">
                 <div class="h-20 bg-indigo-500 flex items-center text-center justify-between">
-                  <Link to={`/products/${product._id}`}>
-                    <h1 class="text-white text-lg p-40">{product.name} - ${product.price}</h1>
+                  <Link class=" " to={`/products/${product._id}`}>
+                    <h1 class="text-white text-lg p-40">{product.name}</h1>
                   </Link>
+                </div>  
+                <h1> - ${product.price} </h1> 
+                
                   <Link 
                     to={{ pathname: `/shops/manage/products/${product._id}`, state:{product}}} >
                       <button  
-                        class="p-5 py-2 mt-5 mb-5  w-100 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded-lg">
+                        class="p-2 py-2 mt-5 mb-5  ml-24  w-100 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded-lg">
                         Update your Product!
                       </button>
                     </Link> 
-                </div>  
+
               </div>
+
+              
+
                 {product.orders.map(order => 
-                  <div class="bg-white max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-3xl transition duration-500 transform hover:scale-105 cursor-pointer">
-                    <div class="h-20 bg-indigo-500 flex items-center text-center justify-between">
+          <div class="bg-white max-w-sm mx-auto rounded-t-lg  overflow-hidden shadow-lg hover:shadow-3xl transition duration-500 transform hover:scale-105 cursor-pointer">
+                    <div class="h-20 bg-indigo-500 mt-5 flex items-center text-center justify-between">
                       <Link to={`/products/${product._id}`}>
-                        <h1 class="text-white text-lg p-40">{order._id} - ${order.price}</h1>
+                        <h1 class="text-white text-lg p-10">{order._id}</h1> 
                       </Link>
                     </div>  
-                  </div>
+                    <h1 class="mb-10"> - ${order.price}</h1>
+                    <h2> {product.name}</h2> 
+          </div>
               )}
             </div>
             )
+
           }
+          </div> 
+
+          </div> 
           {!shop.products?.length && 
             <h1 
               class=" mb-5 text-indigo-500 font-lg text-2xl text-center font-bold"> 
               You have no products please add some to your store!
             </h1>
           }
-        </div>
+        
     </>
   );
 }
