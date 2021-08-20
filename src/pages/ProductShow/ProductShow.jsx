@@ -36,7 +36,7 @@ const ProductShow = (props) => {
         <div class="bg-white max-w-lg shadow-lg   mx-auto border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer" >
         <div class="bg-indigo-500  flex h-200  items-center">
         </div>
-          <h1 class="py-6 px-6 text-xl tracking-wide text-center">{product.name} - {reviewAverage}</h1>
+          <h1 class="py-6 px-6 text-xl tracking-wide text-center">{product.name} {!isNaN(reviewAverage) ? `- ${reviewAverage}` : ""}</h1>
           <p class="py-6 px-6 text-lg tracking-wide text-center">{product.price}</p>
           <p class="py-6 px-6 text-lg tracking-wide text-center">{product.snippet}</p>
           <p class="py-6 px-6 text-lg tracking-wide text-center">Featured in {product.shop?.name} - Owned by {product.shop?.owner.name}</p>
@@ -45,13 +45,13 @@ const ProductShow = (props) => {
         </div> 
         <h1 class=" text-indigo-500 text-xl rounded-md px-4 py-2 m-2 text-center "> Pictures Section</h1>
         <div class=" underline w-screen-100%"> </div>
-      <div class="grid gap-5 grid-cols-5">
-    <div class=" ">
+      <div class="flex ml-5 flex-wrap justify-center">
+    <div class="ml-5 flex flex-wrap rounded-md m-2">
       {product.pictures?.length > 0 &&
         product.pictures.map(pic => {
           return(
-            <div class="ml-5 "> 
-            <img src={pic} alt="product pic" key={pic} />
+            <div class="ml-5 w-200 h-200 flex flex-wrap rounded-md m-2"> 
+            <img width="200" height="200" src={pic} alt="product pic" key={pic} />
             </div> 
           )
         })
@@ -84,7 +84,7 @@ const ProductShow = (props) => {
     </div>
     }
     <div>
-      <h1>{product.desc}</h1>
+      <h1 class="m-6">{product.desc}</h1>
     </div>
     <div>
     <div class="grid gap-5 grid-cols-3">
