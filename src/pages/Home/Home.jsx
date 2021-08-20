@@ -47,8 +47,8 @@ const Home = (props) => {
 
 
 <section>
-	<div class=" bg-white text-black py-20">
- 		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
+	<div class="bg-white text-black py-20">
+ 		<div class="container mx-auto md:flex-row items-center my-12 md:my-24">
  				<h1 class="text-3xl text-center md:text-5xl p-2 text-indigo-500 tracking-loose">Recent 	Shops
 				</h1>
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8 ">
@@ -125,7 +125,7 @@ const Home = (props) => {
 <section>
 <div class=" bg-white text-black py-20">
  		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
- 				<h1 class="text-3xl text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
+ 				<h1 class="text-3xl mb-10 text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
 					 Dont Forget about the Items in your Cart
 				</h1>
 				 {recentActivity.profile?.cart.length > 0 &&
@@ -133,19 +133,19 @@ const Home = (props) => {
  				</h2>
 }
 				 <div class="grid gap-72 grid-cols-5 w-100"> 
-				 <Link to={`/checkout`}>
  				{recentActivity.profile?.cart?.map(item => {
 					 return (
+						 <Link to={`/checkout`}>
 							 <CartListCard 
 							 key={item._id}
 							 item={item}
 							 /> 
+							 </Link>
 						 
 					)
 				})}
 			
 				 
-				 </Link>
  			</div> 
 		
 			
@@ -159,12 +159,12 @@ const Home = (props) => {
 {recentActivity.profile?.wishlist.length > 0 &&
 	<div class=" bg-white text-black py-20">
  		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
- 				<h1 class="text-3xl text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
+ 				<h1 class="text-3xl mb-20 text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
 					 Dont Forget about the Items in your WishList
 					 </h1>
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
-				 <div class="grid gap-72 grid-cols-5 w-100"> 
+				 <div class="grid gap-72 grid-cols-4 w-90 -m-10"> 
  				{recentActivity.profile?.wishlist?.map(item => {
 					 return (
 						 <Link to={`/products/${item._id}`}>

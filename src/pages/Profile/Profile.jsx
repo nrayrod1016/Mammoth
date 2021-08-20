@@ -136,7 +136,7 @@ const Profile = (props) => {
       }
       {profile.orders?.length > 0 &&
       <section>
-        <h1 class=" text-xl mt-5 text-indigo-500 font-bold text-center" >Here are Your Past Orders</h1>
+        <h1 class=" text-xl mt-5 text-indigo-500 font-bold text-center">Here are Your Past Orders</h1>
         <div class="grid gap-4 grid-cols-3 "> 
         {profile.orders?.map(order => {
           return(

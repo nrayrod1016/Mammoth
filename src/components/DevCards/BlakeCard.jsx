@@ -9,7 +9,7 @@ const BlakeCard = () => {
       <div class="bg-white max-w-xs shadow-lg mx-auto  border-b-4 border-indigo-500 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer " >
     <div class="bg-indigo-500  flex h-200 items-center">
     
-      <img src=''  />
+      <img src='https://files.slack.com/files-pri/T0351JZQ0-F02BA5TBPQX/image_from_ios.jpg'  alt='' />
         <p class="ml-4 text-white uppercase">Will code for food</p>
     </div>
   
