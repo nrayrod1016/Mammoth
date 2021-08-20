@@ -174,7 +174,7 @@ const Home = (props) => {
 <section>
 {recentActivity.profile?.wishlist.length > 0 &&
 	<div class=" bg-white text-black py-20">
- 		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
+ 		<div class="container mx-auto flex-wrap md:flex-row items-center pl-9 my-12 md:my-24 md:flex-wrap lg:flex-wrap lg:ml-10 ">
  				<h1 class="text-3xl mb-20 text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
 					 Dont Forget about the Items in your WishList
 					 </h1>

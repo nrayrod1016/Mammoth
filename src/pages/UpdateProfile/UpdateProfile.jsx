@@ -5,7 +5,7 @@ import ProfileForm from '../../components/ProfileForm/ProfileForm'
 const UpdateProfile = (props) => {
   return (
     <>
-    <h1>Update Your Profile</h1>
+     <h1 class="text-indigo-500 mr-28 font-medium text-center text-xl font-bold">Update your Profile!</h1>
     <ProfileForm userProfile={props.userProfile} handleUpdateProfile={props.handleUpdateProfile} /> 
     </>
   );

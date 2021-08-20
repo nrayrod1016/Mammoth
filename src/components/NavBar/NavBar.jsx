@@ -50,13 +50,12 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
   <nav>
     <ul class="list-reset md:flex md:items-center">
       <li class="md:ml-4">
-        <a class="block no-underline hover:underline py-2 text-indigo-500 hover:text-indigo-500 hover:bg-indigo-300 hover:p-5  hover:shadow-xl rounded-lg md:border-none md:p-0" href="/shops">
+        <a class="block no-underline hover:underline py-2 text-indigo-500 hover:text-black hover:p-5  hover:shadow-xl rounded-lg md:border-none md:p-0" href="/shops">
        <button> All Shops</button> 
         </a>
       </li>
       <li class="md:ml-4">
-        <a class="block no-underline hover:underline py-2 text-indigo-500 hover:text-gray-300 
-        hover:bg-indigo-300 md:border-none md:p-0" href="/products">
+        <a class="block no-underline hover:underline py-2 text-indigo-500 hover:text-black  md:border-none md:p-0" href="/products">
        All Products
         </a>
       </li>
