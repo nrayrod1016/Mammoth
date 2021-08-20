@@ -50,12 +50,13 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
   <nav>
     <ul class="list-reset md:flex md:items-center">
       <li class="md:ml-4">
-        <a class="block no-underline hover:underline py-2 text-indigo-500 hover:text-indigo-500 md:border-none md:p-0" href="/shops">
-        All Shops
+        <a class="block no-underline hover:underline py-2 text-indigo-500 hover:text-indigo-500 hover:bg-indigo-300 hover:p-5  hover:shadow-xl rounded-lg md:border-none md:p-0" href="/shops">
+       <button> All Shops</button> 
         </a>
       </li>
       <li class="md:ml-4">
-        <a class="block no-underline hover:underline py-2 text-indigo-500 hover:text-black md:border-none md:p-0" href="/products">
+        <a class="block no-underline hover:underline py-2 text-indigo-500 hover:text-gray-300 
+        hover:bg-indigo-300 md:border-none md:p-0" href="/products">
        All Products
         </a>
       </li>
@@ -79,9 +80,9 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
       <>
       <li class="md:ml-4">
       <Link to='' onClick={handleLogout}>
-        <a class="border-t block no-underline hover:underline py-2 text-indigo-500 hover:text-black md:border-none md:p-0" 
+        <a class=" border-t block no-underline hover:underline py-2 text-indigo-500 hover:text-black md:border-none md:p-0" 
         href="/signout">
-          Signout
+         <button> Signout</button>
         </a>
         </Link>
       </li>
@@ -90,7 +91,7 @@ const NavBar = ({ user, handleLogout, userProfile }) => {
       <li class="md:ml-4">   
         <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" 
         href="/checkout">
-          <AiOutlineShoppingCart class="  h-8 w-10 "  />
+          <AiOutlineShoppingCart class=" text-indigo-600  h-8 w-10 "  />
         </a>
       </li>
       </>
