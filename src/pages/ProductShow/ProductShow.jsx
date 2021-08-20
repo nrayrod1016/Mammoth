@@ -37,7 +37,7 @@ const ProductShow = (props) => {
         <div class="bg-indigo-500  flex h-200  items-center">
         </div>
           <h1 class="py-6 px-6 text-xl tracking-wide text-center">{product.name} {!isNaN(reviewAverage) ? `- ${reviewAverage}` : ""}</h1>
-          <p class="py-6 px-6 text-lg tracking-wide text-center">{product.price}</p>
+          <p class="py-6 px-6 text-lg tracking-wide text-center">${product.price}</p>
           <p class="py-6 px-6 text-lg tracking-wide text-center">{product.snippet}</p>
           <p class="py-6 px-6 text-lg tracking-wide text-center">Featured in {product.shop?.name} - Owned by {product.shop?.owner.name}</p>
         </div>
