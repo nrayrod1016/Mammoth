@@ -54,7 +54,7 @@ const Profile = (props) => {
       <div class="mb-10 "></div>
       {profile.cart?.length > 0 && props.userProfile?._id === profile._id &&
              <section class=" mt-10 mb-10">
-        <h1 class="text-xl text-indigo-500 mb-5 font-bold text-center">Here are the Items in your Cart</h1>
+        <h1 class="text-2xl text-indigo-500 mb-5 font-bold text-center">Here are the Items in your Cart</h1>
         <div class="grid gap-4 grid-cols-4"> 
         {profile.wishlist?.map(item => {
           return(
@@ -79,7 +79,7 @@ const Profile = (props) => {
       }
       {profile.wishlist?.length > 0 && props.userProfile?._id === profile._id &&
       <section class=" mt-10 mb-10">
-        <h1 class="text-xl text-indigo-500 mb-5 font-bold text-center">Here are the Items in your Wishlist</h1>
+        <h1 class="text-2xl text-indigo-500 mb-5 font-bold text-center">Here are the Items in your Wishlist</h1>
         <div class="grid gap-4 grid-cols-4">
         {profile.wishlist?.map(item => {
           return(
@@ -104,7 +104,7 @@ const Profile = (props) => {
       }
       {profile.shops?.length > 0 &&
       <section>
-        <h1 class=" text-xl text-indigo-500 font-bold text-center" >Here are the Shops that you Own</h1>
+        <h1 class=" text-2xl text-indigo-500 font-bold text-center" >Here are the Shops that you Own</h1>
         <div class="grid gap-4 grid-cols-4"> 
         {profile.shops?.map(shop => {
           return(
@@ -136,7 +136,7 @@ const Profile = (props) => {
       }
       {profile.orders?.length > 0 &&
       <section>
-        <h1 class=" text-xl mt-5 text-indigo-500 font-bold text-center" >Here are Your Past Orders</h1>
+        <h1 class=" text-2xl mt-5 text-indigo-500 font-bold text-center">Here are Your Past Orders</h1>
         <div class="grid gap-4 grid-cols-3 "> 
         {profile.orders?.map(order => {
           return(

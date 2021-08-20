@@ -16,7 +16,7 @@ If the user wants to use the website to sell products and use it to promote thei
 ## Tech Framework
 ### This app uses:
 * [React](https://reactjs.org/)
-* [Tailwind](https://tailwindcss.com/)
+* [TailwindCSS](https://tailwindcss.com/)
 * [Node.js](https://nodejs.org/en/) v 14.17.1 & [Express](https://expressjs.com/) v 4.17.1
 * [dot env](https://www.npmjs.com/package/dotenv)
 * [MongoDB](https://www.mongodb.com/cloud/atlas)
@@ -77,13 +77,22 @@ Blake is a full stack web developer from the Boston, MA area, with a passion for
 * [LinkedIn](https://www.linkedin.com/in/blakeromano)
 * [GitHub](www.GitHub.com/blakeromano)
 
-### Nicholas Rodriguez
+### Nick Rodriguez
+
+Nick is a full stack web developer from the NYC area, with a passion for food, culture and technology. Nick decided to get into software development after after a 5 years in the Hospitality Management Industry. Learn more about Nick at these links:
+
+* [LinkedIn](https://www.linkedin.com/in/nicholas-r-rodriguez/)
+* [GitHub](https://github.com/nrayrod1016)
+
 
 PUT TEXT HERE
 ## Screenshots
 
-![Screenshot 1](https://raw.githubusercontent.com/blakeromano/flutter/main/public/images/readme/landing-page.png)
-![Screenshot 2](https://raw.githubusercontent.com/blakeromano/flutter/main/public/images/readme/choose-page.png)
-![Screenshot 3](https://raw.githubusercontent.com/blakeromano/flutter/main/public/images/readme/nest-page.png)
+![Screenshot 1](public/screenshots/HomePage.png)
+![Screenshot 2](public/screenshots/ShopIndex.png)
+![Screenshot 3](public/screenshots/ProductIndex.png)
+![Screenshot 4](public/screenshots/Form.png)
+![Screenshot 5](public/screenshots/Profilepage.png)
+![Screenshot 6](public/screenshots/ResponsiveView.png)
 
 [Back to Top](#top)

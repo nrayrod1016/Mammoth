@@ -6,6 +6,7 @@ const Signup = (props) => {
 
   return (
     <main>
+      
       <SignupForm handleSignupOrLogin={props.handleSignupOrLogin} />
     </main>
   );

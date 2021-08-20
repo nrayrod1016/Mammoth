@@ -26,50 +26,91 @@ const handleSetManager = evt =>  {
 // "/shops/:id/manage/products/new"
   return (
     <>
+
+   { console.log(shop)}
     {/* renderproducts */}
     <div class="h-1/4font-sans bg-cover">
     <div class="container mx-auto h-full flex flex-1 justify-center items-center">
         <div class="w-full max-w-lg">
           <div class="leading-loose">
 <div>
-  <h1 class="text-indigo-500 font-medium text-center text-lg font-bold">{shop._id} </h1> 
-{/* populate field of products */}
-  {/* <UpdateProductForm />  */}
-  <div class="">
-  <Link to={{ pathname: `/shops/${shop._id}/manage/update`, state:{shop}}} ><button  class="px-4 py-1 mt-5 mb-5 w-2/4 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded">Update your Shop!</button></Link> </div>
-  <div class="">
-  <Link to={{ pathname: `/shops/${shop._id}/manage/products/new`, state:{shop}}} ><button  class="px-4 py-1 mt-5 mb-5 w-2/4 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded">Add a Product</button></Link> </div>
-  <h1 class="text-indigo-500 font-medium text-center text-lg font-bold"> Product List </h1>
+  <h1 class="text-indigo-500 font-medium text-center mt-5 mb-5 text-2xl font-bold">{shop.name} </h1> 
+
+  <div class="grid grid-cols-2">
+    <div>
+      <Link 
+      to={{ pathname: `/shops/${shop._id}/manage/update`, state:{shop}}} >
+        <button  
+        class="p-5 py-2 mt-5 mb-5  w-2/4 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded-lg">
+          Update your Shop!
+          </button>
+      </Link> 
+    </div>
+
+      <div class=""> 
+      <Link to={{ pathname: `/shops/${shop._id}/manage/products/new`, state:{shop}}} ><button  class="px-4 py-1 mt-5 mb-5 w-2/4 text-white text-bold font-light tracking-wider bg-indigo-500 hover:bg-indigo-300 rounded-lg">Add a Product</button></Link> 
+    </div>
+  </div> 
+  </div> 
+
+
+  
+<section></section>
+
+      <h1 
+      class=" mb-5 text-indigo-500 font-medium text-2xl text-center font-bold"> 
+        Product List 
+      </h1>
+      
   {shop.products?.map(product => {
+    
       return (
   <div class="container mx-auto">
-    <div class="bg-white max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
-        <div class="h-20 bg-indigo-500 flex items-center justify-between" 
+    <div class="bg-white max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-3xl transition duration-500 transform hover:scale-105 cursor-pointer">
+        <div class="h-20 bg-indigo-500 flex items-center text-center justify-between" 
         key={product._id}>
           <Link to={`/products/${product._id}`}>
-            <h1>{product.name}</h1>
+            <h1 class="text-white text-lg p-40">{product.name}</h1>
           </Link>
-          </div> 
-          </div> 
-          
+        
+    </div> 
+  </div> 
+ 
             {product.orders.length > 0 &&
-            <h2>A List of Orders: </h2>
+            <h2 class=" text-xl mt-10  text-indigo-500 font-bold text-center">A List of Orders: </h2>
             }
+              <div class="grid gap-4 grid-cols-3  ">
             {product.orders?.map(order => {
               return (
-                <div key={order._id}>
-                  <h1>Order Number: {order._id}</h1>
-                  <h1>Address: {order.address}, {order.city}, {order.state}, {order.country}, {order.zipcode}</h1>
-                  <h1>Ordered By: {order.profile.name}</h1>
-                </div>
-              )
-            })}
+
+
+                
+  <div class="flex flex-col m-60 md:flex-row justify-center flex-wrap gap-3 mt-10">
+    <div class="flex flex-col md:flex-row justify-center flex-wrap gap-3 mt-10">  
+      <div class="bg-white max-w-xl mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
+      <div class="bg-indigo-500 flex h-200 items-center"
+        key={order._id}>
+       <h1 class="py-6 px-6 text-lg tracking-wide text-white text-center"> Order Number: {order._id}</h1> 
+      </div>  
+        <div class="flex justify-between px-5 mb-2 text-sm text-gray-600">
+          <h2 class="py-6 px-6 text-lg tracking-wide text-center">Address: {order.address}, {order.city}, {order.state}, {order.country}, {order.zipcode}</h2>
+          <p>Ordered By: {order.profile.name}</p>
         </div>
+  </div>
+</div>
+        </div>  
+    
+ )
+            })}
+                     </div> 
+
+                    {console.log('product', product._id)}
+                     </div> 
       )
     }
   )}
-  </div> 
-  </div>
+              
+          </div>
         </div>
       </div>
     </div>

@@ -26,14 +26,14 @@ const ProductCard = ({Product}) => {
         {Product.email &&
           <p class="py-6 px-6 text-lg tracking-wide text-center">{Product.pictures}</p>
         }
-        {Product.reviews.length > 0 && 
+        {Product.reviews.length > 0 && reviewAverage === NaN &&
           <p class="py-6 px-6 text-lg tracking-wide text-center">Average Rating: {reviewAverage}</p>
         }
         
                                 {/* <!-- <hr > --> */}
             <Link to={`/products/${Product._id}`}>
             <div class="flex justify-center px-5 mb-2 text-sm ">
-              <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-green-600 focus:outline-none focus:shadow-outline">
+              <button type="button" class="border border-indigo-500 text-indigo-500 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
                     Product Page
               </button>
             </div>
