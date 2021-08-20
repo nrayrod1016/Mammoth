@@ -26,7 +26,7 @@ const ProductCard = ({Product}) => {
         {Product.email &&
           <p class="py-6 px-6 text-lg tracking-wide text-center">{Product.pictures}</p>
         }
-        {Product.reviews.length > 0 && 
+        {Product.reviews.length > 0 && reviewAverage === NaN &&
           <p class="py-6 px-6 text-lg tracking-wide text-center">Average Rating: {reviewAverage}</p>
         }
         

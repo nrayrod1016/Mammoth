@@ -41,16 +41,16 @@ const Home = (props) => {
 					Explore Shops</a>
 			</div>
 		</div> 
-				</div>
+	</div>
 </section>
 
 
 
 <section>
-	
-<div class=" bg-white text-black py-20">
+	<div class=" bg-white text-black py-20">
  		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Recent Shops</h1>
+ 				<h1 class="text-3xl text-center md:text-5xl p-2 text-indigo-500 tracking-loose">Recent 	Shops
+				</h1>
  			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8 ">
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
@@ -63,19 +63,20 @@ const Home = (props) => {
 						 />
 					 )
 				 })}
- 			</div> 
+ 				</div> 
 			</div>
-			
-					</div>
-				</div>
+		</div>
+	</div>
 </section>
 
 
 <section>
-<div class="bg-white text-black py-20"> 
- 		<div class="container mx-auto flex flex-col md:flex-row  my-12 md:my-24">
- 			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose ">Recent Products</h1>
+<div class=" bg-white text-black py-20">
+ 		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
+ 				<h1 class="text-3xl text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
+
+				 Recent	Products
+				</h1>
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
 				 <div class="grid gap-72 grid-cols-5 w-100"> 
@@ -85,23 +86,23 @@ const Home = (props) => {
 						 Product={product}
 						 key={product._id}f
 						 />
-					 )
-				 })}
- 			</div> 
-			</div>
-			
-					</div>
-				</div>
+							 )
+						 })}
+ 					</div> 
+	
+	
+		</div>
+	</div>
 </section>
 
 
 
 {recentActivity.profile &&
 <section> 
-<div class="bg-white text-black py-20"> 
- 		<div class="container mx-auto flex flex-col md:flex-row  my-12 md:my-24">
- 			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Your Recent Activity</h1>
+<div class=" bg-white text-black py-20">
+ 		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
+ 				<h1 class="text-3xl text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
+					 Your Recent Activity</h1>
  				<h2 class="text-3xl md:text-5xl p-2 leading-relaxed md:leading-snug mb-2">
  				</h2>
 				 <div class="grid gap-72 grid-cols-2 w-100"> 
@@ -111,7 +112,7 @@ const Home = (props) => {
 							<RecentActivityCard /> 
 						})}
 							</div> 
-				</div>
+			
 			
 		</div>
 	</div>
@@ -122,10 +123,11 @@ const Home = (props) => {
 
 
 <section>
-<div class="bg-white text-black py-20"> 
- 		<div class="container mx-auto flex flex-col md:flex-row  my-12 md:my-24">
- 			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose ">Dont Forget about the Items in your Cart</h1>
+<div class=" bg-white text-black py-20">
+ 		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
+ 				<h1 class="text-3xl text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
+					 Dont Forget about the Items in your Cart
+				</h1>
 				 {recentActivity.profile?.cart.length > 0 &&
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
@@ -134,7 +136,10 @@ const Home = (props) => {
 				 <Link to={`/checkout`}>
  				{recentActivity.profile?.cart?.map(item => {
 					 return (
-							 <CartListCard /> 
+							 <CartListCard 
+							 key={item._id}
+							 item={item}
+							 /> 
 						 
 					)
 				})}
@@ -142,7 +147,7 @@ const Home = (props) => {
 				 
 				 </Link>
  			</div> 
-			</div>
+		
 			
 					</div>
 				</div>
@@ -152,23 +157,27 @@ const Home = (props) => {
 
 <section>
 {recentActivity.profile?.wishlist.length > 0 &&
-<div class="bg-white text-black py-20"> 
- 		<div class="container mx-auto flex flex-col md:flex-row  my-12 md:my-24">
- 			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose ">Dont Forget about the Items in your WishList</h1>
+	<div class=" bg-white text-black py-20">
+ 		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
+ 				<h1 class="text-3xl text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
+					 Dont Forget about the Items in your WishList
+					 </h1>
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
 				 <div class="grid gap-72 grid-cols-5 w-100"> 
-				 <Link to={`/checkout`}>
- 				{recentActivity.profile?.cart?.map(item => {
+ 				{recentActivity.profile?.wishlist?.map(item => {
 					 return (
-							<WishListCard /> 
+						 <Link to={`/products/${item._id}`}>
+							<WishListCard 
+							key={item._id}
+							item={item}
+							/> 
+				 </Link>
 					)
 				})}
 			
 				 
-				 </Link>
- 			</div> 
+ 	
 			</div>
 			
 					</div>
@@ -187,23 +196,24 @@ const Home = (props) => {
 
 
 <section> 
-<div class="bg-white text-black py-20"> 
- 		<div class="container mx-auto flex flex-col md:flex-row  my-12 md:my-24">
- 			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
- 				<h1 class="text-3xl md:text-5xl p-2 text-indigo-500 tracking-loose">Meet the Devs</h1>
- 				<h2 class="text-3xl md:text-5xl p-2 leading-relaxed md:leading-snug mb-2">
+	<div class=" bg-white text-black py-20">
+ 		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
+ 				<h1 
+				 class="text-3xl mb-1 text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
+				 Meet the Devs
+				</h1>
+		
+ 				<h2 
+				 class="text-3xl md:text-5xl p-2 leading-relaxed md:leading-snug mb-2">
  				</h2>
-				 <div class="grid gap-72 grid-cols-2 w-100"> 
- 			
-					
+				 <div 
+				 class="grid gap-72 grid-cols-2 w-100"> 
 						<BlakeCard />
 				 		<NickCard /> 
-						
- 							</div> 
-						</div>
-			
 					</div>
-				</div>
+			
+		</div>
+	</div>
 </section>
 
 {/* <section>

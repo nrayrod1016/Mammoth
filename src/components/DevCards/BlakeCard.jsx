@@ -18,7 +18,7 @@ const BlakeCard = () => {
   
       <p class="py-6 px-6 text-lg tracking-wide text-center"> Quick about me section can increase in width if needed   </p>
    
-      <p class="py-6 px-6 text-lg tracking-wide text-center">Full-Stack Engineer</p>
+      <p class="py-6 px-6 text-lg tracking-wide text-center">Full-Stack Engineer      </p>
   
   
   

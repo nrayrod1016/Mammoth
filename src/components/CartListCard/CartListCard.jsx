@@ -9,7 +9,7 @@ const CartListCard = ({item}) => {
 
         </div>  
           <div class="flex justify-between px-5 mb-2 text-sm text-gray-600">
-            {/* <p>{item.name}</p> */}
+            <p>{item.name}</p>
           </div>
     </div>
 

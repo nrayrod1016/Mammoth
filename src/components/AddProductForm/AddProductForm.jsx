@@ -64,7 +64,7 @@ const AddProductForm = (props) => {
 
   return (
     <>
-     <main class=" mt-20">
+     <main class=" mt-10">
 <div class="h-screen font-sans login bg-cover">
 <div class="container mx-auto h-full flex flex-1 justify-center items-center">
 <div class="w-full max-w-lg">
@@ -74,7 +74,7 @@ const AddProductForm = (props) => {
           onSubmit={handleSubmit}
           ref={form}
  >
-    <h1 class="text-indigo-500 font-medium text-center text-xl font-bold">Add Product</h1>
+    <h1 class="text-indigo-500 mb-2 font-medium text-center text-xl font-bold">Add Product To Shop</h1>
     <div >
         <label class="block text-lg text-black"
         >
@@ -101,24 +101,6 @@ const AddProductForm = (props) => {
         onChange={handleChange}
         ></input>
       </div>
-
-      {/* <div class="mt-2" >
-        <label class="block  text-md text-black"  >Phone Number </label>
-         <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
-          type="number"
-          autoComplete="off"
-          id="phoneNum"
-          value={formData.phoneNum}
-          name="phoneNum"
-          onChange={handleChange}
-          >
-
-          </input>
-      </div> */}
-
-
-
-
 
       <div class="mt-2" >
         <label class="block  text-sm text-black">Snippet</label>
@@ -208,7 +190,7 @@ const AddProductForm = (props) => {
           let updateFormData = {...formData}
           updateFormData.videos.push('')
           setFormData(updateFormData)
-          }} type="button" class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded"
+          }} type="button" class="px-1 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded"
          >
            Add Video
         </button>
@@ -218,12 +200,17 @@ const AddProductForm = (props) => {
           let updateFormData = {...formData}
           updateFormData.images.push('')
           setFormData(updateFormData)
-          }} type="button" class="px-4 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded">Add Image</button>
+          }} type="button" class="px-1 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded">Add Image</button>
+          
+         
+         
          <button  
          type="submit" 
+         class="px-1 py-1 text-white font-light tracking-wider bg-indigo-500 hover:bg-indigo-200 rounded"
          disabled={!validForm}
          >
-           Add Product</button>
+           Add Product
+           </button>
        
       </div>
       
