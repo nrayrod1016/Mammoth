@@ -141,12 +141,14 @@ const Home = (props) => {
 <section>
 <div class=" bg-white text-black py-20">
  		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
+				 {recentActivity.profile?.cart.length > 0 &&
+				 <>
  				<h1 class="text-3xl mb-10 text-center md:text-5xl p-2 text-indigo-500 tracking-loose">
 					 Don't Forget about the Items in your Cart
 				</h1>
-				 {recentActivity.profile?.cart.length > 0 &&
  				<h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
  				</h2>
+				 </>
 }
 				 <div class="grid gap-72 grid-cols-4 w-100"> 
  				{recentActivity.profile?.cart?.map(item => {
