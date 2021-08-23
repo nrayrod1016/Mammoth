@@ -3,14 +3,28 @@ import mongoose from 'mongoose'
 
 
 const profileSchema = new mongoose.Schema({
-  name: String,
-  email: String,
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+  },
   notifications: [String],
   address: String,
   city: String,
   state: String,
   country: String,
   zipcode: Number,
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
+  avatar: {
+    type: String,
+    default: "https://i.imgur.com/KXmtpXB.png",
+  },
   shops: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Shop"

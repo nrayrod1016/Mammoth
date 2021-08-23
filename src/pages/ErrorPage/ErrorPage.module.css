@@ -1,0 +1,15 @@
+.header {
+  text-align: center;
+  font-size: 60px;
+  font-weight: bolder;
+
+}
+.subHeader {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bolder;
+}
+.video {
+  display: flex;
+  justify-content: center;
+}

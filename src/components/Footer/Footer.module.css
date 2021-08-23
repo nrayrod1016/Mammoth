@@ -1,0 +1,6 @@
+footer {
+  opacity: 90%;
+  background-color: currentColor;
+  position:fixed; 
+  width: 100%;
+}
