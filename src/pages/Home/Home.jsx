@@ -138,7 +138,7 @@ const Home = (props) => {
 
 
 <section>
-<div class=" bg-white text-black py-20">
+<div class=" bg-white text-black py-10">
  		<div class="container mx-auto  md:flex-row items-center my-12 md:my-24">
 				 {recentActivity.profile?.cart.length > 0 &&
 				 <>
